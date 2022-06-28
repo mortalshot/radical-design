@@ -1,4 +1,34 @@
-<header class="header">
+<header class="header" data-scroll-show="100" data-scroll="350">
 	<div class="header__container">
+		<div class="header__menu menu">
+			<div class="header__burger">
+				<button type="button" class="icon-menu"><span></span></button>
+			</div>
+
+			<nav class="menu__nav">
+				<ul class="menu__list">
+					<li><a href="about.html">О бюро</a></li>
+					<li><a href="archive-services.html">Услуги</a></li>
+					<li><a href="features.html">Почему мы</a></li>
+					<li><a href="contacts.html">Контакты</a></li>
+				</ul>
+			</nav>
+		</div>
+
+		<div class="header__logo logo">
+			<a href="home.html" class="logo__link">
+				<img src="@img/logo-white.svg" alt="" class="logo__image logo__image_white" loading="lazy">
+				<img src="@img/logo-black.svg" alt="" class="logo__image logo__image_black" loading="lazy">
+			</a>
+		</div>
+
+		<div class="header__right">
+			<div class="header__contacts" data-da=".menu__nav,575,last">
+				<div class="header__contact contacts__item_phone"><a href="tel:+78129402144">7 812 940 21 44</a></div>
+			</div>
+			<div class="header__burger">
+				<button type="button" class="icon-menu"><span></span></button>
+			</div>
+		</div>
 	</div>
 </header>

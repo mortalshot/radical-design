@@ -80,7 +80,7 @@ body::after {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		color: $Black;
+		color: $mainColor;
 		background: url(../img/icons/close.svg) no-repeat center/contain;
 
 		@media (any-hover: hover) {

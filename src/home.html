@@ -1,16 +1,38 @@
 <!DOCTYPE html>
 <html lang="ru">
-	@@include('html/_head.htm',{
-	"title":"Главная"
-	})
-	<body>
-		<div class="wrapper">
-			@@include('html/_header.htm',{})
-			<main class="page">
-			</main>
-			@@include('html/_footer.htm',{})
-		</div>
-		@@include('html/_popup.htm',{})
-		@@include('html/_js.htm',{})
-	</body>
+@@include('html/_head.htm',{
+"title":"Главная"
+})
+
+<body>
+	<div class="wrapper">
+		@@include('html/_header.htm',{})
+		<main class="page">
+			<section class="firstscreen" data-fullscreen>
+				<img src="@img/pages/home/firstscreen-1-1.jpg" alt="" class="firstscreen__bg" loading="lazy">
+
+				<div class="firstscreen__container">
+					<div class="firstscreen__wrapper">
+						<div class="firstscreen__text _content">
+							<h1>Создаём и воплощаем живые интерьеры</h1>
+						</div>
+						<div class="firstscreen__actions">
+							<button type="button" class="firstscreen__btn btn btn_bg" data-popup="#request">Бесплатная консультация</button>
+						</div>
+
+						<div class="firstscreen__social social">
+							<a href="https://instagram.com/" class="social__item _icon-instagram"></a>
+							<a href="https://vk.com" class="social__item _icon-vk"></a>
+							<a href="https://www.behance.net/" class="social__item _icon-behance"></a>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		@@include('html/_footer.htm',{})
+	</div>
+	@@include('html/_popup.htm',{})
+	@@include('html/_js.htm',{})
+</body>
+
 </html>

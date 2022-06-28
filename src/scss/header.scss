@@ -1,54 +1,356 @@
 //====================================================================================================
+.header {
+	top: -100%;
+	@include adaptiveValue("padding-top", 24, 15);
+	@include adaptiveValue("padding-bottom", 24, 15);
+	z-index: 150;
 
-//====================================================================================================
+	// .header__container
+	&__container {
+		display: flex;
+		justify-content: space-between;
+	}
 
-//Burger
-/*
-.icon-menu {
-	display: none;
-	@media (max-width: $mobile) {
-		display: block;
-		position: relative;
-		width: rem(30);
-		height: rem(18);
-		cursor: pointer;
-		z-index: 5;
-		span,
-		&::before,
-		&::after {
-			content: "";
-			transition: all 0.3s ease 0s;
-			right: 0;
-			position: absolute;
-			width: 100%;
-			height: rem(2);
-			background-color: #000;
+	// .header__menu
+	&__menu {
+		position: fixed;
+		z-index: 150;
+		width: 100%;
+		top: -150%;
+		right: 0;
+		background: $White;
+		height: 100%;
+		min-height: 100vh;
+		overflow-y: auto;
+		padding: rem(130) rem(15);
+		@include adaptiveValue("padding-top", 130, 80);
+		@include adaptiveValue("padding-bottom", 130, 80);
+		display: grid;
+		align-items: flex-start;
+		scrollbar-width: thin;
+		transition: 0.5s ease top 0s;
+
+		&::-webkit-scrollbar {
+			width: 0;
+			height: 0;
 		}
+
+		@media (min-width: $mobile) {
+			max-width: rem(351);
+			align-content: center;
+			justify-items: center;
+		}
+		@media (min-width: $pc) {
+			max-width: percent(403, 1440);
+		}
+
 		&::before {
-			top: 0;
+			content: "";
+			position: fixed;
+			display: block;
+			top: -150%;
+			right: 0;
+			width: 100%;
+			@include adaptiveValue("height", 130, 80);
+			background-color: $White;
+			transition: 0.5s ease top 0s;
+
+			@media (min-width: $mobile) {
+				max-width: rem(351);
+			}
+			@media (min-width: $pc) {
+				max-width: percent(403, 1440);
+			}
 		}
-		&::after {
-			bottom: 0;
+
+		.header__burger {
+			position: fixed;
+			top: -300%;
+			border-color: $mainColor;
+			transition: 0.5s ease all 0s;
+
+			@media (max-width: $mobile) {
+				@include adaptiveValue("right", 64, 15, 1440, 575, 1);
+			}
+
+			.icon-menu {
+				span,
+				&::before,
+				&::after {
+					background-color: $mainColor;
+				}
+			}
 		}
-		span {
-			top: calc(50% - rem(1));
+
+		.menu {
+			// .menu__nav
+			&__nav {
+				display: grid;
+				row-gap: rem(40);
+			}
+
+			// .menu__list
+			&__list {
+				text-align: center;
+				display: grid;
+				row-gap: rem(32);
+
+				a {
+					font-size: rem(18);
+					line-height: math.div(20, 18);
+					color: $mainColor;
+					text-decoration: underline transparent from-font;
+					text-underline-offset: 3px;
+					transition: $transition ease text-decoration 0s;
+
+					@media (any-hover: hover) {
+						&:hover {
+							text-decoration: underline $mainColor from-font;
+						}
+					}
+				}
+			}
 		}
+
+		.header__contacts {
+			justify-content: center;
+			display: grid;
+		}
+
+		.header__contact {
+			color: $mainColor;
+
+			a {
+				color: $mainColor;
+			}
+		}
+
 		.menu-open & {
-			span {
-				width: 0;
-			}
-			&::before,
-			&::after {
-			}
+			top: 0;
+
 			&::before {
-				top: calc(50% - rem(1));
-				transform: rotate(-45deg);
+				top: 0;
 			}
-			&::after {
-				bottom: calc(50% - rem(1));
-				transform: rotate(45deg);
+
+			.header__burger {
+				top: rem(32);
+
+				@media (max-width: $mobile) {
+					@include adaptiveValue("top", 24, 15);
+				}
+			}
+		}
+	}
+
+	// .header__logo
+	&__logo {
+		@include adaptiveValue("max-width", 112, 57);
+
+		&:not(:last-child) {
+			@include adaptiveValue("margin-right", 40, 24);
+		}
+
+		.logo__image_black {
+			display: none;
+		}
+		.logo__image_white {
+			display: block;
+		}
+	}
+
+	// .header__right
+	&__right {
+		display: flex;
+		align-items: center;
+
+		& > * {
+			&:not(:last-child) {
+				@include adaptiveValue("margin-right", 40, 24);
+			}
+		}
+	}
+
+	// .header__contacts
+	&__contacts {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		margin: rem(-10);
+		transition: 0.5s ease opacity 0s;
+
+		@media (min-width: $mobileM) {
+			justify-content: flex-end;
+		}
+	}
+
+	// .header__contact
+	&__contact {
+		padding: rem(10);
+		font-size: rem(16);
+		line-height: math.div(18, 16);
+		color: $White;
+		letter-spacing: rem(0.8);
+
+		a {
+			color: $White;
+			text-decoration: underline transparent from-font;
+			text-underline-offset: 3px;
+			transition: $transition ease text-decoration 0s;
+
+			@media (any-hover: hover) {
+				&:hover {
+					text-decoration: underline $White from-font;
+				}
+			}
+		}
+	}
+
+	// .header__burger
+	&__burger {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: 1px solid $White;
+		border-radius: 50%;
+		position: relative;
+		z-index: 2;
+		cursor: pointer;
+		padding: rem(26.5) rem(23);
+		@include adaptiveValue("padding-top", 26.5, 18.5);
+		@include adaptiveValue("padding-bottom", 26.5, 18.5);
+		@include adaptiveValue("padding-left", 23, 15);
+		@include adaptiveValue("padding-right", 23, 15);
+
+		@media (any-hover: hover) {
+			transition: $transition ease padding, $transition margin 0s;
+
+			&:hover {
+				padding: rem(32.5) rem(29);
+				margin: rem(-6);
+
+				span {
+					width: 50%;
+				}
+			}
+		}
+	}
+
+	&._header-scroll {
+		position: fixed;
+		left: 0;
+		right: 0;
+		background-color: $White;
+		box-shadow: 0px 4px 34px rgba(0, 0, 0, 0.1);
+		transition: 0.5s ease top 0s;
+
+		.header__contact {
+			color: $mainColor;
+
+			a {
+				color: $mainColor;
+
+				@media (any-hover: hover) {
+					&:hover {
+						text-decoration: underline $mainColor from-font;
+					}
+				}
+			}
+		}
+
+		.header__burger {
+			border-color: $mainColor;
+
+			.icon-menu {
+				span,
+				&::before,
+				&::after {
+					background-color: $mainColor;
+				}
+			}
+		}
+
+		.header__menu {
+			box-shadow: 0px 4px 34px rgba(0, 0, 0, 0.1);
+		}
+	}
+
+	&._header-show {
+		top: 0;
+		padding: rem(9) 0;
+
+		.header__logo {
+			max-width: rem(57);
+
+			.logo__image_black {
+				display: block;
+			}
+			.logo__image_white {
+				display: none;
 			}
 		}
 	}
 }
-*/
+
+.menu-open {
+	body::after {
+		opacity: 1;
+	}
+
+	.header__contacts {
+		@media (min-width: $mobileM) {
+			opacity: 0;
+		}
+	}
+}
+
+//====================================================================================================
+
+//Burger
+
+.icon-menu {
+	display: block;
+	position: relative;
+	width: rem(18);
+	height: rem(11);
+
+	span,
+	&::before,
+	&::after {
+		content: "";
+		transition: all 0.3s ease 0s;
+		right: 0;
+		position: absolute;
+		width: 100%;
+		height: rem(1);
+		background-color: $White;
+	}
+
+	&::before {
+		top: 0;
+	}
+
+	&::after {
+		bottom: 0;
+	}
+
+	span {
+		top: calc(50% - rem(1));
+	}
+
+	.menu-open & {
+		span {
+			width: 0;
+		}
+		&::before,
+		&::after {
+		}
+		&::before {
+			top: calc(50% - rem(0.5));
+			transform: rotate(-45deg);
+		}
+		&::after {
+			bottom: calc(50% - rem(0.5));
+			transform: rotate(45deg);
+		}
+	}
+}

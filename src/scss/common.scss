@@ -1,4 +1,21 @@
 // Заголовки, общие БЄМ блоки и проче...
+h {
+    &1 {
+        font-weight: 500;
+        @include adaptiveValue("font-size", 70, 36);
+        line-height: math.div(77, 70);
+    }
+    &2 {
+        font-weight: 600;
+        @include adaptiveValue("font-size", 50, 28);
+        line-height: math.div(55, 50);
+    }
+    &3 {
+        font-weight: 500;
+        @include adaptiveValue("font-size", 40, 18);
+        line-height: math.div(52, 40);
+    }
+}
 
 img,
 video {
@@ -64,5 +81,133 @@ video {
     }
     :last-child {
         margin-bottom: 0;
+    }
+}
+
+section {
+    padding-top: rem(20);
+    @include adaptiveValue("margin-bottom", 70, 44);
+
+    &:not(:first-child) {
+        padding-top: rem(30);
+    }
+    &:last-child {
+        @include adaptiveValue("margin-bottom", 100, 50);
+    }
+}
+
+._hidden {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.logo {
+    display: flex;
+
+    // .logo__link
+    &__link {
+        display: inline-flex;
+    }
+
+    a.logo__link {
+        display: inline-flex;
+
+        @media (any-hover: hover) {
+            transition: $transition ease opacity 0s;
+
+            &:hover {
+                opacity: 0.6;
+            }
+        }
+    }
+}
+
+.menu {
+    // .menu__nav
+    &__nav {
+    }
+
+    // .menu__list
+    &__list {
+        a {
+            @include adaptiveValue("font-size", 16, 12);
+            line-height: math.div(22, 16);
+            color: $White;
+            text-decoration: underline transparent from-font;
+            text-underline-offset: 3px;
+            transition: $transition ease text-decoration 0s;
+
+            @media (any-hover: hover) {
+                &:hover {
+                    text-decoration: underline $White from-font;
+                }
+            }
+        }
+    }
+}
+
+.contacts {
+    display: grid;
+    align-items: flex-start;
+    row-gap: rem(16);
+
+    // .contacts__item
+    &__item {
+        display: inline-flex;
+        align-items: flex-start;
+        @include adaptiveValue("font-size", 16, 12);
+        line-height: math.div(22, 16);
+
+        &::before {
+            @include adaptiveValue("font-size", 22, 20);
+            margin-right: rem(8);
+        }
+
+        // .contacts__item_phone
+        &_phone {
+            white-space: nowrap;
+        }
+    }
+
+    a.contacts__item {
+        @media (any-hover: hover) {
+            span {
+                text-decoration: underline transparent from-font;
+                text-underline-offset: 3px;
+                transition: $transition ease text-decoration 0s;
+            }
+
+            &:hover {
+                span {
+                    text-decoration: underline $White from-font;
+                }
+            }
+        }
+    }
+}
+
+.social {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, rem(24));
+    font-size: rem(24);
+    @include adaptiveValue("gap", 48, 40);
+
+    // .social__item
+    &__item {
+        padding: rem(5);
+        margin: rem(-5);
+        color: rgba($color: $White, $alpha: 0.7);
+
+        @media (any-hover: hover) {
+            transition: $transition ease color 0s;
+            &:hover {
+                color: $White;
+            }
+        }
     }
 }

@@ -3,7 +3,7 @@
 @import "base/forms/forms";
 
 // Стили попапов
-// @import "base/popup";
+@import "base/popup";
 
 // Стили спойлеров
 // @import "base/spollers";
@@ -18,7 +18,7 @@
 // @import "base/showmore";
 
 // Стили для полноэкранного блока
-// @import "base/fullscreen";
+@import "base/fullscreen";
 
 // Стили для липкого блока
 // @import "base/sticky";
@@ -123,5 +123,14 @@
 %hidescroll {
 	&::-webkit-scrollbar {
 		display: none;
+	}
+}
+
+%container {
+	padding: 0 rem(math.div($containerPadding, 2));
+
+	@media (min-width: $mobileM) {
+		@include adaptiveValue("padding-left", 64, 15, 1440, 575, 1);
+		@include adaptiveValue("padding-right", 64, 15, 1440, 575, 1);
 	}
 }
