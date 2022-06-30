@@ -204,3 +204,41 @@ section {
         }
     }
 }
+
+// swiper
+.swiper {
+    // .swiper-pagination
+    &-pagination {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        &:not(:first-child) {
+            margin-top: 24px;
+        }
+
+        // .swiper-pagination-bullet
+        &-bullet {
+            flex: 0 0 rem(12);
+            width: rem(12);
+            height: rem(12);
+            border-radius: 50%;
+            background-color: $Line;
+            transition: $transition ease background-color 0s;
+
+            &:not(:last-child) {
+                margin-right: 16px;
+            }
+
+            // .swiper-pagination-bullet-active
+            &-active {
+                background-color: #2e4798;
+            }
+        }
+
+        // .swiper-pagination-lock
+        &-lock {
+            display: none;
+        }
+    }
+}

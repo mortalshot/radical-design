@@ -355,22 +355,25 @@
 
     // .portfolio__cta
     &__cta {
-        text-align: center;
+    }
+}
 
-        &:not(:first-child) {
-            @include adaptiveValue("padding-top", 110, 48);
-        }
+.cta {
+    text-align: center;
+
+    &:not(:first-child) {
+        @include adaptiveValue("padding-top", 110, 48);
     }
 
-    // .portfolio__cta-text
-    &__cta-text {
+    // .cta__text
+    &__text {
         &:not(:last-child) {
             @include adaptiveValue("margin-bottom", 40, 24);
         }
     }
 
-    // .portfolio__cta-button
-    &__cta-button {
+    // .cta__button
+    &__button {
         @media (max-width: $mobileSmall) {
             .btn {
                 width: 100%;
@@ -663,7 +666,7 @@ a.item-portfolio {
             @include adaptiveValue("padding-bottom", 30, 15);
             @include adaptiveValue("padding-left", 30, 12);
             @include adaptiveValue("padding-right", 30, 12);
-            grid-template-columns: rem(24) 1fr;
+            grid-template-columns: rem(28) 1fr;
         }
     }
 
@@ -716,4 +719,149 @@ a.item-portfolio {
         }
     }
 }
+
+// tariffs ====================================================================================================
+.tariffs {
+    // .tariffs__container
+    &__container {
+    }
+
+    // .tariffs__heading
+    &__heading {
+        max-width: rem(511);
+        font-weight: 400;
+        @include adaptiveValue("font-size", 18, 14);
+
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 64, 32);
+        }
+    }
+
+    // .tariffs__table
+    &__table {
+        @media (min-width: $mobileM) {
+            // width: 100%;
+            overflow-x: auto;
+            scrollbar-width: thin;
+            margin-left: rem(-10);
+            margin-right: rem(-10);
+
+            table {
+                width: 100%;
+                border-spacing: rem(10) 0;
+                vertical-align: top;
+            }
+
+            th {
+                padding-bottom: rem(24);
+                border-bottom: rem(1) solid $Line;
+
+                &:first-child {
+                    text-align: left;
+                }
+            }
+
+            td {
+                padding-top: rem(24);
+                padding-bottom: rem(24);
+                border-bottom: 1px solid $Line;
+                vertical-align: top;
+
+                &:not(:first-child) {
+                    text-align: center;
+                }
+            }
+
+            i {
+                font-size: rem(30);
+
+                &._icon-check {
+                    color: #2e4798;
+                }
+                &._icon-negative {
+                    color: #7d7d7d;
+                }
+            }
+        }
+        @media (min-width: $mobile) {
+            margin-left: rem(-20);
+            margin-right: rem(-20);
+
+            table {
+                border-spacing: rem(20) 0;
+            }
+        }
+        @media (max-width: $mobileM) {
+            display: none;
+        }
+    }
+
+    // .tariffs__slider
+    &__slider {
+        position: relative;
+        
+        @media (min-width: $mobileM) {
+            display: none;
+        }
+    }
+
+    // .tariffs__wrapper
+    &__wrapper {
+    }
+
+    // .tariffs__slide
+    &__slide {
+    }
+}
+
+.tariff-slide {
+    @media (max-width: $mobileM) {
+        background-color: #eaeef2;
+        padding: rem(16);
+        display: grid;
+        row-gap: rem(16);
+        font-size: rem(12);
+        line-height: math.div(16, 12);
+
+        // .tariff-slide__caption
+        &__caption {
+            font-weight: 600;
+            font-size: rem(16);
+            line-height: math.div(18, 16);
+
+            &:not(:last-child) {
+                margin-bottom: rem(8);
+            }
+        }
+
+        // .tariff-slide__row
+        &__row {
+            display: grid;
+            grid-template-columns: percent(140, 254) 1fr;
+            gap: rem(6);
+        }
+
+        // .tariff-slide__key
+        &__key {
+            color: $DGrey;
+        }
+
+        // .tariff-slide__value
+        &__value {
+            text-align: right;
+
+            i {
+                font-size: rem(20);
+
+                &._icon-check {
+                    color: #2e4798;
+                }
+                &._icon-negative {
+                    color: #7d7d7d;
+                }
+            }
+        }
+    }
+}
+
 //====================================================================================================
