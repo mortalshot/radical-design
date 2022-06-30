@@ -85,15 +85,8 @@ video {
 }
 
 section {
-    padding-top: rem(20);
-    @include adaptiveValue("margin-bottom", 70, 44);
-
-    &:not(:first-child) {
-        padding-top: rem(30);
-    }
-    &:last-child {
-        @include adaptiveValue("margin-bottom", 100, 50);
-    }
+    @include adaptiveValue("padding-top", 110, 48);
+    @include adaptiveValue("padding-bottom", 110, 48);
 }
 
 ._hidden {

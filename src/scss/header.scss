@@ -74,10 +74,13 @@
 			}
 
 			.icon-menu {
-				span,
 				&::before,
 				&::after {
 					background-color: $mainColor;
+				}
+
+				span {
+					display: none;
 				}
 			}
 		}
@@ -294,6 +297,7 @@
 .menu-open {
 	body::after {
 		opacity: 1;
+		pointer-events: all;
 	}
 
 	.header__contacts {
