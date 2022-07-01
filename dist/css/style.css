@@ -2624,8 +2624,21 @@ video {
     color: #000;
   }
 }
+@media (any-hover: hover) {
+  .item-step {
+    transition: 0.3s ease background-color, 0.3s color 0s;
+  }
+  .item-step:hover {
+    background-color: #fff;
+    color: #000;
+  }
+  .item-step:hover .item-step__num {
+    color: #2e4798;
+  }
+}
 .item-step__title {
   display: grid;
+  background-color: transparent;
 }
 @supports (row-gap: clamp( 0.5rem , 0.0056179775rem  +  2.4719101124vw , 1.875rem )) {
   .item-step__title {
@@ -2701,6 +2714,7 @@ video {
 .item-step__num {
   font-weight: 600;
   line-height: 1.09375;
+  transition: 0.3s ease color 0s;
 }
 @supports (font-size: clamp( 1rem , 0.6404494382rem  +  1.797752809vw , 2rem )) {
   .item-step__num {

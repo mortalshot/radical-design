@@ -7,6 +7,11 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger.js';
 gsap.registerPlugin(ScrollTrigger);
 
+// Отправляемся в начало страницы при перезагрузке т.к. иначе неправильно считает координаты
+window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+}
+
 // подстраиваем размер первого экрана под шапку
 const header = document.querySelector('header.header');
 let headerOffsetHeight = header.offsetHeight;

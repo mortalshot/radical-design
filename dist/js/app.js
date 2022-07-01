@@ -9000,6 +9000,9 @@
     };
     ScrollTrigger_getGSAP() && ScrollTrigger_gsap.registerPlugin(ScrollTrigger_ScrollTrigger);
     gsapWithCSS.registerPlugin(ScrollTrigger_ScrollTrigger);
+    window.onbeforeunload = function() {
+        window.scrollTo(0, 0);
+    };
     const header = document.querySelector("header.header");
     let headerOffsetHeight = header.offsetHeight;
     window.addEventListener("load", firstscreenResize);

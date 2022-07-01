@@ -673,10 +673,24 @@ a.item-portfolio {
         color: $mainColor;
     }
 
+    @media (any-hover: hover) {
+        transition: $transition ease background-color, $transition color 0s;
+
+        &:hover {
+            background-color: $White;
+            color: $mainColor;
+
+            .item-step__num {
+                color: #2e4798;
+            }
+        }
+    }
+
     // .item-step__title
     &__title {
         display: grid;
         @include adaptiveValue("row-gap", 30, 8);
+        background-color: transparent;
 
         @media (max-width: $mobile) {
             align-items: center;
@@ -697,6 +711,7 @@ a.item-portfolio {
         font-weight: 600;
         @include adaptiveValue("font-size", 32, 16);
         line-height: math.div(35, 32);
+        transition: $transition ease color 0s;
 
         @media (max-width: $mobile) {
             background: $Gradient;
