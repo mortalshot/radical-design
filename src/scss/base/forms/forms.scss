@@ -11,17 +11,44 @@
 
 	// .form__item
 	&__item {
+		position: relative;
 		width: 100%;
-		@include adaptiveValue("margin-bottom", 40, 36);
+		margin-bottom: rem(24);
 	}
 
 	// .form__label
 	&__label {
 		display: inline-block;
-		margin-bottom: rem(8);
+		font-weight: 400;
+		font-size: rem(14);
+		line-height: math.div(15, 14);
+		color: $DGrey;
+		position: absolute;
+		left: rem(30);
+		top: 0;
 	}
+
 	label.form__label {
 		cursor: pointer;
+	}
+
+	// .form__submit
+	&__submit {
+		position: relative;
+		margin-top: rem(16);
+		margin-bottom: rem(40);
+		display: flex;
+
+		.btn {
+			flex: 1;
+		}
+	}
+
+	// .form__privacy
+	&__privacy {
+		font-size: rem(14);
+		line-height: math.div(21, 14);
+		text-align: center;
 	}
 }
 //</FORM>
@@ -250,7 +277,7 @@
 	}
 }
 
-/* // contact-form7
+// contact-form7
 .wpcf7-spinner {
 	position: absolute;
 	top: 0;
@@ -265,6 +292,7 @@
 	justify-content: center;
 	border-radius: rem(30);
 	background-color: initial;
+	pointer-events: none;
 
 	&::before {
 		top: 50%;
@@ -272,10 +300,9 @@
 		transform: translate(-50%, -50%);
 		width: rem(32);
 		height: rem(32);
-		background-color: $Blue;
+		background-color: $DGrey;
 	}
 }
- */
 
 // <BUTTONS>
 // Снипет (HTML): btn
@@ -283,7 +310,7 @@
 
 // <INPUTS>
 // Снипет (HTML): inp
-// @import "input";
+@import "input";
 
 // <CHECK>
 // Снипет (HTML): chk

@@ -1,9 +1,9 @@
 //====================================================================================================
 .header {
 	top: -100%;
+	z-index: 10;
 	@include adaptiveValue("padding-top", 24, 15);
 	@include adaptiveValue("padding-bottom", 24, 15);
-	z-index: 150;
 
 	// .header__container
 	&__container {
@@ -27,6 +27,8 @@
 		@include adaptiveValue("padding-bottom", 130, 80);
 		display: grid;
 		align-items: flex-start;
+		align-content: center;
+		justify-items: center;
 		scrollbar-width: thin;
 		transition: 0.5s ease top 0s;
 
@@ -37,11 +39,13 @@
 
 		@media (min-width: $mobile) {
 			max-width: rem(351);
-			align-content: center;
-			justify-items: center;
 		}
 		@media (min-width: $pc) {
 			max-width: percent(403, 1440);
+		}
+		@media (max-height: em(650)) {
+			align-content: flex-start;
+			// justify-items: flex-start;
 		}
 
 		&::before {
@@ -279,7 +283,7 @@
 
 	&._header-show {
 		top: 0;
-		padding: rem(9) 0;
+		padding: rem(15) 0;
 
 		.header__logo {
 			max-width: rem(57);
@@ -300,9 +304,14 @@
 		pointer-events: all;
 	}
 
-	.header__contacts {
-		@media (min-width: $mobileM) {
-			opacity: 0;
+	.header {
+		z-index: 150;
+
+		// .header__contacts
+		&__contacts {
+			@media (min-width: $mobileM) {
+				opacity: 0;
+			}
 		}
 	}
 }

@@ -56,14 +56,11 @@ body::after {
 		visibility: hidden;
 		transform: scale(0);
 		background-color: $White;
-		@include adaptiveValue("padding-top", 40, 16);
-		@include adaptiveValue("padding-bottom", 40, 16);
-		@include adaptiveValue("padding-left", 48, 16, 1440, 768, 1);
-		@include adaptiveValue("padding-right", 48, 16, 1440, 768, 1);
+		padding: rem(40);
 		width: 100%;
-		max-width: rem(440);
-		border-radius: rem(10);
-		transition: transform 0.3s ease 0s;
+		max-width: rem(480);
+		border-radius: rem(1);
+		transition: $transition ease transform 0s;
 
 		.lock & {
 			visibility: visible;
@@ -75,13 +72,11 @@ body::after {
 		position: absolute;
 		@include adaptiveValue("top", 20, 16);
 		@include adaptiveValue("right", 20, 16);
-		width: rem(24);
-		height: rem(24);
+		font-size: rem(24);
+		color: $DGrey;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		color: $mainColor;
-		background: url(../img/icons/close.svg) no-repeat center/contain;
 
 		@media (any-hover: hover) {
 			transition: $transition ease opacity 0s;
@@ -98,5 +93,12 @@ body::after {
 
 	// .popup__text
 	&__text {
+	}
+
+	// .popup__heading
+	&__heading {
+		&:not(:last-child) {
+			margin-bottom: rem(32);
+		}
 	}
 }

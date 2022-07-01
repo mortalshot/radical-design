@@ -6,7 +6,7 @@
 // Подключаем слайдер Swiper из node_modules
 // При необходимости подключаем дополнительные модули слайдера, указывая их в {} через запятую
 // Пример: { Navigation, Autoplay }
-import Swiper, { Pagination } from 'swiper';
+import Swiper, { Pagination, Navigation } from 'swiper';
 /*
 Основниые модули слайдера:
 Navigation, Pagination, Autoplay, 
@@ -24,13 +24,10 @@ import "../../scss/base/swiper.scss";
 
 // Инициализация слайдеров
 function initSliders() {
-	// Перечень слайдеров
-	// Проверяем, есть ли слайдер на стронице
-	if (document.querySelector('.tariffs__slider')) { // Указываем скласс нужного слайдера
+	if (document.querySelector('.tariffs__slider')) {
 		// Создаем слайдер
-		new Swiper('.tariffs__slider', { // Указываем скласс нужного слайдера
-			// Подключаем модули слайдера
-			// для конкретного случая
+		new Swiper('.tariffs__slider', {
+
 			modules: [Pagination],
 			observer: true,
 			observeParents: true,
@@ -38,6 +35,7 @@ function initSliders() {
 			spaceBetween: 10,
 			autoHeight: true,
 			speed: 800,
+			watchOverflow: true,
 
 			//touchRatio: 0,
 			//simulateTouch: false,
@@ -97,6 +95,77 @@ function initSliders() {
 				},
 			},
 			*/
+			// События
+			on: {
+
+			}
+		});
+	}
+	if (document.querySelector('.reviews__slider')) {
+		// Создаем слайдер
+		new Swiper('.reviews__slider', {
+
+			modules: [Pagination, Navigation],
+			observer: true,
+			observeParents: true,
+			slidesPerView: 1,
+			spaceBetween: 40,
+			autoHeight: true,
+			speed: 800,
+			watchOverflow: true,
+
+			//touchRatio: 0,
+			//simulateTouch: false,
+			loop: true,
+			//preloadImages: false,
+			//lazy: true,
+
+			/*
+			// Эффекты
+			effect: 'fade',
+			autoplay: {
+				delay: 3000,
+				disableOnInteraction: false,
+			},
+			*/
+
+			// Пагинация
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true,
+			},
+
+
+			// Скроллбар
+			/*
+			scrollbar: {
+				el: '.swiper-scrollbar',
+				draggable: true,
+			},
+			*/
+
+			// Кнопки "влево/вправо"
+			navigation: {
+				prevEl: '.reviews__slider .swiper__arrow_left',
+				nextEl: '.reviews__slider .swiper__arrow_right',
+			},
+
+			// Брейкпоинты
+			breakpoints: {
+				767.98: {
+					slidesPerView: 1.2,
+					spaceBetween: 40,
+				},
+				991.98: {
+					slidesPerView: 1.4,
+					spaceBetween: 60,
+				},
+				1209.98: {
+					slidesPerView: 1.4,
+					spaceBetween: 120,
+				},
+			},
+
 			// События
 			on: {
 

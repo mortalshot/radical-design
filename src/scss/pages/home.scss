@@ -799,7 +799,7 @@ a.item-portfolio {
     // .tariffs__slider
     &__slider {
         position: relative;
-        
+
         @media (min-width: $mobileM) {
             display: none;
         }
@@ -816,7 +816,7 @@ a.item-portfolio {
 
 .tariff-slide {
     @media (max-width: $mobileM) {
-        background-color: #eaeef2;
+        background-color: $LGBlue;
         padding: rem(16);
         display: grid;
         row-gap: rem(16);
@@ -859,6 +859,230 @@ a.item-portfolio {
                 &._icon-negative {
                     color: #7d7d7d;
                 }
+            }
+        }
+    }
+}
+
+// reviews ====================================================================================================
+.reviews {
+    background-color: $LGBlue;
+
+    // .reviews__slider
+    &__slider {
+        max-width: rem($maxWidthContainer);
+        margin: 0 auto;
+        box-sizing: content-box;
+        @extend %container;
+
+        .swiper {
+            // .swiper__arrows
+            &__arrows {
+                @media (max-width: $mobileM) {
+                    display: none;
+                }
+            }
+
+            // .swiper__arrow
+            &__arrow {
+                // .swiper__arrow_left
+                &_left {
+                }
+                // .swiper__arrow_right
+                &_right {
+                }
+            }
+
+            // .swiper-pagination
+            &-pagination {
+                @media (min-width: $mobileM) {
+                    display: none;
+                }
+                @media (max-width: $mobileM) {
+                    margin-top: rem(32);
+                }
+            }
+        }
+    }
+
+    // .reviews__heading
+    &__heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 64, 32);
+        }
+    }
+
+    // .reviews__title
+    &__title {
+    }
+
+    // .reviews__wrapper
+    &__wrapper {
+    }
+
+    // .reviews__slide
+    &__slide {
+    }
+}
+
+.review-slide {
+    position: relative;
+    transition: $transition ease opacity 0s;
+
+    @media (min-width: $mobileM) {
+        @include adaptiveValue("padding-left", 100, 60, 1440, 768, 1);
+    }
+
+    &.swiper-slide-next {
+        opacity: 0.3;
+    }
+
+    &::before {
+        content: "";
+        display: block;
+        @include adaptiveValue("width", 45, 26);
+        @include adaptiveValue("height", 47, 27);
+        background: url(../img/icons/quote.svg) no-repeat center/contain;
+
+        @media (min-width: $mobileM) {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        @media (max-width: $mobileM) {
+            margin-bottom: rem(32);
+        }
+    }
+
+    // .review-slide__text
+    &__text {
+        font-weight: 400;
+        @include adaptiveValue("font-size", 20, 14);
+        line-height: math.div(32, 20);
+
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 48, 32);
+        }
+    }
+
+    // .review-slide__author
+    &__author {
+        display: grid;
+        align-items: flex-start;
+        @include adaptiveValue("row-gap", 8, 4);
+    }
+
+    // .review-slide__name
+    &__name {
+        font-weight: 700;
+        @include adaptiveValue("font-size", 18, 14);
+        line-height: math.div(29, 18);
+    }
+
+    // .review-slide__position
+    &__position {
+        @include adaptiveValue("font-size", 16, 12);
+        color: $DGrey;
+    }
+}
+
+// addresses ====================================================================================================
+.addresses {
+    // .addresses__container
+    &__container {
+        display: grid;
+        @include adaptiveValue("column-gap", 32, 20, 1440, 768, 1);
+
+        @media (min-width: $mobileM) {
+            grid-template-columns: 1fr percent(320, 660);
+        }
+        @media (min-width: $tablet) {
+            grid-template-columns: 1fr percent(680, 1180);
+        }
+        @media (max-width: $mobileM) {
+            row-gap: rem(32);
+        }
+    }
+
+    // .addresses__left
+    &__left {
+        display: grid;
+        grid-template-rows: 1fr;
+    }
+
+    // .addresses__text
+    &__text {
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 64, 32);
+        }
+    }
+
+    // .addresses__contacts
+    &__contacts {
+        @include adaptiveValue("row-gap", 32, 16);
+
+        .contacts {
+            // .contacts__item
+            &__item {
+                @include adaptiveValue("font-size", 20, 14);
+                line-height: math.div(28, 20);
+
+                &::before {
+                    @include adaptiveValue("font-size", 28, 20);
+                    color: #2e4798;
+                }
+
+                // .contacts__item_phone
+                &_phone {
+                }
+            }
+        }
+
+        a.contacts__item {
+            @media (any-hover: hover) {
+                &:hover {
+                    span {
+                        text-decoration: underline $mainColor from-font;
+                    }
+                }
+            }
+        }
+    }
+
+    // .addresses__map
+    &__map {
+        display: block;
+        position: relative;
+        padding-bottom: percent(547, 680);
+        overflow: hidden;
+        border-radius: rem(400) rem(1) rem(1) rem(400);
+
+        @media (max-width: $mobileM) {
+            grid-row: 1/2;
+            padding-bottom: rem(284);
+            max-width: rem(296);
+            border-radius: rem(1) rem(400) rem(400) rem(1);
+        }
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    .addresses__map {
+        @media (any-hover: hover) {
+            transition: $transition ease opacity 0s;
+
+            &:hover {
+                opacity: 0.8;
             }
         }
     }

@@ -1,5 +1,6 @@
 // Заголовки, общие БЄМ блоки и проче...
-h {
+h,
+.title-h {
     &1 {
         font-weight: 500;
         @include adaptiveValue("font-size", 70, 36);
@@ -14,6 +15,11 @@ h {
         font-weight: 500;
         @include adaptiveValue("font-size", 40, 18);
         line-height: math.div(52, 40);
+    }
+    &4 {
+        font-weight: 600;
+        @include adaptiveValue("font-size", 30, 16);
+        line-height: math.div(33, 30);
     }
 }
 
@@ -73,6 +79,21 @@ video {
         table {
             width: 100%;
             border-collapse: collapse;
+        }
+    }
+
+    a {
+        background: $Gradient;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-decoration: underline #2e4798 from-font;
+        text-underline-offset: 3px;
+        transition: $transition ease text-decoration 0s;
+
+        @media (any-hover: hover) {
+            &:hover {
+                text-decoration: underline transparent from-font;
+            }
         }
     }
 
@@ -214,31 +235,82 @@ section {
         flex-wrap: wrap;
 
         &:not(:first-child) {
-            margin-top: 24px;
+            margin-top: rem(24);
         }
 
         // .swiper-pagination-bullet
         &-bullet {
-            flex: 0 0 rem(12);
-            width: rem(12);
-            height: rem(12);
+            flex: 0 0 rem(22);
+            width: rem(22);
+            height: rem(22);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             border-radius: 50%;
-            background-color: $Line;
-            transition: $transition ease background-color 0s;
+            cursor: pointer;
+
+            &::before {
+                content: "";
+                display: block;
+                width: rem(12);
+                height: rem(12);
+                background-color: $Line;
+                border-radius: inherit;
+                transition: $transition ease background-color 0s;
+            }
 
             &:not(:last-child) {
-                margin-right: 16px;
+                margin-right: rem(6);
             }
 
             // .swiper-pagination-bullet-active
             &-active {
-                background-color: #2e4798;
+                &::before {
+                    background-color: #2e4798;
+                }
             }
         }
 
         // .swiper-pagination-lock
         &-lock {
             display: none;
+        }
+    }
+
+    // .swiper__arrows
+    &__arrows {
+        display: flex;
+        align-items: center;
+        gap: rem(20);
+        padding-top: rem(10);
+        padding-bottom: rem(10);
+    }
+
+    // .swiper__arrow
+    &__arrow {
+        border: rem(1) solid #2e4798;
+        font-size: rem(20);
+        color: $DGrey;
+        padding: rem(13);
+        border-radius: 50%;
+
+        @media (any-hover: hover) {
+            transition: $transition all 0s;
+
+            &:hover {
+                color: $mainColor;
+                padding: rem(19);
+                margin: rem(-6);
+            }
+        }
+
+        // .swiper__arrow_left
+        &_left {
+            transform: rotate(180deg);
+        }
+
+        // .swiper__arrow_right
+        &_right {
         }
     }
 }
