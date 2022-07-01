@@ -271,9 +271,14 @@ h6 {
   margin-top: 1rem;
   margin-bottom: 2.5rem;
   display: flex;
+  transition: 0.3s ease opacity 0s;
 }
 .form__submit .btn {
   flex: 1;
+}
+.form__submit._disabled {
+  opacity: 0.6;
+  pointer-events: none;
 }
 .form__privacy {
   font-size: 0.875rem;
@@ -625,6 +630,10 @@ textarea {
 .form__input:focus::placeholder {
   opacity: 0;
 }
+.form__input._error {
+  border-width: 0.125rem;
+  border-color: red;
+}
 
 textarea.form__input {
   resize: none;
@@ -635,6 +644,18 @@ textarea.form__input::-webkit-scrollbar {
   height: 0;
 }
 
+.counter {
+  position: relative;
+}
+.counter .form__input {
+  padding-right: 5rem;
+}
+.counter__wrapper {
+  position: absolute;
+  right: 0rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
 body::after {
   content: "";
   background-color: rgba(0, 0, 0, 0.5);

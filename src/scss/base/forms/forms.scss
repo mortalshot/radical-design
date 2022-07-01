@@ -38,9 +38,15 @@
 		margin-top: rem(16);
 		margin-bottom: rem(40);
 		display: flex;
+		transition: $transition ease opacity 0s;
 
 		.btn {
 			flex: 1;
+		}
+
+		&._disabled {
+			opacity: 0.6;
+			pointer-events: none;
 		}
 	}
 
@@ -315,6 +321,10 @@
 // <CHECK>
 // Снипет (HTML): chk
 // @import "checkbox";
+
+// <COUNTER>
+// Снипет (HTML):
+@import "counter";
 
 // <RADIO>
 // Снипет (HTML): opt

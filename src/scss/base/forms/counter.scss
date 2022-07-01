@@ -1,0 +1,23 @@
+.counter {
+    position: relative;
+
+    .form__input {
+        padding-right: rem(80);
+    }
+
+    // .counter__wrapper
+    &__wrapper {
+        position: absolute;
+        right: rem(0);
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    // .counter__current
+    &__current {
+    }
+
+    // .counter__required
+    &__required {
+    }
+}

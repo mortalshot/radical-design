@@ -36,6 +36,11 @@ textarea {
 				opacity: 0;
 			}
 		}
+
+		&._error {
+			border-width: rem(2);
+			border-color: red;
+		}
 	}
 }
 

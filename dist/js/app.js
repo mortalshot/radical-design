@@ -4129,6 +4129,47 @@
             firstscreen.style.paddingTop = headerOffsetHeight + "px";
         }
     }
+    const counter = document.querySelectorAll(".counter");
+    if (counter.length > 0) counter.forEach((element => {
+        const counterCurrent = element.querySelector(".counter__current");
+        const input = element.querySelector(".form__input");
+        input.addEventListener("input", (function() {
+            const value = input.value.trim();
+            const valueLength = value.length;
+            counterCurrent.innerHTML = valueLength;
+        }));
+    }));
+    const phones = document.querySelectorAll(".form__input_phone");
+    if (phones.length > 0) phones.forEach((element => {
+        element.addEventListener("input", (function() {
+            const value = element.value;
+            if (!validatePhone(value)) {
+                element.classList.add("_error");
+                element.classList.remove("_success");
+            } else {
+                element.classList.remove("_error");
+                element.classList.add("_success");
+            }
+        }));
+    }));
+    function validatePhone(phone) {
+        var re = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g;
+        return re.test(phone);
+    }
+    const script_forms = document.querySelectorAll(".form");
+    if (script_forms.length > 0) script_forms.forEach((element => {
+        const elementInput = element.querySelectorAll(".form__input");
+        let error = 0;
+        elementInput.forEach((input => {
+            const inputForm = input.closest(".form");
+            const submit = inputForm.querySelector(".form__submit");
+            input.addEventListener("input", (function() {
+                if (input.classList.contains("_error")) error = 1; else error = 0;
+                const errorInputs = document.querySelectorAll("._error");
+                if (0 == error && 0 == errorInputs.length) submit.classList.remove("_disabled"); else submit.classList.add("_disabled");
+            }));
+        }));
+    }));
     window["FLS"] = true;
     isWebp();
     menuInit();

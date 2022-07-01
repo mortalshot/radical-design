@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20220701132749">
+	<link rel="stylesheet" href="css/style.min.css?_v=20220701150241">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -723,17 +723,22 @@
 						<h4 class="title-h4">Оставьте заявку, мы&nbsp;перезвоним!</h4>
 					</div>
 
-					<div class="form">
+					<form action="" class="form">
 						<div class="form__row">
 							<div class="form__item col-12">
 								<!-- <label for="request-name" class="form__label">Имя</label> -->
-								<input id="request-name" autocomplete="off" type="text" name="request-name" class="form__input" placeholder="Имя">
+								<input id="request-name" autocomplete="off" type="text" name="request-name" class="form__input" placeholder="Имя" required>
 							</div>
 							<div class="form__item col-12">
-								<input id="request-phone" autocomplete="off" type="text" name="request-phone" class="form__input form__input_phone" placeholder="+7 000 000 00 00">
+								<input id="request-phone" autocomplete="off" type="text" name="request-phone" class="form__input form__input_phone" placeholder="+7 000 000 00 00" required>
 							</div>
 							<div class="form__item col-12">
-								<textarea autocomplete="off" name="request-question" placeholder="Ваш вопрос" class="form__input" rows="1"></textarea>
+								<div class="counter">
+									<textarea autocomplete="off" name="request-question" placeholder="Ваш вопрос" class="form__input" rows="1" maxlength="200"></textarea>
+									<div class="counter__wrapper">
+										<span class="counter__current">0</span> / <span class="counter__required">200</span>
+									</div>
+								</div>
 							</div>
 						</div>
 						<div class="form__submit">
@@ -743,12 +748,12 @@
 						<div class="form__privacy _content">
 							<p>Нажимая на кнопку “Оставить заявку”, вы соглашайтесь с <a href="">политикой конфиденциальности</a></p>
 						</div>
-					</div>
+					</form>
 				</div>
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20220701132749"></script>
+	<script src="js/app.min.js?_v=20220701150241"></script>
 </body>
 
 </html>
