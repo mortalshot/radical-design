@@ -55,3 +55,31 @@
 		}
 	}
 }
+
+.back-button {
+	@include adaptiveValue("font-size", 16, 14);
+	line-height: math.div(18, 16);
+	text-transform: uppercase;
+	display: inline-flex;
+	align-items: center;
+
+	&::before {
+		margin-right: rem(10);
+		font-size: rem(24);
+	}
+
+	span {
+		text-decoration: underline transparent from-font;
+		text-underline-offset: 3px;
+		transition: $transition ease text-decoration 0s;
+	}
+}
+a.back-button {
+	@media (any-hover: hover) {
+		&:hover {
+			span {
+				text-decoration: underline $mainColor from-font;
+			}
+		}
+	}
+}
