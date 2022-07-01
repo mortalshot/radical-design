@@ -3,19 +3,20 @@ import { isMobile } from "./functions.js";
 // Подключение списка активных модулей
 import { flsModules } from "./modules.js";
 
-// Отправляемся в начало страницы при перезагрузке т.к. иначе неправильно считает координаты
-window.onbeforeunload = function () {
-    window.scrollTo(0, 0);
-}
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger.js';
+gsap.registerPlugin(ScrollTrigger);
 
 // подстраиваем размер первого экрана под шапку
+const header = document.querySelector('header.header');
+let headerOffsetHeight = header.offsetHeight;
+
 window.addEventListener('load', firstscreenResize)
 window.addEventListener('resize', firstscreenResize);
 
 function firstscreenResize() {
     const firstscreen = document.querySelector('.firstscreen');
-    const header = document.querySelector('header.header');
-    const headerOffsetHeight = header.offsetHeight;
+    headerOffsetHeight = header.offsetHeight
 
     if (firstscreen) {
         firstscreen.style.marginTop = -headerOffsetHeight + 'px';
@@ -55,7 +56,6 @@ if (phones.length > 0) {
     });
 }
 
-
 // Валидация телефона
 function validatePhone(phone) {
     var re = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g;
@@ -89,5 +89,51 @@ if (forms.length > 0) {
                 }
             })
         });
+    });
+}
+
+/* Анимации */
+/* Секция About */
+const personAbout = document.querySelectorAll('.person-about');
+if (personAbout.length) {
+    personAbout.forEach(element => {
+        ScrollTrigger.matchMedia({
+            "(min-width: 574.98px)": function () {
+                let elementTL = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: element,
+                        start: `${-headerOffsetHeight} bottom`,
+                        end: "top top",
+                    },
+                })
+
+                elementTL.from(element.querySelector('.person-about__body'), { x: "-70%", opacity: 0, duration: 1 });
+            }
+        });
+    });
+}
+const aboutRow = document.querySelector('.about__bottom-row');
+const aboutImage = document.querySelector('.about__image-thumb');
+const aboutIndicators = document.querySelectorAll('.indicator-about');
+
+if (aboutRow) {
+    ScrollTrigger.matchMedia({
+        "(min-width: 767.98px)": function () {
+            let aboutRowTL = gsap.timeline({
+                scrollTrigger: {
+                    trigger: aboutRow,
+                    start: `${-headerOffsetHeight} bottom`,
+                    end: "top top",
+                },
+            })
+
+            aboutRowTL.to(aboutImage, { width: 0, duration: 0.7 })
+
+            if (aboutIndicators.length) {
+                aboutIndicators.forEach(element => {
+                    aboutRowTL.from(element, { opacity: 0, height: 0, duration: 0.5, }, "-=0.1")
+                });
+            }
+        }
     });
 }

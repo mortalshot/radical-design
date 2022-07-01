@@ -2043,13 +2043,26 @@ video {
 }
 @media (min-width: 47.99875em) {
   .about__image {
+    position: relative;
+  }
+  .about__image img {
     border-radius: 0 6.25rem 6.25rem 0;
-    overflow: hidden;
   }
 }
 @media (max-width: 47.99875em) {
   .about__image {
     display: none;
+  }
+}
+@media (min-width: 47.99875em) {
+  .about__image-thumb {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: -0.3125rem;
+    background-color: #fff;
+    pointer-events: none;
   }
 }
 .about__indicators {
@@ -2104,17 +2117,13 @@ video {
   }
 }
 .person-about__avatar {
+  background-color: #fff;
   overflow: hidden;
   position: relative;
-}
-@media (min-width: 29.99875em) {
-  .person-about__avatar {
-    border-radius: 6.25rem 0 0 6.25rem;
-  }
+  z-index: 1;
 }
 @media (max-width: 29.99875em) {
   .person-about__avatar {
-    border-radius: 6.25rem 6.25rem 0 0;
     padding-bottom: 7.9375rem;
     width: 100%;
     max-width: 7.375rem;
@@ -2130,6 +2139,16 @@ video {
   height: 100%;
   object-fit: cover;
   object-position: top;
+}
+@media (min-width: 29.99875em) {
+  .person-about__avatar img {
+    border-radius: 6.25rem 0 0 6.25rem;
+  }
+}
+@media (max-width: 29.99875em) {
+  .person-about__avatar img {
+    border-radius: 6.25rem 6.25rem 0 0;
+  }
 }
 .person-about__body {
   display: grid;

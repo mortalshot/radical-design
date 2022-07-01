@@ -168,11 +168,28 @@
     // .about__image
     &__image {
         @media (min-width: $mobile) {
-            border-radius: 0 rem(100) rem(100) 0;
-            overflow: hidden;
+            // overflow: hidden;
+            position: relative;
+
+            img {
+                border-radius: 0 rem(100) rem(100) 0;
+            }
         }
         @media (max-width: $mobile) {
             display: none;
+        }
+    }
+
+    // .about__image-thumb
+    &__image-thumb {
+        @media (min-width: $mobile) {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            right: rem(-5);
+            background-color: $White;
+            pointer-events: none;
         }
     }
 
@@ -212,14 +229,12 @@
 
     // .person-about__avatar
     &__avatar {
+        background-color: $White;
         overflow: hidden;
         position: relative;
+        z-index: 1;
 
-        @media (min-width: $mobileSmall) {
-            border-radius: rem(100) 0 0 rem(100);
-        }
         @media (max-width: $mobileSmall) {
-            border-radius: rem(100) rem(100) 0 0;
             padding-bottom: rem(127);
             width: 100%;
             max-width: rem(118);
@@ -235,6 +250,13 @@
             height: 100%;
             object-fit: cover;
             object-position: top;
+
+            @media (min-width: $mobileSmall) {
+                border-radius: rem(100) 0 0 rem(100);
+            }
+            @media (max-width: $mobileSmall) {
+                border-radius: rem(100) rem(100) 0 0;
+            }
         }
     }
 
