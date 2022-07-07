@@ -34,6 +34,9 @@
             return isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows();
         }
     };
+    function getHash() {
+        if (location.hash) return location.hash.replace("#", "");
+    }
     function fullVHfix() {
         const fullScreens = document.querySelectorAll("[data-fullscreen]");
         if (fullScreens.length && isMobile.any()) {
@@ -241,6 +244,10 @@
                 document.documentElement.classList.toggle("menu-open");
             }
         }));
+    }
+    function menuClose() {
+        bodyUnlock();
+        document.documentElement.classList.remove("menu-open");
     }
     function functions_FLS(message) {
         setTimeout((() => {
@@ -535,6 +542,35 @@
         }
     }
     modules_flsModules.popup = new Popup({});
+    let gotoblock_gotoBlock = (targetBlock, noHeader = false, speed = 500, offsetTop = 0) => {
+        const targetBlockElement = document.querySelector(targetBlock);
+        if (targetBlockElement) {
+            let headerItem = "";
+            let headerItemHeight = 0;
+            if (noHeader) {
+                headerItem = "header.header";
+                headerItemHeight = document.querySelector(headerItem).offsetHeight;
+            }
+            let options = {
+                speedAsDuration: true,
+                speed,
+                header: headerItem,
+                offset: offsetTop,
+                easing: "easeOutQuad"
+            };
+            document.documentElement.classList.contains("menu-open") ? menuClose() : null;
+            if ("undefined" !== typeof SmoothScroll) (new SmoothScroll).animateScroll(targetBlockElement, "", options); else {
+                let targetBlockElementPosition = targetBlockElement.getBoundingClientRect().top + scrollY;
+                targetBlockElementPosition = headerItemHeight ? targetBlockElementPosition - headerItemHeight : targetBlockElementPosition;
+                targetBlockElementPosition = offsetTop ? targetBlockElementPosition - offsetTop : targetBlockElementPosition;
+                window.scrollTo({
+                    top: targetBlockElementPosition,
+                    behavior: "smooth"
+                });
+            }
+            functions_FLS(`[gotoBlock]: Юхуу...едем к ${targetBlock}`);
+        } else functions_FLS(`[gotoBlock]: Ой ой..Такого блока нет на странице: ${targetBlock}`);
+    };
     function ssr_window_esm_isObject(obj) {
         return null !== obj && "object" === typeof obj && "constructor" in obj && obj.constructor === Object;
     }
@@ -3927,6 +3963,83 @@
             destroy
         });
     }
+    function Grid(_ref) {
+        let {swiper, extendParams} = _ref;
+        extendParams({
+            grid: {
+                rows: 1,
+                fill: "column"
+            }
+        });
+        let slidesNumberEvenToRows;
+        let slidesPerRow;
+        let numFullColumns;
+        const initSlides = slidesLength => {
+            const {slidesPerView} = swiper.params;
+            const {rows, fill} = swiper.params.grid;
+            slidesPerRow = slidesNumberEvenToRows / rows;
+            numFullColumns = Math.floor(slidesLength / rows);
+            if (Math.floor(slidesLength / rows) === slidesLength / rows) slidesNumberEvenToRows = slidesLength; else slidesNumberEvenToRows = Math.ceil(slidesLength / rows) * rows;
+            if ("auto" !== slidesPerView && "row" === fill) slidesNumberEvenToRows = Math.max(slidesNumberEvenToRows, slidesPerView * rows);
+        };
+        const updateSlide = (i, slide, slidesLength, getDirectionLabel) => {
+            const {slidesPerGroup, spaceBetween} = swiper.params;
+            const {rows, fill} = swiper.params.grid;
+            let newSlideOrderIndex;
+            let column;
+            let row;
+            if ("row" === fill && slidesPerGroup > 1) {
+                const groupIndex = Math.floor(i / (slidesPerGroup * rows));
+                const slideIndexInGroup = i - rows * slidesPerGroup * groupIndex;
+                const columnsInGroup = 0 === groupIndex ? slidesPerGroup : Math.min(Math.ceil((slidesLength - groupIndex * rows * slidesPerGroup) / rows), slidesPerGroup);
+                row = Math.floor(slideIndexInGroup / columnsInGroup);
+                column = slideIndexInGroup - row * columnsInGroup + groupIndex * slidesPerGroup;
+                newSlideOrderIndex = column + row * slidesNumberEvenToRows / rows;
+                slide.css({
+                    "-webkit-order": newSlideOrderIndex,
+                    order: newSlideOrderIndex
+                });
+            } else if ("column" === fill) {
+                column = Math.floor(i / rows);
+                row = i - column * rows;
+                if (column > numFullColumns || column === numFullColumns && row === rows - 1) {
+                    row += 1;
+                    if (row >= rows) {
+                        row = 0;
+                        column += 1;
+                    }
+                }
+            } else {
+                row = Math.floor(i / slidesPerRow);
+                column = i - row * slidesPerRow;
+            }
+            slide.css(getDirectionLabel("margin-top"), 0 !== row ? spaceBetween && `${spaceBetween}px` : "");
+        };
+        const updateWrapperSize = (slideSize, snapGrid, getDirectionLabel) => {
+            const {spaceBetween, centeredSlides, roundLengths} = swiper.params;
+            const {rows} = swiper.params.grid;
+            swiper.virtualSize = (slideSize + spaceBetween) * slidesNumberEvenToRows;
+            swiper.virtualSize = Math.ceil(swiper.virtualSize / rows) - spaceBetween;
+            swiper.$wrapperEl.css({
+                [getDirectionLabel("width")]: `${swiper.virtualSize + spaceBetween}px`
+            });
+            if (centeredSlides) {
+                snapGrid.splice(0, snapGrid.length);
+                const newSlidesGrid = [];
+                for (let i = 0; i < snapGrid.length; i += 1) {
+                    let slidesGridItem = snapGrid[i];
+                    if (roundLengths) slidesGridItem = Math.floor(slidesGridItem);
+                    if (snapGrid[i] < swiper.virtualSize + snapGrid[0]) newSlidesGrid.push(slidesGridItem);
+                }
+                snapGrid.push(...newSlidesGrid);
+            }
+        };
+        swiper.grid = {
+            initSlides,
+            updateSlide,
+            updateWrapperSize
+        };
+    }
     function initSliders() {
         if (document.querySelector(".tariffs__slider")) new core(".tariffs__slider", {
             modules: [ Pagination ],
@@ -3977,11 +4090,75 @@
             },
             on: {}
         });
+        if (document.querySelector(".clients__slider")) {
+            let clientSlider;
+            let clientsMd2 = window.matchMedia("(max-width: 767.98px)");
+            function clientsHandleMd2Change(e) {
+                if (e.matches) clientSlider = new core(".clients__slider", {
+                    modules: [ Grid ],
+                    observer: true,
+                    observeParents: true,
+                    slidesPerView: 2,
+                    autoHeight: false,
+                    speed: 800,
+                    watchOverflow: true,
+                    grid: {
+                        rows: 2
+                    },
+                    breakpoints: {
+                        474.98: {
+                            slidesPerView: 3
+                        }
+                    },
+                    on: {}
+                });
+            }
+            clientsMd2.addEventListener("change", clientsHandleMd2Change);
+            clientsHandleMd2Change(clientsMd2);
+        }
     }
     window.addEventListener("load", (function(e) {
         initSliders();
     }));
     let addWindowScrollEvent = false;
+    function pageNavigation() {
+        document.addEventListener("click", pageNavigationAction);
+        document.addEventListener("watcherCallback", pageNavigationAction);
+        function pageNavigationAction(e) {
+            if ("click" === e.type) {
+                const targetElement = e.target;
+                if (targetElement.closest("[data-goto]")) {
+                    const gotoLink = targetElement.closest("[data-goto]");
+                    const gotoLinkSelector = gotoLink.dataset.goto ? gotoLink.dataset.goto : "";
+                    const noHeader = gotoLink.hasAttribute("data-goto-header") ? true : false;
+                    const gotoSpeed = gotoLink.dataset.gotoSpeed ? gotoLink.dataset.gotoSpeed : 500;
+                    const offsetTop = gotoLink.dataset.gotoTop ? parseInt(gotoLink.dataset.gotoTop) : 0;
+                    gotoblock_gotoBlock(gotoLinkSelector, noHeader, gotoSpeed, offsetTop);
+                    e.preventDefault();
+                }
+            } else if ("watcherCallback" === e.type && e.detail) {
+                const entry = e.detail.entry;
+                const targetElement = entry.target;
+                if ("navigator" === targetElement.dataset.watch) {
+                    document.querySelector(`[data-goto]._navigator-active`);
+                    let navigatorCurrentItem;
+                    if (targetElement.id && document.querySelector(`[data-goto="#${targetElement.id}"]`)) navigatorCurrentItem = document.querySelector(`[data-goto="#${targetElement.id}"]`); else if (targetElement.classList.length) for (let index = 0; index < targetElement.classList.length; index++) {
+                        const element = targetElement.classList[index];
+                        if (document.querySelector(`[data-goto=".${element}"]`)) {
+                            navigatorCurrentItem = document.querySelector(`[data-goto=".${element}"]`);
+                            break;
+                        }
+                    }
+                    if (entry.isIntersecting) navigatorCurrentItem ? navigatorCurrentItem.classList.add("_navigator-active") : null; else navigatorCurrentItem ? navigatorCurrentItem.classList.remove("_navigator-active") : null;
+                }
+            }
+        }
+        if (getHash()) {
+            let goToHash;
+            if (document.querySelector(`#${getHash()}`)) goToHash = `#${getHash()}`; else if (document.querySelector(`.${getHash()}`)) goToHash = `.${getHash()}`;
+            goToHash ? gotoblock_gotoBlock(goToHash, true, 500, 20) : null;
+        }
+    }
     function headerScroll() {
         addWindowScrollEvent = true;
         const header = document.querySelector("header.header");
@@ -9000,9 +9177,6 @@
     };
     ScrollTrigger_getGSAP() && ScrollTrigger_gsap.registerPlugin(ScrollTrigger_ScrollTrigger);
     gsapWithCSS.registerPlugin(ScrollTrigger_ScrollTrigger);
-    window.onbeforeunload = function() {
-        window.scrollTo(0, 0);
-    };
     const header = document.querySelector("header.header");
     let headerOffsetHeight = header.offsetHeight;
     window.addEventListener("load", firstscreenResize);
@@ -9059,7 +9233,7 @@
     const personAbout = document.querySelectorAll(".person-about");
     if (personAbout.length) personAbout.forEach((element => {
         ScrollTrigger_ScrollTrigger.matchMedia({
-            "(min-width: 574.98px)": function() {
+            "(min-width: 319.98px)": function() {
                 let elementTL = gsapWithCSS.timeline({
                     scrollTrigger: {
                         trigger: element,
@@ -9079,7 +9253,7 @@
     const aboutImage = document.querySelector(".about__image-thumb");
     const aboutIndicators = document.querySelectorAll(".indicator-about");
     if (aboutRow) ScrollTrigger_ScrollTrigger.matchMedia({
-        "(min-width: 767.98px)": function() {
+        "(min-width: 319.98px)": function() {
             let aboutRowTL = gsapWithCSS.timeline({
                 scrollTrigger: {
                     trigger: aboutRow,
@@ -9100,10 +9274,32 @@
             }));
         }
     });
+    const script_form = document.getElementById("form");
+    script_form.addEventListener("submit", formSend);
+    async function formSend(e) {
+        e.preventDefault();
+        let formData = new FormData(script_form);
+        script_form.classList.add("_sending");
+        let response = await fetch("sendmail.php", {
+            method: "POST",
+            body: formData
+        });
+        if (response.ok) {
+            let result = await response.json();
+            alert(result.message);
+            script_form.reset();
+            script_form.classList.remove("_sending");
+        } else {
+            alert("Ошибка");
+            script_form.classList.remove("_sending");
+        }
+        console.log(formData);
+    }
     window["FLS"] = true;
     isWebp();
     menuInit();
     fullVHfix();
     spollers();
+    pageNavigation();
     headerScroll();
 })();

@@ -8,9 +8,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger.js';
 gsap.registerPlugin(ScrollTrigger);
 
 // Отправляемся в начало страницы при перезагрузке т.к. иначе неправильно считает координаты
-window.onbeforeunload = function () {
+/* window.onbeforeunload = function () {
     window.scrollTo(0, 0);
-}
+} */
 
 // подстраиваем размер первого экрана под шапку
 const header = document.querySelector('header.header');
@@ -103,7 +103,7 @@ const personAbout = document.querySelectorAll('.person-about');
 if (personAbout.length) {
     personAbout.forEach(element => {
         ScrollTrigger.matchMedia({
-            "(min-width: 574.98px)": function () {
+            "(min-width: 319.98px)": function () {
                 let elementTL = gsap.timeline({
                     scrollTrigger: {
                         trigger: element,
@@ -123,7 +123,7 @@ const aboutIndicators = document.querySelectorAll('.indicator-about');
 
 if (aboutRow) {
     ScrollTrigger.matchMedia({
-        "(min-width: 767.98px)": function () {
+        "(min-width: 319.98px)": function () {
             let aboutRowTL = gsap.timeline({
                 scrollTrigger: {
                     trigger: aboutRow,
@@ -141,4 +141,31 @@ if (aboutRow) {
             }
         }
     });
+}
+
+
+/* Отправка почты */
+const form = document.getElementById("form");
+
+form.addEventListener('submit', formSend);
+
+async function formSend(e) {
+    e.preventDefault();
+
+    let formData = new FormData(form);
+    form.classList.add('_sending');
+    let response = await fetch('sendmail.php', {
+        method: 'POST',
+        body: formData
+    })
+
+    if (response.ok) {
+        let result = await response.json();
+        alert(result.message);
+        form.reset();
+        form.classList.remove('_sending');
+    } else {
+        alert("Ошибка");
+        form.classList.remove('_sending');
+    }
 }

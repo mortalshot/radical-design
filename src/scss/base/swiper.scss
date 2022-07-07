@@ -33,3 +33,11 @@
 .swiper-button-lock {
 	display: none !important;
 }
+
+.swiper-grid > .swiper-wrapper {
+	flex-wrap: wrap;
+}
+/* .swiper-grid-column > .swiper-wrapper {
+	flex-wrap: wrap;
+	flex-direction: column;
+} */

@@ -6,7 +6,7 @@
 // Подключаем слайдер Swiper из node_modules
 // При необходимости подключаем дополнительные модули слайдера, указывая их в {} через запятую
 // Пример: { Navigation, Autoplay }
-import Swiper, { Pagination, Navigation } from 'swiper';
+import Swiper, { Pagination, Navigation, Grid } from 'swiper';
 /*
 Основниые модули слайдера:
 Navigation, Pagination, Autoplay, 
@@ -171,6 +171,44 @@ function initSliders() {
 
 			}
 		});
+	}
+	if (document.querySelector('.clients__slider')) { // Указываем скласс нужного слайдера
+
+		let clientSlider;
+
+		let clientsMd2 = window.matchMedia('(max-width: 767.98px)');
+		function clientsHandleMd2Change(e) {
+			if (e.matches) {
+				clientSlider = new Swiper('.clients__slider', {
+					modules: [Grid],
+					observer: true,
+					observeParents: true,
+					slidesPerView: 2,
+					// spaceBetween: 20,
+					autoHeight: false,
+					speed: 800,
+					watchOverflow: true,
+					grid: {
+						rows: 2,
+					},
+
+					// Брейкпоинты
+
+					breakpoints: {
+						474.98: {
+							slidesPerView: 3,
+						},
+					},
+
+					// События
+					on: {
+
+					}
+				});
+			}
+		}
+		clientsMd2.addEventListener('change', clientsHandleMd2Change);
+		clientsHandleMd2Change(clientsMd2);
 	}
 }
 // Скролл на базе слайдера (по классу swiper_scroll для оболочки слайдера)
