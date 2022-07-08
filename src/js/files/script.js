@@ -8,26 +8,28 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger.js';
 gsap.registerPlugin(ScrollTrigger);
 
 // Отправляемся в начало страницы при перезагрузке т.к. иначе неправильно считает координаты
-/* window.onbeforeunload = function () {
+window.onbeforeunload = function () {
     window.scrollTo(0, 0);
-} */
+}
 
 // подстраиваем размер первого экрана под шапку
 const header = document.querySelector('header.header');
 let headerOffsetHeight = header.offsetHeight;
 
-window.addEventListener('load', firstscreenResize)
-window.addEventListener('resize', firstscreenResize);
+const firstscreen = document.querySelector('._firstscreen');
+if (firstscreen) {
+    window.addEventListener('load', firstscreenResize)
+    window.addEventListener('resize', firstscreenResize);
 
-function firstscreenResize() {
-    const firstscreen = document.querySelector('.firstscreen');
-    headerOffsetHeight = header.offsetHeight
+    function firstscreenResize() {
+        headerOffsetHeight = header.offsetHeight
 
-    if (firstscreen) {
         firstscreen.style.marginTop = -headerOffsetHeight + 'px';
         firstscreen.style.paddingTop = headerOffsetHeight + 'px';
     }
 }
+
+
 
 // Обработка инпутов со счетчиком
 const counter = document.querySelectorAll('.counter');

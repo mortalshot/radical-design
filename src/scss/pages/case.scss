@@ -1,0 +1,92 @@
+// case-firstscreen ====================================================================================================
+.case-firstscreen {
+   position: relative;
+   color: $White;
+
+   // .case-firstscreen__bg
+   &__bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+      z-index: -1;
+   }
+
+   // .case-firstscreen__container
+   &__container {
+   }
+
+   // .case-firstscreen__text
+   &__text {
+      @include adaptiveValue("padding-top", 80, 40);
+      max-width: rem(621);
+
+      h1 {
+         @include adaptiveValue("font-size", 50, 28);
+         line-height: math.div(55, 50);
+      }
+   }
+}
+
+// case-details ====================================================================================================
+.case-details {
+   // .case-details__container
+   &__container {
+      display: grid;
+      @include adaptiveValue("row-gap", 100, 30);
+   }
+
+   // .case-details__item
+   &__item {
+   }
+}
+
+.item-details {
+   display: grid;
+   align-items: flex-start;
+   grid-template-columns: 1fr percent(780, 1180);
+   @include adaptiveValue("column-gap", 120, 20, 1440, 992, 1);
+
+   // .item-details__heading
+   &__heading {
+   }
+
+   // .item-details__caption
+   &__caption {
+      line-height: math.div(44, 40);
+      background: $Gradient;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      &:not(:last-child) {
+         @include adaptiveValue("margin-bottom", 72, 40);
+      }
+   }
+
+   // .item-details__indicators
+   &__indicators {
+      display: grid;
+      gap: rem(48);
+   }
+
+   // .item-details__indicator
+   &__indicator {
+   }
+
+   // .item-details__indicators-value
+   &__indicators-value {
+      @include adaptiveValue("font-size", 40, 18);
+      line-height: 1;
+   }
+
+   // .item-details__indicators-caption
+   &__indicators-caption {
+   }
+
+   // .item-details__body
+   &__body {
+   }
+}
