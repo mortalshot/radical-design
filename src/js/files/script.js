@@ -29,8 +29,6 @@ if (firstscreen) {
     }
 }
 
-
-
 // Обработка инпутов со счетчиком
 const counter = document.querySelectorAll('.counter');
 if (counter.length > 0) {

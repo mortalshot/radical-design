@@ -5,7 +5,7 @@
 */
 
 // Подключение функционала 
-import { isMobile, FLS } from "./functions.js";
+import { isMobile, FLS, bodyLock, bodyUnlock } from "./functions.js";
 // Подключение списка активных модулей
 import { flsModules } from "./modules.js";
 
@@ -48,7 +48,15 @@ if (galleries.length) {
 				speed: 500,
 			})
 		})
+
+		gallery.addEventListener('lgBeforeOpen', () => {
+			bodyLock();
+		});
+		gallery.addEventListener('lgBeforeClose', () => {
+			bodyUnlock();
+		});
 	});
+
 	// Добавляем в объект модулей
 	flsModules.gallery = galleyItems;
 }

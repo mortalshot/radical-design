@@ -2,7 +2,7 @@
     position: relative;
 
     .form__input {
-        padding-right: rem(80);
+        @include adaptiveValue("padding-right", 80, 60);
     }
 
     // .counter__wrapper

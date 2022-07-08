@@ -13,11 +13,14 @@ textarea {
 	&__input {
 		display: block;
 		width: 100%;
-		padding: rem(22) rem(20);
+		@include adaptiveValue("padding-top", 22, 16);
+		@include adaptiveValue("padding-bottom", 22, 16);
+		@include adaptiveValue("padding-left", 20, 16);
+		@include adaptiveValue("padding-right", 20, 16);
 		border-bottom: rem(1) solid $DGrey;
 		border-radius: 0 !important;
 		font-weight: 500;
-		font-size: rem(18);
+		@include adaptiveValue("font-size", 18, 16);
 		line-height: math.div(20, 18);
 		color: $mainColor;
 		transition: $transition ease border-color 0s;
