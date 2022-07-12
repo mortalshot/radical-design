@@ -103,9 +103,12 @@ export function headerScroll() {
 					// upscroll code
 					!header.classList.contains('_header-show') ? header.classList.add('_header-show') : null;
 				}
-				/* timer = setTimeout(() => {
-					!header.classList.contains('_header-show') ? header.classList.add('_header-show') : null;
-				}, headerShowTimer); */
+
+				if (!isMobile.any()) {
+					timer = setTimeout(() => {
+						!header.classList.contains('_header-show') ? header.classList.add('_header-show') : null;
+					}, headerShowTimer);
+				}
 			}
 		} else {
 			header.classList.contains('_header-scroll') ? header.classList.remove('_header-scroll') : null;

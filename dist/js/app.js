@@ -549,7 +549,7 @@
             let headerItemHeight = 0;
             if (noHeader) {
                 headerItem = "header.header";
-                headerItemHeight = document.querySelector(headerItem).offsetHeight;
+                headerItemHeight = 0;
             }
             let options = {
                 speedAsDuration: true,
@@ -4163,7 +4163,7 @@
         addWindowScrollEvent = true;
         const header = document.querySelector("header.header");
         const headerShow = header.hasAttribute("data-scroll-show");
-        header.dataset.scrollShow && header.dataset.scrollShow;
+        const headerShowTimer = header.dataset.scrollShow ? header.dataset.scrollShow : 500;
         const startPoint = header.dataset.scroll ? header.dataset.scroll : 1;
         let headerOffsetHeight = header.offsetHeight;
         const mainPage = document.querySelector("main.page");
@@ -4178,7 +4178,12 @@
                 !header.classList.contains("_header-scroll") ? header.classList.add("_header-scroll") : null;
                 header.dataset.lp = "0";
                 mainPage.style.paddingTop = headerOffsetHeight + "px";
-                if (headerShow) if (scrollTop > scrollDirection) header.classList.contains("_header-show") ? header.classList.remove("_header-show") : null; else !header.classList.contains("_header-show") ? header.classList.add("_header-show") : null;
+                if (headerShow) {
+                    if (scrollTop > scrollDirection) header.classList.contains("_header-show") ? header.classList.remove("_header-show") : null; else !header.classList.contains("_header-show") ? header.classList.add("_header-show") : null;
+                    if (!isMobile.any()) timer = setTimeout((() => {
+                        !header.classList.contains("_header-show") ? header.classList.add("_header-show") : null;
+                    }), headerShowTimer);
+                }
             } else {
                 header.classList.contains("_header-scroll") ? header.classList.remove("_header-scroll") : null;
                 delete header.dataset.lp;

@@ -222,7 +222,6 @@
 		position: relative;
 		z-index: 2;
 		cursor: pointer;
-		padding: rem(26.5) rem(23);
 		@include adaptiveValue("padding-top", 26.5, 18.5);
 		@include adaptiveValue("padding-bottom", 26.5, 18.5);
 		@include adaptiveValue("padding-left", 23, 15);
@@ -232,8 +231,11 @@
 			transition: $transition ease padding, $transition margin 0s;
 
 			&:hover {
-				padding: rem(32.5) rem(29);
 				margin: rem(-6);
+				@include adaptiveValue("padding-top", 32.5, 24.5);
+				@include adaptiveValue("padding-bottom", 32.5, 24.5);
+				@include adaptiveValue("padding-left", 29, 21);
+				@include adaptiveValue("padding-right", 29, 21);
 
 				span {
 					width: 50%;
@@ -248,7 +250,7 @@
 		right: 0;
 		background-color: $White;
 		box-shadow: 0px 4px 34px rgba(0, 0, 0, 0.1);
-		transition: 0.5s ease top 0s;
+		transition: 0.5s ease top, $transition opacity 0s;
 
 		.header__contact {
 			color: $mainColor;
@@ -283,16 +285,41 @@
 
 	&._header-show {
 		top: 0;
-		padding: rem(15) 0;
+		@include adaptiveValue("padding-top", 15, 8);
+		@include adaptiveValue("padding-bottom", 15, 8);
+
+		@media (any-hover: hover) {
+			opacity: 0;
+
+			&:hover {
+				opacity: 1;
+			}
+		}
 
 		.header__logo {
-			max-width: rem(57);
+			@include adaptiveValue("max-width", 57, 40);
 
 			.logo__image_black {
 				display: block;
 			}
 			.logo__image_white {
 				display: none;
+			}
+		}
+
+		.header__burger {
+			@include adaptiveValue("padding-top", 26.5, 13.5);
+			@include adaptiveValue("padding-bottom", 26.5, 13.5);
+			@include adaptiveValue("padding-left", 23, 10);
+			@include adaptiveValue("padding-right", 23, 10);
+
+			@media (any-hover: hover) {
+				&:hover {
+					@include adaptiveValue("padding-top", 32.5, 19.5);
+					@include adaptiveValue("padding-bottom", 32.5, 19.5);
+					@include adaptiveValue("padding-left", 29, 16);
+					@include adaptiveValue("padding-right", 29, 16);
+				}
 			}
 		}
 	}
@@ -306,6 +333,7 @@
 
 	.header {
 		z-index: 150;
+		opacity: 1;
 
 		// .header__contacts
 		&__contacts {
