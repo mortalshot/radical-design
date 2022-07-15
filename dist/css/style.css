@@ -3374,7 +3374,6 @@ video {
 }
 .addresses__row {
   display: grid;
-  grid-template-columns: 1fr 48.4848484848%;
 }
 @supports (column-gap: clamp( 1.25rem , 0.3928571429rem  +  1.7857142857vw , 2rem )) {
   .addresses__row {
@@ -3384,6 +3383,11 @@ video {
 @supports not (column-gap: clamp( 1.25rem , 0.3928571429rem  +  1.7857142857vw , 2rem )) {
   .addresses__row {
     column-gap: calc(1.25rem + 0.75 * (100vw - 48rem) / 42);
+  }
+}
+@media (min-width: 35.93625em) {
+  .addresses__row {
+    grid-template-columns: 1fr 48.4848484848%;
   }
 }
 @media (min-width: 61.99875em) {
@@ -3456,6 +3460,14 @@ video {
   padding-bottom: 80.4411764706%;
   border-radius: 25rem 0.0625rem 0.0625rem 25rem;
   overflow: hidden;
+  filter: grayscale(0.7);
+}
+@media (max-width: 35.93625em) {
+  .addresses__map {
+    grid-row: 1/2;
+    padding-bottom: 17.75rem;
+    border-radius: 0;
+  }
 }
 .addresses__map::before {
   position: absolute;
@@ -3467,6 +3479,12 @@ video {
   height: 100%;
   background: rgba(75, 89, 115, 0.19);
   pointer-events: none;
+  border-radius: 25rem 0.0625rem 0.0625rem 25rem;
+}
+@media (max-width: 35.93625em) {
+  .addresses__map::before {
+    border-radius: 0;
+  }
 }
 .addresses__map img {
   position: absolute;
@@ -3483,9 +3501,14 @@ video {
   left: 0;
   right: 0;
   display: block;
-  width: 100%;
-  height: 100%;
+  width: 100% !important;
+  height: 100% !important;
   border-radius: 25rem 0.0625rem 0.0625rem 25rem;
+}
+@media (max-width: 35.93625em) {
+  .addresses__map iframe {
+    border-radius: 0;
+  }
 }
 @media (any-hover: hover) {
   .addresses a.addresses__map {
