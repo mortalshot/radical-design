@@ -1818,7 +1818,7 @@ video {
 }
 .menu-open .header {
   z-index: 150;
-  opacity: 1;
+  opacity: 1 !important;
 }
 @media (min-width: 35.93625em) {
   .menu-open .header__contacts {
@@ -3386,9 +3386,14 @@ video {
     column-gap: calc(1.25rem + 0.75 * (100vw - 48rem) / 42);
   }
 }
+@media (min-width: 46.49875em) {
+  .addresses__row {
+    grid-template-columns: 1fr 42.3728813559%;
+  }
+}
 @media (min-width: 61.99875em) {
   .addresses__row {
-    grid-template-columns: 1fr 57.6271186441%;
+    grid-template-columns: 1fr 50%;
   }
 }
 @media (max-width: 35.93625em) {

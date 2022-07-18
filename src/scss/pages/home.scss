@@ -1079,10 +1079,11 @@ a.item-portfolio {
         @include adaptiveValue("column-gap", 32, 20, 1440, 768, 1);
         grid-template-columns: 1fr percent(320, 660);
 
-        @media (min-width: $mobileM) {
+        @media (min-width: $mobile) {
+            grid-template-columns: 1fr percent(500, 1180);
         }
         @media (min-width: $tablet) {
-            grid-template-columns: 1fr percent(680, 1180);
+            grid-template-columns: 1fr percent(590, 1180);
         }
         @media (max-width: $mobileM) {
             row-gap: rem(32);

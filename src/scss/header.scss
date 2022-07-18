@@ -333,7 +333,7 @@
 
 	.header {
 		z-index: 150;
-		opacity: 1;
+		opacity: 1 !important;
 
 		// .header__contacts
 		&__contacts {

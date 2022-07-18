@@ -170,6 +170,33 @@ async function formSend(e) {
     }
 }
 
+const callBackform = document.querySelector(".callback__form form");
+
+if (callBackform) {
+    callBackform.addEventListener('submit', callBackformSend);
+
+    async function callBackformSend(e) {
+        e.preventDefault();
+
+        let formData = new FormData(callBackform);
+        callBackform.classList.add('_sending');
+        let response = await fetch('sendmail.php', {
+            method: 'POST',
+            body: formData
+        })
+
+        if (response.ok) {
+            let result = await response.json();
+            alert(result.message);
+            callBackform.reset();
+            callBackform.classList.remove('_sending');
+        } else {
+            alert("Ошибка");
+            callBackform.classList.remove('_sending');
+        }
+    }
+}
+
 /* Отключаем скролл у яндекс карты */
 /* var map = document.querySelector('#map-wrap iframe')
 if (map) {
