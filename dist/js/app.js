@@ -11033,10 +11033,6 @@ PERFORMANCE OF THIS SOFTWARE.
             script_form.classList.remove("_sending");
         }
     }
-    document.addEventListener("click", (function(e) {
-        var map = document.querySelector("#map-wrap iframe");
-        if ("map-wrap" === e.target.id) map.style.pointerEvents = "all"; else map.style.pointerEvents = "none";
-    }));
     window["FLS"] = true;
     isWebp();
     menuInit();

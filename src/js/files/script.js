@@ -171,11 +171,13 @@ async function formSend(e) {
 }
 
 /* Отключаем скролл у яндекс карты */
-document.addEventListener('click', function (e) {
-    var map = document.querySelector('#map-wrap iframe')
-    if (e.target.id === 'map-wrap') {
-        map.style.pointerEvents = 'all'
-    } else {
-        map.style.pointerEvents = 'none'
-    }
-})
+/* var map = document.querySelector('#map-wrap iframe')
+if (map) {
+    document.addEventListener('click', function (e) {
+        if (e.target.id === 'map-wrap') {
+            map.style.pointerEvents = 'all'
+        } else {
+            map.style.pointerEvents = 'none'
+        }
+    })
+} */
