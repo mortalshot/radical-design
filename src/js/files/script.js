@@ -218,18 +218,19 @@ if (portfolioBtn) {
 
     portfolioBtn.addEventListener('click', function () {
         let hiddenRow = document.querySelector('.portfolio__items_hidden');
+
         if (hiddenRow) {
-            setTimeout(() => {
-                if (click % 2 == 1) {
-                    portfolioBtn.innerHTML = "Скрыть";
-                } else {
-                    portfolioBtn.innerHTML = "Показать еще";
-                }
+            if (click % 2 == 1) {
+                hiddenRow.style.display = "grid";
+                _slideDown(hiddenRow);
+                portfolioBtn.innerHTML = "Скрыть";
+            } else {
+                hiddenRow.style.display = "";
+                _slideUp(hiddenRow);
+                portfolioBtn.innerHTML = "Показать еще";
+            }
 
-                click++;
-            }, 100);
-
-            _slideToggle(hiddenRow);
+            click++;
         }
     })
 }

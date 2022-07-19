@@ -2479,6 +2479,16 @@ video {
 .portfolio__items-wrapper .portfolio__items {
   width: 100%;
 }
+@supports (gap: clamp( 0.5rem , 0.2303370787rem  +  1.3483146067vw , 1.25rem )) {
+  .portfolio__items-wrapper .portfolio__items_hidden {
+    gap: clamp( 0.5rem , 0.2303370787rem  +  1.3483146067vw , 1.25rem );
+  }
+}
+@supports not (gap: clamp( 0.5rem , 0.2303370787rem  +  1.3483146067vw , 1.25rem )) {
+  .portfolio__items-wrapper .portfolio__items_hidden {
+    gap: calc(0.5rem + 0.75 * (100vw - 20rem) / 55.625);
+  }
+}
 @supports (margin-bottom: clamp( 1.5rem , 0.6011235955rem  +  4.4943820225vw , 4rem )) {
   .portfolio__items-wrapper:not(:last-child) {
     margin-bottom: clamp( 1.5rem , 0.6011235955rem  +  4.4943820225vw , 4rem );

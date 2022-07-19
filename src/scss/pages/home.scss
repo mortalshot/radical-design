@@ -321,6 +321,10 @@
 
         .portfolio__items {
             width: 100%;
+
+            &_hidden {
+                @include adaptiveValue("gap", 20, 8);
+            }
         }
 
         &:not(:last-child) {
