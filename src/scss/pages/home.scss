@@ -321,10 +321,6 @@
 
         .portfolio__items {
             width: 100%;
-
-            &_hidden {
-                display: none;
-            }
         }
 
         &:not(:last-child) {

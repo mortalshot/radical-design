@@ -1,5 +1,5 @@
 // Подключение функционала 
-import { isMobile, _slideDown, _slideUp } from "./functions.js";
+import { isMobile, _slideDown, _slideUp, _slideToggle } from "./functions.js";
 // Подключение списка активных модулей
 import { flsModules } from "./modules.js";
 
@@ -147,26 +147,28 @@ if (aboutRow) {
 /* Отправка почты */
 const form = document.getElementById("form");
 
-form.addEventListener('submit', formSend);
+if (form) {
+    form.addEventListener('submit', formSend);
 
-async function formSend(e) {
-    e.preventDefault();
+    async function formSend(e) {
+        e.preventDefault();
 
-    let formData = new FormData(form);
-    form.classList.add('_sending');
-    let response = await fetch('sendmail.php', {
-        method: 'POST',
-        body: formData
-    })
+        let formData = new FormData(form);
+        form.classList.add('_sending');
+        let response = await fetch('sendmail.php', {
+            method: 'POST',
+            body: formData
+        })
 
-    if (response.ok) {
-        let result = await response.json();
-        alert(result.message);
-        form.reset();
-        form.classList.remove('_sending');
-    } else {
-        alert("Ошибка");
-        form.classList.remove('_sending');
+        if (response.ok) {
+            let result = await response.json();
+            alert(result.message);
+            form.reset();
+            form.classList.remove('_sending');
+        } else {
+            alert("Ошибка");
+            form.classList.remove('_sending');
+        }
     }
 }
 
@@ -212,16 +214,22 @@ if (map) {
 /* Портфолио. Показать еще */
 const portfolioBtn = document.querySelector('.portfolio__btn button');
 if (portfolioBtn) {
-    portfolioBtn.addEventListener('click', function () {
-        let hiddenRow = document.querySelector('.portfolio__items.portfolio__items_hidden');
-        if (hiddenRow) {
-            _slideDown(hiddenRow);
-            hiddenRow.classList.remove('portfolio__items_hidden');
+    let click = 1;
 
-            hiddenRow = document.querySelector('.portfolio__items_hidden');
-            if (hiddenRow == null) {
-                _slideUp(document.querySelector('.portfolio__btn'));
-            }
+    portfolioBtn.addEventListener('click', function () {
+        let hiddenRow = document.querySelector('.portfolio__items_hidden');
+        if (hiddenRow) {
+            setTimeout(() => {
+                if (click % 2 == 1) {
+                    portfolioBtn.innerHTML = "Скрыть";
+                } else {
+                    portfolioBtn.innerHTML = "Показать еще";
+                }
+
+                click++;
+            }, 100);
+
+            _slideToggle(hiddenRow);
         }
     })
 }

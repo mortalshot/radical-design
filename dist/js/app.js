@@ -11014,23 +11014,25 @@ PERFORMANCE OF THIS SOFTWARE.
         }
     });
     const script_form = document.getElementById("form");
-    script_form.addEventListener("submit", formSend);
-    async function formSend(e) {
-        e.preventDefault();
-        let formData = new FormData(script_form);
-        script_form.classList.add("_sending");
-        let response = await fetch("sendmail.php", {
-            method: "POST",
-            body: formData
-        });
-        if (response.ok) {
-            let result = await response.json();
-            alert(result.message);
-            script_form.reset();
-            script_form.classList.remove("_sending");
-        } else {
-            alert("Ошибка");
-            script_form.classList.remove("_sending");
+    if (script_form) {
+        script_form.addEventListener("submit", formSend);
+        async function formSend(e) {
+            e.preventDefault();
+            let formData = new FormData(script_form);
+            script_form.classList.add("_sending");
+            let response = await fetch("sendmail.php", {
+                method: "POST",
+                body: formData
+            });
+            if (response.ok) {
+                let result = await response.json();
+                alert(result.message);
+                script_form.reset();
+                script_form.classList.remove("_sending");
+            } else {
+                alert("Ошибка");
+                script_form.classList.remove("_sending");
+            }
         }
     }
     const callBackform = document.querySelector(".callback__form form");
@@ -11056,15 +11058,19 @@ PERFORMANCE OF THIS SOFTWARE.
         }
     }
     const portfolioBtn = document.querySelector(".portfolio__btn button");
-    if (portfolioBtn) portfolioBtn.addEventListener("click", (function() {
-        let hiddenRow = document.querySelector(".portfolio__items.portfolio__items_hidden");
-        if (hiddenRow) {
-            _slideDown(hiddenRow);
-            hiddenRow.classList.remove("portfolio__items_hidden");
-            hiddenRow = document.querySelector(".portfolio__items_hidden");
-            if (null == hiddenRow) _slideUp(document.querySelector(".portfolio__btn"));
-        }
-    }));
+    if (portfolioBtn) {
+        let click = 1;
+        portfolioBtn.addEventListener("click", (function() {
+            let hiddenRow = document.querySelector(".portfolio__items_hidden");
+            if (hiddenRow) {
+                setTimeout((() => {
+                    if (click % 2 == 1) portfolioBtn.innerHTML = "Скрыть"; else portfolioBtn.innerHTML = "Показать еще";
+                    click++;
+                }), 100);
+                _slideToggle(hiddenRow);
+            }
+        }));
+    }
     window["FLS"] = true;
     isWebp();
     menuInit();

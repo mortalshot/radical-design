@@ -2479,9 +2479,6 @@ video {
 .portfolio__items-wrapper .portfolio__items {
   width: 100%;
 }
-.portfolio__items-wrapper .portfolio__items_hidden {
-  display: none;
-}
 @supports (margin-bottom: clamp( 1.5rem , 0.6011235955rem  +  4.4943820225vw , 4rem )) {
   .portfolio__items-wrapper:not(:last-child) {
     margin-bottom: clamp( 1.5rem , 0.6011235955rem  +  4.4943820225vw , 4rem );
