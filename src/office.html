@@ -1,82 +1,27 @@
 <!DOCTYPE html>
 <html lang="ru">
 @@include('html/_head.htm',{
-"title":"Главная"
+"title":"RadicalDesign | Создаем и воплощаем умные офисные пространства"
 })
 
 <body>
    <div class="wrapper">
       @@include('html/_header.htm',{})
       <main class="page">
-         <section id="firstscreen" class="firstscreen _firstscreen" data-fullscreen>
-            <picture>
-               <!-- <source srcset="@img/pages/office/firstscreen-2-1.jpg" media="(min-width: 575px)"> -->
-               <img src="@img/pages/office/firstscreen-2-1.jpg" alt="" class="firstscreen__bg" loading="lazy">
-            </picture>
 
-            <div class="firstscreen__container">
-               <div class="firstscreen__wrapper">
-                  <div class="firstscreen__text _content">
-                     <h1>Разрабатываем дизайн офисов и других объектов</h1>
-                  </div>
-                  <div class="firstscreen__actions">
-                     <button type="button" class="firstscreen__btn btn btn_bg" data-popup="#request">Бесплатная консультация</button>
-                  </div>
 
-                  <div class="firstscreen__social social">
-                     <a href="https://instagram.com/radical_design_studio" class="social__item _icon-instagram" target="_blank"></a>
-                     <a href="https://vk.com/radicaldesign" class="social__item _icon-vk" target="_blank"></a>
-                     <a href="https://www.behance.net/radicaldesign" class="social__item _icon-behance" target="_blank"></a>
-                     <a href="https://telegram.me/+79219402144" class="social__item _icon-telegram" target="_blank"></a>
-                  </div>
-               </div>
-            </div>
-         </section>
+         @@include('html/firstscreen.htm',{
+         "image":"img/pages/office/firstscreen-2-1.jpg",
+         "title":"Создаем и воплощаем умные офисные пространства",
+         "btn":"Обсудить проект"
+         })
 
-         <section id="about" class="about">
-            <div class="about__container">
-               <h2 class="about__title">Привет!</h2>
+         @@include('html/about.htm',{
+            "title":"Здравствуйте!",
+            "text":""
+         })
 
-               <div class="about__top-row">
-                  <div class="about__text _content">
-                     <p>Мы – архитектурное бюро полного цикла из&nbsp;Санкт-Петербурга, но&nbsp;работаем по&nbsp;всему миру – от&nbsp;проекта до&nbsp;ремонта «под&nbsp;ключ». Благодаря авторскому подходу мы создаем и&nbsp;воплощаем не&nbsp;просто интерьеры, а&nbsp;индивидуальные живые пространства, отражающие именно Ваш стиль жизни и&nbsp;соответствующие именно Вашим задачам.</p>
-                  </div>
-
-                  <div class="about__persons">
-                     <div class="about__person person-about">
-                        <div class="person-about__avatar"><img src="@img/pages/home/about-1-1.jpg" alt="" loading="lazy"></div>
-                        <div class="person-about__body">
-                           <div class="person-about__quote _content">
-                              <p>Наш профессиональный почерк &nbsp;— это эстетика, функциональность пространства и ответственность за проект</p>
-                           </div>
-                           <div class="person-about__heading">
-                              <div class="person-about__name">Никита Репин</div>
-                              <div class="person-about__position">Основатель</div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-
-               <div class="about__bottom-row">
-                  <div class="about__image">
-                     <img src="@img/pages/office/about-2-2.jpg" alt="" loading="lazy">
-                     <div class="about__image-thumb"></div>
-                  </div>
-
-                  <div class="about__indicators">
-                     <div class="about__indicator indicator-about">
-                        <div class="indicator-about__value">10</div>
-                        <div class="indicator-about__caption">Лет опыта</div>
-                     </div>
-                     <div class="about__indicator indicator-about">
-                        <div class="indicator-about__value">50+</div>
-                        <div class="indicator-about__caption">Лет опыта</div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </section>
+         <p>Мы – архитектурное бюро полного цикла из Санкт-Петербурга, но работаем по всему миру – от проекта до ремонта «под ключ».</p>
 
          <section id="portfolio" class="portfolio">
             <div class="portfolio__heading _content">

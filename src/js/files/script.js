@@ -1,5 +1,5 @@
 // Подключение функционала 
-import { isMobile } from "./functions.js";
+import { isMobile, _slideDown, _slideUp } from "./functions.js";
 // Подключение списка активных модулей
 import { flsModules } from "./modules.js";
 
@@ -208,3 +208,20 @@ if (map) {
         }
     })
 } */
+
+/* Портфолио. Показать еще */
+const portfolioBtn = document.querySelector('.portfolio__btn button');
+if (portfolioBtn) {
+    portfolioBtn.addEventListener('click', function () {
+        let hiddenRow = document.querySelector('.portfolio__items.portfolio__items_hidden');
+        if (hiddenRow) {
+            _slideDown(hiddenRow);
+            hiddenRow.classList.remove('portfolio__items_hidden');
+
+            hiddenRow = document.querySelector('.portfolio__items_hidden');
+            if (hiddenRow == null) {
+                _slideUp(document.querySelector('.portfolio__btn'));
+            }
+        }
+    })
+}

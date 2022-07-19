@@ -12,30 +12,11 @@
 	<div class="wrapper">
 		@@include('html/_header.htm',{})
 		<main class="page">
-			<section id="firstscreen" class="firstscreen _firstscreen" data-fullscreen>
-				<picture>
-					<source srcset="@img/pages/home/firstscreen-1-1.jpg" media="(min-width: 575px)">
-					<img src="@img/pages/home/firstscreen-1-2.jpg" alt="" class="firstscreen__bg" loading="lazy">
-				</picture>
-
-				<div class="firstscreen__container">
-					<div class="firstscreen__wrapper">
-						<div class="firstscreen__text _content">
-							<h1>Создаём и воплощаем живые интерьеры</h1>
-						</div>
-						<div class="firstscreen__actions">
-							<button type="button" class="firstscreen__btn btn btn_bg" data-popup="#request">Бесплатная консультация</button>
-						</div>
-
-						<div class="firstscreen__social social">
-							<a href="https://instagram.com/radical_design_studio" class="social__item _icon-instagram" target="_blank"></a>
-							<a href="https://vk.com/radicaldesign" class="social__item _icon-vk" target="_blank"></a>
-							<a href="https://www.behance.net/radicaldesign" class="social__item _icon-behance" target="_blank"></a>
-							<a href="https://telegram.me/+79219402144" class="social__item _icon-telegram" target="_blank"></a>
-						</div>
-					</div>
-				</div>
-			</section>
+			@@include('html/firstscreen.htm',{
+			"image":"img/pages/home/firstscreen-1-1.jpg",
+			"title":"Создаём и воплощаем живые интерьеры",
+			"btn":"Бесплатная консультация"
+			})
 
 			<section id="about" class="about">
 				<div class="about__container">
@@ -90,86 +71,93 @@
 				</div>
 
 				<div class="portfolio__wrapper">
-					<div class="portfolio__items">
-						<a href="single-portfolio.html" class="portfolio__item item-portfolio">
-							<div class="item-portfolio__img"><img src="@img/pages/case/case-firstscreen-1-2.jpg" alt="" loading="lazy"></div>
-							<div class="item-portfolio__body">
-								<div class="item-portfolio__descr">Малая Морская 55 м2</div>
-								<div class="item-portfolio__caption">Дизайн апартаментов</div>
-							</div>
-						</a>
-						<a href="single-portfolio2.html" class="portfolio__item item-portfolio">
-							<div class="item-portfolio__img"><img src="@img/pages/case/case-details-2-1.jpg" alt="" loading="lazy"></div>
-							<div class="item-portfolio__body">
-								<div class="item-portfolio__descr"> п. Шушары 90 м2</div>
-								<div class="item-portfolio__caption">Контрастная квартира с высокими потолками</div>
-							</div>
-						</a>
-						<a href="single-portfolio3.html" class="portfolio__item item-portfolio">
-							<div class="item-portfolio__img"><img src="@img/pages/case/case-details-3-5.jpg" alt="" loading="lazy"></div>
-							<div class="item-portfolio__body">
-								<div class="item-portfolio__descr">Пентхаус 1000 м2</div>
-								<div class="item-portfolio__caption">Уникальный панорамный объект</div>
-							</div>
-						</a>
-						<a href="single-portfolio4.html" class="portfolio__item item-portfolio">
-							<div class="item-portfolio__img"><img src="@img/pages/case/case-details-4-3.jpg" alt="" loading="lazy"></div>
-							<div class="item-portfolio__body">
-								<div class="item-portfolio__descr">Апартаменты 105 м2</div>
-								<div class="item-portfolio__caption">Двухэтажные апартаменты с исторической лестницей</div>
-							</div>
-						</a>
-						<a href="single-portfolio5.html" class="portfolio__item item-portfolio">
-							<div class="item-portfolio__img"><img src="@img/pages/case/case-details-5-1.jpg" alt="" loading="lazy"></div>
-							<div class="item-portfolio__body">
-								<div class="item-portfolio__descr">Ул. Московская 40 м2</div>
-								<div class="item-portfolio__caption">Апартаменты в теплых тонах</div>
-							</div>
-						</a>
-						<a href="single-portfolio6.html" class="portfolio__item item-portfolio">
-							<div class="item-portfolio__img"><img src="@img/pages/case/case-details-6-1.jpg" alt="" loading="lazy"></div>
-							<div class="item-portfolio__body">
-								<div class="item-portfolio__descr">Квартира на ул. Кирочной 53 м2</div>
-								<div class="item-portfolio__caption">Светлые интерьеры для молодой девушки</div>
-							</div>
-						</a>
-						<a href="single-portfolio7.html" class="portfolio__item item-portfolio">
-							<div class="item-portfolio__img"><img src="@img/pages/case/case-details-7-1.jpg" alt="" loading="lazy"></div>
-							<div class="item-portfolio__body">
-								<div class="item-portfolio__descr">Квартира в п. Металлострой 45 м2</div>
-								<div class="item-portfolio__caption">Интерьер для пары с ребенком</div>
-							</div>
-						</a>
-						<!-- <a href="single-portfolio8.html" class="portfolio__item item-portfolio">
-							<div class="item-portfolio__img"><img src="@img/pages/case/case-details-8-1.jpg" alt="" loading="lazy"></div>
-							<div class="item-portfolio__body">
-								<div class="item-portfolio__descr">Апартаменты в ЖК «Гранд Фамилия» 90 м2</div>
-								<div class="item-portfolio__caption">Бруталистские апартаменты</div>
-							</div>
-						</a> -->
-						<a href="single-portfolio9.html" class="portfolio__item item-portfolio">
-							<div class="item-portfolio__img"><img src="@img/pages/case/case-details-9-1.jpg" alt="" loading="lazy"></div>
-							<div class="item-portfolio__body">
-								<div class="item-portfolio__descr">Квартира в ЖК «Премьер Палас» 132 м2</div>
-								<div class="item-portfolio__caption">Панорамные интерьеры для взрослой пары</div>
-							</div>
-						</a>
-						<a href="single-portfolio10.html" class="portfolio__item item-portfolio">
-							<div class="item-portfolio__img"><img src="@img/pages/case/case-details-10-1.jpg" alt="" loading="lazy"></div>
-							<div class="item-portfolio__body">
-								<div class="item-portfolio__descr">Квартира в Москве 70 м2</div>
-								<div class="item-portfolio__caption">Классические интерьеры для семьи с ребенком</div>
-							</div>
-						</a>
-						<a href="single-portfolio11.html" class="portfolio__item item-portfolio">
-							<div class="item-portfolio__img"><img src="@img/pages/case/case-details-11-1.jpg" alt="" loading="lazy"></div>
-							<div class="item-portfolio__body">
-								<div class="item-portfolio__descr">Апартаменты 90 м2</div>
-								<div class="item-portfolio__caption">Апартаменты на мансарде исторического здания</div>
-							</div>
-						</a>
+					<!-- При интеграции убрать оболочку portfolio__items-wrapper -->
+					<div class="portfolio__items-wrapper">
+						<div class="portfolio__items">
+							<a href="single-portfolio.html" class="portfolio__item item-portfolio">
+								<div class="item-portfolio__img"><img src="@img/pages/case/case-firstscreen-1-2.jpg" alt="" loading="lazy"></div>
+								<div class="item-portfolio__body">
+									<div class="item-portfolio__descr">Малая Морская 55 м2</div>
+									<div class="item-portfolio__caption">Дизайн апартаментов</div>
+								</div>
+							</a>
+							<a href="single-portfolio2.html" class="portfolio__item item-portfolio">
+								<div class="item-portfolio__img"><img src="@img/pages/case/case-details-2-1.jpg" alt="" loading="lazy"></div>
+								<div class="item-portfolio__body">
+									<div class="item-portfolio__descr"> п. Шушары 90 м2</div>
+									<div class="item-portfolio__caption">Контрастная квартира с высокими потолками</div>
+								</div>
+							</a>
+							<a href="single-portfolio3.html" class="portfolio__item item-portfolio">
+								<div class="item-portfolio__img"><img src="@img/pages/case/case-details-3-5.jpg" alt="" loading="lazy"></div>
+								<div class="item-portfolio__body">
+									<div class="item-portfolio__descr">Пентхаус 1000 м2</div>
+									<div class="item-portfolio__caption">Уникальный панорамный объект</div>
+								</div>
+							</a>
+							<a href="single-portfolio4.html" class="portfolio__item item-portfolio">
+								<div class="item-portfolio__img"><img src="@img/pages/case/case-details-4-3.jpg" alt="" loading="lazy"></div>
+								<div class="item-portfolio__body">
+									<div class="item-portfolio__descr">Апартаменты 105 м2</div>
+									<div class="item-portfolio__caption">Двухэтажные апартаменты с исторической лестницей</div>
+								</div>
+							</a>
+						</div>
+						<div class="portfolio__items portfolio__items_hidden">
+							<a href="single-portfolio5.html" class="portfolio__item item-portfolio">
+								<div class="item-portfolio__img"><img src="@img/pages/case/case-details-5-1.jpg" alt="" loading="lazy"></div>
+								<div class="item-portfolio__body">
+									<div class="item-portfolio__descr">Ул. Московская 40 м2</div>
+									<div class="item-portfolio__caption">Апартаменты в теплых тонах</div>
+								</div>
+							</a>
+							<a href="single-portfolio6.html" class="portfolio__item item-portfolio">
+								<div class="item-portfolio__img"><img src="@img/pages/case/case-details-6-1.jpg" alt="" loading="lazy"></div>
+								<div class="item-portfolio__body">
+									<div class="item-portfolio__descr">Квартира на ул. Кирочной 53 м2</div>
+									<div class="item-portfolio__caption">Светлые интерьеры для молодой девушки</div>
+								</div>
+							</a>
+							<a href="single-portfolio7.html" class="portfolio__item item-portfolio">
+								<div class="item-portfolio__img"><img src="@img/pages/case/case-details-7-1.jpg" alt="" loading="lazy"></div>
+								<div class="item-portfolio__body">
+									<div class="item-portfolio__descr">Квартира в п. Металлострой 45 м2</div>
+									<div class="item-portfolio__caption">Интерьер для пары с ребенком</div>
+								</div>
+							</a>
+							<!-- <a href="single-portfolio8.html" class="portfolio__item item-portfolio">
+								<div class="item-portfolio__img"><img src="@img/pages/case/case-details-8-1.jpg" alt="" loading="lazy"></div>
+								<div class="item-portfolio__body">
+									<div class="item-portfolio__descr">Апартаменты в ЖК «Гранд Фамилия» 90 м2</div>
+									<div class="item-portfolio__caption">Бруталистские апартаменты</div>
+								</div>
+							</a> -->
+							<a href="single-portfolio9.html" class="portfolio__item item-portfolio">
+								<div class="item-portfolio__img"><img src="@img/pages/case/case-details-9-1.jpg" alt="" loading="lazy"></div>
+								<div class="item-portfolio__body">
+									<div class="item-portfolio__descr">Квартира в ЖК «Премьер Палас» 132 м2</div>
+									<div class="item-portfolio__caption">Панорамные интерьеры для взрослой пары</div>
+								</div>
+							</a>
+						</div>
+						<div class="portfolio__items portfolio__items_hidden">
+							<a href="single-portfolio10.html" class="portfolio__item item-portfolio">
+								<div class="item-portfolio__img"><img src="@img/pages/case/case-details-10-1.jpg" alt="" loading="lazy"></div>
+								<div class="item-portfolio__body">
+									<div class="item-portfolio__descr">Квартира в Москве 70 м2</div>
+									<div class="item-portfolio__caption">Классические интерьеры для семьи с ребенком</div>
+								</div>
+							</a>
+							<a href="single-portfolio11.html" class="portfolio__item item-portfolio">
+								<div class="item-portfolio__img"><img src="@img/pages/case/case-details-11-1.jpg" alt="" loading="lazy"></div>
+								<div class="item-portfolio__body">
+									<div class="item-portfolio__descr">Апартаменты 90 м2</div>
+									<div class="item-portfolio__caption">Апартаменты на мансарде исторического здания</div>
+								</div>
+							</a>
+						</div>
 					</div>
-					<!-- <div class="portfolio__btn"><button class="btn btn_border">Показать ещё</button></div> -->
+					<div class="portfolio__btn"><button class="btn btn_border">Показать ещё</button></div>
 				</div>
 
 				<div class="portfolio__cta cta">

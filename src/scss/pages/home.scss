@@ -313,6 +313,25 @@
     &__wrapper {
     }
 
+    /* Удалить при интеграции на cms */
+    // .portfolio__items-wrapper
+    &__items-wrapper {
+        display: grid;
+        @include adaptiveValue("gap", 20, 8);
+
+        .portfolio__items {
+            width: 100%;
+
+            &_hidden {
+                display: none;
+            }
+        }
+
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 64, 24);
+        }
+    }
+
     // .portfolio__items
     &__items {
         display: grid;
@@ -325,9 +344,9 @@
             grid-template-columns: repeat(2, 1fr);
         }
 
-        &:not(:last-child) {
+        /* &:not(:last-child) {
             @include adaptiveValue("margin-bottom", 64, 24);
-        }
+        } */
     }
 
     // .portfolio__item
@@ -348,6 +367,10 @@
             .btn {
                 width: 100%;
             }
+        }
+
+        &[hidden] {
+            display: none; 
         }
     }
 
@@ -1165,7 +1188,6 @@ a.item-portfolio {
                 border-radius: 0;
             }
         }
-        
 
         img {
             position: absolute;

@@ -11055,6 +11055,16 @@ PERFORMANCE OF THIS SOFTWARE.
             }
         }
     }
+    const portfolioBtn = document.querySelector(".portfolio__btn button");
+    if (portfolioBtn) portfolioBtn.addEventListener("click", (function() {
+        let hiddenRow = document.querySelector(".portfolio__items.portfolio__items_hidden");
+        if (hiddenRow) {
+            _slideDown(hiddenRow);
+            hiddenRow.classList.remove("portfolio__items_hidden");
+            hiddenRow = document.querySelector(".portfolio__items_hidden");
+            if (null == hiddenRow) _slideUp(document.querySelector(".portfolio__btn"));
+        }
+    }));
     window["FLS"] = true;
     isWebp();
     menuInit();
