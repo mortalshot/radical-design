@@ -49,3 +49,51 @@
 		</div>
 	</div>
 </div>
+
+<div id="job-posting" aria-hidden="true" class="popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close _icon-close"></button>
+			<div class="popup__text">
+				<div class="popup__heading _content">
+					<h4 class="title-h4">Откликнуться</h4>
+				</div>
+
+				<form id="form" action="" class="form">
+					<div class="form__row">
+						<div class="form__item col-12">
+							<input id="job-posting-name" autocomplete="off" type="text" name="job-posting-name" class="form__input" placeholder="Имя" required>
+						</div>
+						<div class="form__item col-12">
+							<input id="job-posting-phone" autocomplete="off" type="text" name="job-posting-phone" class="form__input form__input_phone" placeholder="+7 000 000 00 00" required>
+						</div>
+						<div class="form__item col-12">
+							<input id="job-posting-email" autocomplete="off" type="email" name="job-posting-email" class="form__input" placeholder="Почта" required>
+						</div>
+						<div class="form__item col-12">
+							<div class="counter">
+								<textarea autocomplete="off" name="job-posting-question" placeholder="Ваш вопрос" class="form__input" rows="1" maxlength="200"></textarea>
+								<div class="counter__wrapper">
+									<span class="counter__current">0</span> / <span class="counter__required">200</span>
+								</div>
+							</div>
+						</div>
+						<div class="form__item col-12">
+							<div class="file">
+								<span class="wpcf7-form-control-wrap" data-name="your-file"><input type="file" name="your-file" size="40" class="wpcf7-form-control wpcf7-file file__input" accept="audio/*,video/*,image/*" aria-invalid="false"></span>
+								<div class="file__button _icon-upload"><span>Приложить план помещения</span></div>
+							</div>
+						</div>
+					</div>
+					<div class="form__submit">
+						<input type="submit" value="Оставить заявку" class="wpcf7-form-control has-spinner wpcf7-submit btn btn_bg">
+						<span class="wpcf7-spinner"></span>
+					</div>
+					<div class="form__privacy _content">
+						<p>Нажимая на кнопку “Оставить заявку”, вы соглашайтесь с <a href="">политикой конфиденциальности</a></p>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,52 @@
+.file {
+   position: relative;
+   cursor: pointer;
+
+   @media (any-hover: hover) {
+      &:hover {
+         .file__button {
+            span {
+               text-decoration: underline transparent from-font;
+            }
+         }
+      }
+   }
+
+   // .file__input
+   &__input,
+   .wpcf7-form-control-wrap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      font-size: 0;
+      cursor: pointer;
+   }
+
+   // .file__button
+   &__button {
+      @include adaptiveValue("font-size", 16, 14);
+      line-height: 110%;
+      display: flex;
+      align-items: center;
+
+      span {
+         text-decoration: underline $mainColor from-font;
+         text-underline-offset: 3px;
+         transition: $transition ease text-decoration 0s;
+      }
+
+      &::before {
+         margin-right: rem(8);
+         @include adaptiveValue("font-size", 24, 20);
+      }
+   }
+}
+
+#job-posting {
+   .file {
+      margin-top: rem(16);
+   }
+}

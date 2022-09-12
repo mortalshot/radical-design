@@ -2,6 +2,7 @@
 .footer {
     background-color: #4b5060;
     color: $White;
+    overflow: hidden;
 
     // .footer__container
     &__container {
@@ -50,7 +51,7 @@
                     align-items: flex-start;
                     row-gap: rem(12);
 
-                    @include adaptiveValue("font-size", 16, 13, 1440, 768, 1);
+                    @include adaptiveValue("font-size", 16, 13, 1440, 744, 1);
                 }
             }
         }
@@ -61,7 +62,7 @@
         @media (min-width: $mobile) {
             display: inline-block;
             font-weight: 700;
-            @include adaptiveValue("font-size", 16, 14, 1440, 768, 1);
+            @include adaptiveValue("font-size", 16, 14, 1440, 744, 1);
             line-height: math.div(22, 16);
             color: rgba($color: $White, $alpha: 0.5);
 
@@ -101,7 +102,7 @@
 
             // .contacts__item
             &__item {
-                @include adaptiveValue("font-size", 16, 13, 1440, 768, 1);
+                @include adaptiveValue("font-size", 16, 13, 1440, 744, 1);
 
                 @media (max-width: $mobileM) {
                     display: grid;

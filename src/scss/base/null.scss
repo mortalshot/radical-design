@@ -22,7 +22,7 @@ body {
 	min-width: $minWidth + px;
 }
 body {
-	font-family: $fontFamily;
+	font-family: $fontFamily, sans-serif;
 	font-weight: 500;
 	@include adaptiveValue("font-size", 14, 12);
 	line-height: math.div(21, 14);
@@ -37,7 +37,7 @@ body {
 input,
 button,
 textarea {
-	font-family: $fontFamily;
+	font-family: $fontFamily, sans-serif;
 	font-size: inherit;
 }
 button {

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('html/_head.htm',{
+"title":"Страница не найдена"
+})
+
+<body class="error404">
+   <div class="wrapper">
+      @@include('html/_header.htm',{})
+      <main id="swup" class="page transition-fade">
+         <section class="error _firstscreen">
+            <div class="error__container">
+               <div class="error__wrapper">
+                  <div class="error__image"><img src="@img/pages/error.svg" alt="" loading="lazy"></div>
+                  <h1 class="error__title">Что-то пошло не так</h1>
+                  <div class="error__text _content">
+                     <p>Данная страница не найдена. Воспользуйтесь меню, чтобы найти нужную вам страницу или вернить на гланую.</p>
+                  </div>
+                  <div class="error__button"><a href="frontpage.html" class="btn btn_bg">Вернуться на главную</a></div>
+               </div>
+            </div>
+         </section>
+      </main>
+      @@include('html/_footer.htm',{})
+   </div>
+   @@include('html/_popup.htm',{})
+   @@include('html/_js.htm',{})
+</body>
+
+</html>

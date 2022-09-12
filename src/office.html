@@ -7,129 +7,94 @@
 <body>
    <div class="wrapper">
       @@include('html/_header.htm',{})
-      <main class="page">
-
-
+      <main id="swup" class="page transition-fade">
          @@include('html/firstscreen.htm',{
          "image":"img/pages/office/firstscreen-2-1.jpg",
          "title":"Создаем и воплощаем умные офисные пространства",
          "btn":"Обсудить проект"
          })
 
-         @@include('html/about.htm',{
-            "title":"Здравствуйте!",
-            "text":""
-         })
+         <section id="about" class="about">
+            <div class="about__container">
+               <h2 class="about__title">Здравствуйте!</h2>
 
-         <p>Мы – архитектурное бюро полного цикла из Санкт-Петербурга, но работаем по всему миру – от проекта до ремонта «под ключ».</p>
+               <div class="about__top-row">
+                  <div class="about__text _content">
+                     <p>Мы – архитектурное бюро полного цикла из Санкт-Петербурга, но работаем по всему миру – от проекта до ремонта «под ключ».</p>
+                     <p>Мы предлагаем авторский подход к дизайну и архитектуре – художественная ценность и стиль, подкрепленные новейшими технологиями проектирования и последними исследованиями в области организации офисных пространств. Создаем и воплощаем умные офисы в форматах agile, open space или кабинетно-коридорной системы. В наших проектах мы всегда учитываем специфику компании, рабочий траффик, особенности коммуникации между отделами и корпоративный стиль.</p>
+                  </div>
 
-         <section id="portfolio" class="portfolio">
-            <div class="portfolio__heading _content">
-               <div class="portfolio__container">
-                  <h2 style="text-align: center;">Выполненые проекты</h2>
+                  <div class="about__persons">
+                     <div class="about__person person-about">
+                        <div class="person-about__avatar"><img src="@img/pages/home/about-1-1.jpg" alt="" loading="lazy"></div>
+                        <div class="person-about__body">
+                           <div class="person-about__quote _content">
+                              <p>Наш профессиональный почерк &nbsp;— это эстетика, функциональность пространства и ответственность за проект</p>
+                           </div>
+                           <div class="person-about__heading">
+                              <div class="person-about__name">Никита Репин</div>
+                              <div class="person-about__position">Основатель</div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
                </div>
-            </div>
 
-            <div class="portfolio__wrapper">
-               <div class="portfolio__items">
-                  <a href="single-portfolio.html" class="portfolio__item item-portfolio">
-                     <div class="item-portfolio__img"><img src="@img/pages/office/portfolio-2-1.jpg" alt="" loading="lazy"></div>
-                     <div class="item-portfolio__body">
-                        <div class="item-portfolio__descr">п. Металлострой 45 м2</div>
-                        <div class="item-portfolio__caption">Интерьер для пары в стиле минимализм</div>
-                     </div>
-                  </a>
-                  <a href="single-portfolio.html" class="portfolio__item item-portfolio">
-                     <div class="item-portfolio__img"><img src="@img/pages/office/portfolio-2-2.jpg" alt="" loading="lazy"></div>
-                     <div class="item-portfolio__body">
-                        <div class="item-portfolio__descr"> п. Металлострой 45 м2 п. Металлострой 45 м2</div>
-                        <div class="item-portfolio__caption">Интерьер для пары в стиле минимализм нтерьер для пары в стиле минимализм Интерьер для пары в стиле минимализм нтерьер для пары в стиле минимализм</div>
-                     </div>
-                  </a>
-                  <a href="single-portfolio.html" class="portfolio__item item-portfolio">
-                     <div class="item-portfolio__img"><img src="@img/pages/office/portfolio-2-1.jpg" alt="" loading="lazy"></div>
-                     <div class="item-portfolio__body">
-                        <div class="item-portfolio__descr">п. Металлострой 45 м2</div>
-                        <div class="item-portfolio__caption">Интерьер для пары</div>
-                     </div>
-                  </a>
-                  <a href="single-portfolio.html" class="portfolio__item item-portfolio">
-                     <div class="item-portfolio__img"><img src="@img/pages/office/portfolio-2-2.jpg" alt="" loading="lazy"></div>
-                     <div class="item-portfolio__body">
-                        <div class="item-portfolio__caption">Интерьер для пары в стиле минимализм</div>
-                     </div>
-                  </a>
-               </div>
-               <div class="portfolio__btn"><button class="btn btn_border">Показать ещё</button></div>
-            </div>
+               <div class="about__bottom-row">
+                  <div class="about__image">
+                     <img src="@img/pages/office/about-2-2.jpg" alt="" loading="lazy">
+                     <div class="about__image-thumb"></div>
+                  </div>
 
-            <div class="portfolio__cta cta">
-               <div class="portfolio__container">
-                  <div class="cta__text _content">
-                     <h3>Хочу так же! <br> Давайте обсудим Ваш проект!</h3>
-                  </div>
-                  <div class="cta__button"><button class="btn btn_bg" data-popup="#request">Заказать звонок</button></div>
-               </div>
-            </div>
-         </section>
-
-         <section id="features" class="features">
-            <div class="features__container">
-               <h2 class="features__title">Почему мы?</h2>
-
-               <div class="features__items">
-                  <div class="features__item item-feature">
-                     <div class="item-feature__icon"><img src="@img/pages/home/features-1-1.svg" alt="" loading="lazy"></div>
-                     <div class="item-feature__caption">С нами удобно работать</div>
-                     <div class="item-feature__text _content">
-                        <p>Мы даем гарантию на&nbsp;проект до&nbsp;1&nbsp;года <br>
-                           Все условия и&nbsp;стоимость зафиксированы в&nbsp;договоре и&nbsp;не&nbsp;меняются, а&nbsp;цены – не&nbsp;растут <br>
-                           Мы полностью сопровождаем проект и&nbsp;остаемся на&nbsp;связи 24/7</p>
+                  <div class="about__indicators">
+                     <div class="about__indicator indicator-about">
+                        <div class="indicator-about__value">10</div>
+                        <div class="indicator-about__caption">Лет опыта</div>
                      </div>
-                  </div>
-                  <div class="features__item item-feature">
-                     <div class="item-feature__icon"><img src="@img/pages/home/features-1-2.svg" alt="" loading="lazy"></div>
-                     <div class="item-feature__caption">Простой путь к&nbsp;Вашему новоселью</div>
-                     <div class="item-feature__text _content">
-                        <p>Работать с&nbsp;дизайн-бюро кажется сложным, не&nbsp;понятно, как&nbsp;строится работа, и&nbsp;за&nbsp;что Вы платите деньги, что&nbsp;потом делать с&nbsp;красивыми картинками? Все проще, чем кажется. Мы делаем не&nbsp;картинки, а&nbsp;полностью ведем проект. </p>
-                     </div>
-                  </div>
-                  <div class="features__item item-feature">
-                     <div class="item-feature__icon"><img src="@img/pages/home/features-1-3.svg" alt="" loading="lazy"></div>
-                     <div class="item-feature__caption">Мы профессионалы с 10-летним опытом</div>
-                     <div class="item-feature__text _content">
-                        <p>Наши сотрудники не просто дизайнеры, закончившие курсы, а профессиональные архитекторы, за плечами которых не один десяток проектов. Мы можем все — от проектирования здания технопарка до дизайна мебели (у нас есть и такой опыт). Поэтому мы можем предложить лучшие и нетривиальные решения.</p>
-                     </div>
-                  </div>
-                  <div class="features__item item-feature">
-                     <div class="item-feature__icon"><img src="@img/pages/home/features-1-4.svg" alt="" loading="lazy"></div>
-                     <div class="item-feature__caption">Авторский подход ко всем проектам</div>
-                     <div class="item-feature__text _content">
-                        <p>Мы работаем по&nbsp;системе Private project&nbsp;— одновременно берем не&nbsp;более 3-х заказов в&nbsp;месяц и&nbsp;делаем так, как&nbsp;для&nbsp;себя. Мы не&nbsp;используем готовые решения и&nbsp;не&nbsp;повторяемся в&nbsp;дизайне. Поэтому каждый проект выверен до&nbsp;мельчайших деталей и&nbsp;обладает своим собственным, запоминающимся стилем.</p>
-                     </div>
-                  </div>
-                  <div class="features__item item-feature">
-                     <div class="item-feature__icon"><img src="@img/pages/home/features-1-5.svg" alt="" loading="lazy"></div>
-                     <div class="item-feature__caption">Мы создаем живые пространства</div>
-                     <div class="item-feature__text _content">
-                        <p>Каждая идея – это не&nbsp;просто красивая картинка, а&nbsp;комплекс из&nbsp;выверенной архитектурой эргономики и&nbsp;современного дизайна, которые влияют на&nbsp;стоимость строительства и&nbsp;удобство будущего жилья.</p>
-                     </div>
-                  </div>
-                  <div class="features__item item-feature">
-                     <div class="item-feature__icon"><img src="@img/pages/home/features-1-6.svg" alt="" loading="lazy"></div>
-                     <div class="item-feature__caption">Говорим на&nbsp;одном языке</div>
-                     <div class="item-feature__text _content">
-                        Проект должен приносить удовольствие, а&nbsp;коммуникация – быть легкой и&nbsp;понятной. Поэтому мы подробно отвечаем на&nbsp;все вопросы, даем разъяснения по&nbsp;каждому этапу и&nbsp;предлагаем лучшие решения.
+                     <div class="about__indicator indicator-about">
+                        <div class="indicator-about__value">50+</div>
+                        <div class="indicator-about__caption">Успешных проектов</div>
                      </div>
                   </div>
                </div>
             </div>
          </section>
 
-         <section id="clients" class="clients">
+         <section id="timeline" class="timeline">
+            <div class="timeline__container">
+               <div class="timeline__heading _content">
+                  <h3>В нашем портфеле более <br>
+                     50 успешных проектов, которые завоевали признание в профессиональных конкурсах:</h3>
+               </div>
+
+               <ul class="timeline__list">
+                  <li class="timeline__item _content" data-date="2021 год">
+                     <p>Номинант престижного конкурса Best office-2021 в категории «Мини-офис» с проектом FK-ramps</p>
+                  </li>
+                  <li class="timeline__item _content" data-date="2019 год">
+                     <p>Победитель международной конференция «Офис.СПб» в номинации «Лучший обучающий офис» с проектом LoftSpace</p>
+                  </li>
+                  <li class="timeline__item _content" data-date="2018 год">
+                     <p>Международная профессиональная премия ADD AWARDS за реализацию “Офиса на мансарде” и “Офиса американской ИТ компании RingCentral”</p>
+                  </li>
+                  <li class="timeline__item _content" data-date="2015 год">
+                     <p>Участники шорт-листа по разработке идеи выставочного стенда Tile of Spain для выставки BATIMAT RUSSIA</p>
+                     <p>Получили диплом за участие в международном конкурсе “Новое пространство “Росатома”, проект попал в топ 10 лучших проектов из 500 представленных (4 место)</p>
+                  </li>
+                  <li class="timeline__item _content" data-date="2013 год">
+                     <p>Участники шорт-листа международного конкурса FLEX OFFICE 2013 с темой: “Рабочее место для Open Space”</p>
+                  </li>
+                  <li class="timeline__item _content" data-date="2010 год">
+                     <p>Победители всероссийского конкурса “Архитектурный образ России” в номинации “Объект “Зеленого строительства”</p>
+                  </li>
+               </ul>
+            </div>
+         </section>
+
+         <section id="clients" class="clients" style="background-color: #eaeef2">
             <div class="clients__container">
                <div class="clients__heading _content">
-                  <h2>Наши клиенты</h2>
+                  <h2>Нам доверяют</h2>
                </div>
 
                <div class="clients__slider swiper">
@@ -151,365 +116,410 @@
             </div>
          </section>
 
-         <section id="tariffs" class="tariffs">
-            <div class="tariffs__container">
-               <div class="tariffs__heading _content">
-                  <h2>Сколько это стоит?</h2>
-                  <p>Мы предлагаем три варианта пакетных предложений на&nbsp;выбор</p>
+         <section id="portfolio" class="portfolio">
+            <div class="portfolio__heading _content">
+               <div class="portfolio__container">
+                  <h2 style="text-align: center;">Выполненые проекты</h2>
                </div>
+            </div>
 
-               <div class="tariffs__table table">
-                  <table>
-                     <thead>
-                        <tr>
-                           <th>Услуги</th>
-                           <th>Под ключ</th>
-                           <th>Дизайн PRO</th>
-                           <th>Идея заказчика</th>
-                        </tr>
-                     </thead>
-                     <tbody>
-                        <tr>
-                           <td class="_content">
-                              <p>Предварительный этап:</p>
-                              <ul>
-                                 <li>- Выезд на&nbsp;объект, обмеры, фотофиксация</li>
-                                 <li>- Сбор и&nbsp;анализ исходных данных по&nbsp;объекту</li>
-                                 <li>- Составление/уточнение задания на&nbsp;проектирование</li>
-                              </ul>
-                           </td>
-                           <td class="_content">
-                              <i class="_icon-check"></i>
-                           </td>
-                           <td class="_content">
-                              <i class="_icon-check"></i>
-                           </td>
-                           <td class="_content">
-                              <i class="_icon-check"></i>
-                           </td>
-                        </tr>
-                        <tr>
-                           <td class="_content">
-                              <p>Дизайн: </p>
-                              <ul>
-                                 <li>- Разработка планировочных решений (анализ существующей, при необходимости внесение корректировок, но&nbsp;по&nbsp;согласованию с&nbsp;Заказчиком)</li>
-                                 <li>- Концепция дизайна интерьеров в&nbsp;виде эскизов, мудбордов, схем, референсов (на выбор Исполнителя) (до 2х вариантов)</li>
-                                 <li>- Предварительный подбор материалов, мебели, освещения и&nbsp;пр. с&nbsp;калькуляцией стоимости комплектации объекта</li>
-                              </ul>
-                           </td>
-                           <td class="_content">
-                              <p>2-3 варианта концепции, неограниченное кол-во правок</p>
-                           </td>
-                           <td class="_content">
-                              <p>2-3 варианта концепции, не более 3 итераций правок</p>
-                           </td>
-                           <td class="_content">
-                              <p>Реализация идеи заказчика, 3 итерации правок</p>
-                           </td>
-                        </tr>
-                        <tr>
-                           <td class="_content">
-                              <p>Визуализации всех зон проектирования </p>
-                           </td>
-                           <td class="_content">
-                              <p>3D или VR</p>
-                           </td>
-                           <td class="_content">
-                              <p>3D (VR за доп. плату)</p>
-                           </td>
-                           <td class="_content">
-                              <p>3D (VR за доп. плату)</p>
-                           </td>
-                        </tr>
-                        <tr>
-                           <td class="_content">
-                              <p>Разработка рабочей документации </p>
-                           </td>
-                           <td class="_content">
-                              <i class="_icon-check"></i>
-                           </td>
-                           <td class="_content">
-                              <i class="_icon-check"></i>
-                           </td>
-                           <td class="_content">
-                              <i class="_icon-check"></i>
-                           </td>
-                        </tr>
-                        <tr>
-                           <td class="_content">
-                              <p>Авторский надзор (1-2 выезда в неделю) </p>
-                           </td>
-                           <td class="_content">
-                              <i class="_icon-check"></i>
-                           </td>
-                           <td class="_content">
-                              <i class="_icon-check"></i>
-                           </td>
-                           <td class="_content">
-                              <i class="_icon-negative"></i>
-                           </td>
-                        </tr>
-                        <tr>
-                           <td class="_content">
-                              <p>Комплектация, разработка эскизов мебели </p>
-                           </td>
-                           <td class="_content">
-                              <i class="_icon-check"></i>
-                           </td>
-                           <td class="_content">
-                              <p>При необходимости</p>
-                           </td>
-                           <td class="_content">
-                              <i class="_icon-negative"></i>
-                           </td>
-                        </tr>
-                        <tr>
-                           <td class="_content">
-                              <p>Реализация проекта (управление строительством, строительно-отделочные работы) </p>
-                           </td>
-                           <td class="_content">
-                              <i class="_icon-check"></i>
-                           </td>
-                           <td class="_content">
-                              <i class="_icon-negative"></i>
-                           </td>
-                           <td class="_content">
-                              <i class="_icon-negative"></i>
-                           </td>
-                        </tr>
-                     </tbody>
-                  </table>
-               </div>
-
-               <div class="tariffs__slider swiper">
-                  <div class="tariffs__wrapper swiper-wrapper">
-                     <div class="tariffs__slide tariff-slide swiper-slide">
-                        <div class="tariff-slide__caption">Под ключ</div>
-                        <div class="tariff-slide__row">
-                           <div class="tariff-slide__key">Предварительный этап:</div>
-                           <div class="tariff-slide__value _content">
-                              <i class="_icon-check"></i>
-                           </div>
+            <div class="portfolio__wrapper">
+               <!-- При интеграции убрать оболочку portfolio__items-wrapper -->
+               <div class="portfolio__items-wrapper">
+                  <div class="portfolio__items">
+                     <a href="single-portfolio.html" class="portfolio__item item-portfolio">
+                        <div class="item-portfolio__img"><img src="@img/pages/case/case-firstscreen-1-2.jpg" alt="" loading="lazy"></div>
+                        <div class="item-portfolio__body">
+                           <div class="item-portfolio__descr">Малая Морская 55 м2</div>
+                           <div class="item-portfolio__caption">Дизайн апартаментов</div>
                         </div>
-                        <div class="tariff-slide__row">
-                           <div class="tariff-slide__key">Дизайн:</div>
-                           <div class="tariff-slide__value _content">
-                              <p>2-3 варианта концепции, неограниченное кол-во правок</p>
-                           </div>
+                     </a>
+                     <a href="single-portfolio2.html" class="portfolio__item item-portfolio">
+                        <div class="item-portfolio__img"><img src="@img/pages/case/case-details-2-1.jpg" alt="" loading="lazy"></div>
+                        <div class="item-portfolio__body">
+                           <div class="item-portfolio__descr"> п. Шушары 90 м2</div>
+                           <div class="item-portfolio__caption">Контрастная квартира с высокими потолками</div>
                         </div>
-                        <div class="tariff-slide__row">
-                           <div class="tariff-slide__key">Визуализации всех зон проектирования </div>
-                           <div class="tariff-slide__value _content">
-                              <p>3D или VR</p>
-                           </div>
+                     </a>
+                     <a href="single-portfolio3.html" class="portfolio__item item-portfolio">
+                        <div class="item-portfolio__img"><img src="@img/pages/case/case-details-3-5.jpg" alt="" loading="lazy"></div>
+                        <div class="item-portfolio__body">
+                           <div class="item-portfolio__descr">Пентхаус 1000 м2</div>
+                           <div class="item-portfolio__caption">Уникальный панорамный объект</div>
                         </div>
-                        <div class="tariff-slide__row">
-                           <div class="tariff-slide__key">Разработка рабочей документации</div>
-                           <div class="tariff-slide__value _content">
-                              <i class="_icon-check"></i>
-                           </div>
+                     </a>
+                     <a href="single-portfolio4.html" class="portfolio__item item-portfolio">
+                        <div class="item-portfolio__img"><img src="@img/pages/case/case-details-4-3.jpg" alt="" loading="lazy"></div>
+                        <div class="item-portfolio__body">
+                           <div class="item-portfolio__descr">Апартаменты 105 м2</div>
+                           <div class="item-portfolio__caption">Двухэтажные апартаменты с исторической лестницей</div>
                         </div>
-                        <div class="tariff-slide__row">
-                           <div class="tariff-slide__key">Авторский надзор (1-2 выезда в неделю)</div>
-                           <div class="tariff-slide__value _content">
-                              <i class="_icon-check"></i>
+                     </a>
+                  </div>
+                  <div class="portfolio__items_hidden" hidden>
+                     <div class="portfolio__items">
+                        <a href="single-portfolio5.html" class="portfolio__item item-portfolio">
+                           <div class="item-portfolio__img"><img src="@img/pages/case/case-details-5-1.jpg" alt="" loading="lazy"></div>
+                           <div class="item-portfolio__body">
+                              <div class="item-portfolio__descr">Ул. Московская 40 м2</div>
+                              <div class="item-portfolio__caption">Апартаменты в теплых тонах</div>
                            </div>
-                        </div>
-                        <div class="tariff-slide__row">
-                           <div class="tariff-slide__key">Комплектация, разработка эскизов мебели </div>
-                           <div class="tariff-slide__value _content">
-                              <i class="_icon-check"></i>
+                        </a>
+                        <a href="single-portfolio6.html" class="portfolio__item item-portfolio">
+                           <div class="item-portfolio__img"><img src="@img/pages/case/case-details-6-1.jpg" alt="" loading="lazy"></div>
+                           <div class="item-portfolio__body">
+                              <div class="item-portfolio__descr">Квартира на ул. Кирочной 53 м2</div>
+                              <div class="item-portfolio__caption">Светлые интерьеры для молодой девушки</div>
                            </div>
-                        </div>
-                        <div class="tariff-slide__row">
-                           <div class="tariff-slide__key">Реализация проекта </div>
-                           <div class="tariff-slide__value _content">
-                              <i class="_icon-check"></i>
+                        </a>
+                        <a href="single-portfolio7.html" class="portfolio__item item-portfolio">
+                           <div class="item-portfolio__img"><img src="@img/pages/case/case-details-7-1.jpg" alt="" loading="lazy"></div>
+                           <div class="item-portfolio__body">
+                              <div class="item-portfolio__descr">Квартира в п. Металлострой 45 м2</div>
+                              <div class="item-portfolio__caption">Интерьер для пары с ребенком</div>
                            </div>
-                        </div>
-                     </div>
-                     <div class="tariffs__slide tariff-slide swiper-slide">
-                        <div class="tariff-slide__caption">Дизайн PRO</div>
-                        <div class="tariff-slide__row">
-                           <div class="tariff-slide__key">Предварительный этап:</div>
-                           <div class="tariff-slide__value _content">
-                              <i class="_icon-check"></i>
+                        </a>
+                        <a href="single-portfolio9.html" class="portfolio__item item-portfolio">
+                           <div class="item-portfolio__img"><img src="@img/pages/case/case-details-9-1.jpg" alt="" loading="lazy"></div>
+                           <div class="item-portfolio__body">
+                              <div class="item-portfolio__descr">Квартира в ЖК «Премьер Палас» 132 м2</div>
+                              <div class="item-portfolio__caption">Панорамные интерьеры для взрослой пары</div>
                            </div>
-                        </div>
-                        <div class="tariff-slide__row">
-                           <div class="tariff-slide__key">Дизайн:</div>
-                           <div class="tariff-slide__value _content">
-                              <p>2-3 варианта концепции, не более 3 итераций правок</p>
+                        </a>
+                        <a href="single-portfolio10.html" class="portfolio__item item-portfolio">
+                           <div class="item-portfolio__img"><img src="@img/pages/case/case-details-10-1.jpg" alt="" loading="lazy"></div>
+                           <div class="item-portfolio__body">
+                              <div class="item-portfolio__descr">Квартира в Москве 70 м2</div>
+                              <div class="item-portfolio__caption">Классические интерьеры для семьи с ребенком</div>
                            </div>
-                        </div>
-                        <div class="tariff-slide__row">
-                           <div class="tariff-slide__key">Визуализации всех зон проектирования </div>
-                           <div class="tariff-slide__value _content">
-                              <p>3D (VR за доп. плату)</p>
+                        </a>
+                        <a href="single-portfolio11.html" class="portfolio__item item-portfolio">
+                           <div class="item-portfolio__img"><img src="@img/pages/case/case-details-11-1.jpg" alt="" loading="lazy"></div>
+                           <div class="item-portfolio__body">
+                              <div class="item-portfolio__descr">Апартаменты 90 м2</div>
+                              <div class="item-portfolio__caption">Апартаменты на мансарде исторического здания</div>
                            </div>
-                        </div>
-                        <div class="tariff-slide__row">
-                           <div class="tariff-slide__key">Разработка рабочей документации</div>
-                           <div class="tariff-slide__value _content">
-                              <i class="_icon-check"></i>
-                           </div>
-                        </div>
-                        <div class="tariff-slide__row">
-                           <div class="tariff-slide__key">Авторский надзор (1-2 выезда в неделю)</div>
-                           <div class="tariff-slide__value _content">
-                              <i class="_icon-check"></i>
-                           </div>
-                        </div>
-                        <div class="tariff-slide__row">
-                           <div class="tariff-slide__key">Комплектация, разработка эскизов мебели </div>
-                           <div class="tariff-slide__value _content">
-                              <p>При необходимости</p>
-                           </div>
-                        </div>
-                        <div class="tariff-slide__row">
-                           <div class="tariff-slide__key">Реализация проекта </div>
-                           <div class="tariff-slide__value _content">
-                              <i class="_icon-negative"></i>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="tariffs__slide tariff-slide swiper-slide">
-                        <div class="tariff-slide__caption">Идея заказчика</div>
-                        <div class="tariff-slide__row">
-                           <div class="tariff-slide__key">Предварительный этап:</div>
-                           <div class="tariff-slide__value _content">
-                              <i class="_icon-check"></i>
-                           </div>
-                        </div>
-                        <div class="tariff-slide__row">
-                           <div class="tariff-slide__key">Дизайн:</div>
-                           <div class="tariff-slide__value _content">
-                              <p>Реализация идеи заказчика, 3 итерации правок</p>
-                           </div>
-                        </div>
-                        <div class="tariff-slide__row">
-                           <div class="tariff-slide__key">Визуализации всех зон проектирования </div>
-                           <div class="tariff-slide__value _content">
-                              <p>3D (VR за доп. плату)</p>
-                           </div>
-                        </div>
-                        <div class="tariff-slide__row">
-                           <div class="tariff-slide__key">Разработка рабочей документации</div>
-                           <div class="tariff-slide__value _content">
-                              <i class="_icon-check"></i>
-                           </div>
-                        </div>
-                        <div class="tariff-slide__row">
-                           <div class="tariff-slide__key">Авторский надзор (1-2 выезда в неделю)</div>
-                           <div class="tariff-slide__value _content">
-                              <i class="_icon-negative"></i>
-                           </div>
-                        </div>
-                        <div class="tariff-slide__row">
-                           <div class="tariff-slide__key">Комплектация, разработка эскизов мебели </div>
-                           <div class="tariff-slide__value _content">
-                              <i class="_icon-negative"></i>
-                           </div>
-                        </div>
-                        <div class="tariff-slide__row">
-                           <div class="tariff-slide__key">Реализация проекта </div>
-                           <div class="tariff-slide__value _content">
-                              <i class="_icon-negative"></i>
-                           </div>
-                        </div>
+                        </a>
                      </div>
                   </div>
-                  <div class="swiper-pagination"></div>
                </div>
+               <div class="portfolio__btn"><button class="btn btn_border">Показать ещё</button></div>
+            </div>
 
-               <div class="tariffs__cta cta">
+            <div class="portfolio__cta cta">
+               <div class="portfolio__container">
                   <div class="cta__text _content">
-                     <h3>Остались вопросы? <br> Давайте обсудим Ваш проект!</h3>
+                     <h3>Хотите так же? <br>
+                        Давайте обсудим Ваш проект!</h3>
                   </div>
                   <div class="cta__button"><button class="btn btn_bg" data-popup="#request">Заказать звонок</button></div>
                </div>
             </div>
          </section>
 
-         <section id="reviews" class="reviews">
-            <div class="reviews__slider swiper">
-               <div class="reviews__heading">
-                  <h2 class="reviews__title">Рекомендации</h2>
+         <section id="features" class="features">
+            <div class="features__container">
+               <h2 class="features__title">Почему мы?</h2>
 
-                  <div class="swiper__arrows">
-                     <button class="swiper__arrow swiper__arrow_left _icon-slider-right"></button>
-                     <button class="swiper__arrow swiper__arrow_right _icon-slider-right"></button>
-                  </div>
-               </div>
-               <div class="reviews__wrapper swiper-wrapper">
-                  <div class="reviews__slide review-slide swiper-slide">
-                     <div class="review-slide__text _content">
-                        <p>Мы сотрудничали с&nbsp;Radical design в&nbsp;2017&nbsp;году. Проект- трёх комнатная квартира. Очень понравился подход Radical design! Работают на&nbsp;совесть, на&nbsp;первое место ставят интересы заказчика и&nbsp;сохранность бюджета, что&nbsp;не&nbsp;маловажно! Благодаря подбору хорошей бригады и&nbsp;авторскому и&nbsp;техническому надзору, все вышло максимально идеально!</p>
-                     </div>
-                     <div class="review-slide__author">
-                        <div class="review-slide__name">Елена и Иван Соловьёвы</div>
-                        <div class="review-slide__position">Квартира ЖК Риверсайд</div>
+               <div class="features__items">
+                  <div class="features__item item-feature">
+                     <div class="item-feature__icon"><img src="@img/pages/office/features-2-1.svg" alt="" loading="lazy"></div>
+                     <div class="item-feature__caption">Простой и комфортный путь даже у сложных проектов</div>
+                     <div class="item-feature__text _content">
+                        <p>Мы работаем не только с простыми офисными помещениями, но с офисами в исторических зданиях с неудобными планировками и устаревшими инженерными сетями, на мансардах со сложным потолком и нехваткой инсоляции, в цокольных этажах. </p>
                      </div>
                   </div>
-                  <div class="reviews__slide review-slide swiper-slide">
-                     <div class="review-slide__text _content">
-                        <p>Мы сотрудничали с&nbsp;Radical design в&nbsp;2017&nbsp;году. Проект- трёх комнатная квартира. Очень понравился подход Radical design! Работают на&nbsp;совесть, на&nbsp;первое место ставят интересы заказчика и&nbsp;сохранность бюджета, что&nbsp;не&nbsp;маловажно! Благодаря подбору хорошей бригады и&nbsp;авторскому и&nbsp;техническому надзору, все вышло максимально идеально!</p>
-                        <p>Мы сотрудничали с&nbsp;Radical design в&nbsp;2017&nbsp;году. Проект- трёх комнатная квартира. Очень понравился подход Radical design! Работают на&nbsp;совесть, на&nbsp;первое место ставят интересы заказчика и&nbsp;сохранность бюджета, что&nbsp;не&nbsp;маловажно! Благодаря подбору хорошей бригады и&nbsp;авторскому и&nbsp;техническому надзору, все вышло максимально идеально!</p>
-                     </div>
-                     <div class="review-slide__author">
-                        <div class="review-slide__name">Елена и Иван Соловьёвы</div>
-                        <div class="review-slide__position">Квартира ЖК Риверсайд</div>
+                  <div class="features__item item-feature">
+                     <div class="item-feature__icon"><img src="@img/pages/office/features-2-2.svg" alt="" loading="lazy"></div>
+                     <div class="item-feature__caption">Гарантия качества и соблюдения сроков</div>
+                     <div class="item-feature__text _content">
+                        <p>Мы ценим время клиента и не опаздываем. В подтверждение этого предлагаем гарантийные условия, прописанные в договоре. Грамотно выстроенный процесс разработки и согласования проекта позволяет всегда укладываться в срок.</p>
                      </div>
                   </div>
-                  <div class="reviews__slide review-slide swiper-slide">
-                     <div class="review-slide__text _content">
-                        <p>Мы сотрудничали с&nbsp;Radical design в&nbsp;2017&nbsp;году. Проект- трёх комнатная квартира. Очень понравился подход Radical design! Работают на&nbsp;совесть, на&nbsp;первое место ставят интересы заказчика и&nbsp;сохранность бюджета, что&nbsp;не&nbsp;маловажно! Благодаря подбору хорошей бригады и&nbsp;авторскому и&nbsp;техническому надзору, все вышло максимально идеально!</p>
-                     </div>
-                     <div class="review-slide__author">
-                        <div class="review-slide__name">Елена и Иван Соловьёвы</div>
-                        <div class="review-slide__position">Квартира ЖК Риверсайд</div>
+                  <div class="features__item item-feature">
+                     <div class="item-feature__icon"><img src="@img/pages/office/features-2-3.svg" alt="" loading="lazy"></div>
+                     <div class="item-feature__caption">Работа под ключ – от проекта до реализации</div>
+                     <div class="item-feature__text _content">
+                        <p>Мы стремимся работать по принципу «одного окна» - от обмеров и создания концепции до реализации и изготовления мебели по нашим эскизам. У нас свои строительный отдел, с которым мы реализовали десятки проектов, и отдел комплектации с пулом проверенных поставщиков материалов, мебели и оборудования. Для клиента заказать дизайн-проект «под ключ», как правило, дешевле и быстрее, чем обращаться к разным организациям, а также поможет избежать задержек, ошибок и разочарований.</p>
                      </div>
                   </div>
-                  <div class="reviews__slide review-slide swiper-slide">
-                     <div class="review-slide__text _content">
-                        <p>Мы сотрудничали с&nbsp;Radical design в&nbsp;2017&nbsp;году. Проект- трёх комнатная квартира. Очень понравился подход Radical design! Работают на&nbsp;совесть, на&nbsp;первое место ставят интересы заказчика и&nbsp;сохранность бюджета, что&nbsp;не&nbsp;маловажно! Благодаря подбору хорошей бригады и&nbsp;авторскому и&nbsp;техническому надзору, все вышло максимально идеально!</p>
-                        <p>Мы сотрудничали с&nbsp;Radical design в&nbsp;2017&nbsp;году. Проект- трёх комнатная квартира. Очень понравился подход Radical design! Работают на&nbsp;совесть, на&nbsp;первое место ставят интересы заказчика и&nbsp;сохранность бюджета, что&nbsp;не&nbsp;маловажно! Благодаря подбору хорошей бригады и&nbsp;авторскому и&nbsp;техническому надзору, все вышло максимально идеально!</p>
+                  <div class="features__item item-feature">
+                     <div class="item-feature__icon"><img src="@img/pages/office/features-2-4.svg" alt="" loading="lazy"></div>
+                     <div class="item-feature__caption">Авторский подход ко всем проектам</div>
+                     <div class="item-feature__text _content">
+                        <p>Мы работаем по системе Private project - одновременно берем не более 3-х проектов в месяц, глубоко погружаемся в специфику бизнеса и делаем так, как для себя. Мы не используем готовые решения, не повторяемся в дизайне и не используем устаревшие приемы. Поэтому каждый проект выверен до мельчайших деталей и обладает своим собственным, запоминающимся стилем. Иногда наши идеи перенимают даже именитые мастодонты индустрии : )</p>
                      </div>
-                     <div class="review-slide__author">
-                        <div class="review-slide__name">Елена и Иван Соловьёвы</div>
-                        <div class="review-slide__position">Квартира ЖК Риверсайд</div>
+                  </div>
+
+                  <div class="features__item item-feature">
+                     <div class="item-feature__icon"><img src="@img/pages/office/features-2-5.svg" alt="" loading="lazy"></div>
+                     <div class="item-feature__caption">Синтез творчества и high-tech</div>
+                     <div class="item-feature__text _content">
+                        <p>Творческие идеи рождаются и от руки на бумаге, и в виде 3D эскизов и VR-визуализации, которые можно использовать для продаж или маркетинга. Но каждая идея – это не просто красивая картинка, а комплекс из выверенной архитектурой эргономики и маркетинговой концепции, которые влияют на стоимость строительства. </p>
                      </div>
                   </div>
                </div>
-               <div class="swiper-pagination"></div>
+            </div>
+         </section>
+
+         <section id="steps" class="steps">
+            <div class="steps__bg"><img src="@img/pages/office/steps-1-1.jpg" alt="" loading="lazy"></div>
+            <div class="steps__container">
+               <div class="steps__title _content">
+                  <h2>Этапы работы</h2>
+                  <p>Наша задача при разработке дизайн-проекта офиса не только слепо угодить руководству в целом и каждому руководителю, но и предложить решение, включая сложные ситуации. А делаем мы это так:</p>
+               </div>
+               <div data-spollers="575, max" class="steps__spollers spollers">
+                  <div class="steps__item item-step spollers__item item-step-md-3">
+                     <button type="button" data-spoller class="item-step__title spollers__title">
+                        <div class="item-step__num">01</div>
+                        <div class="item-step__caption">Бесплатная консультация</div>
+                     </button>
+                     <div class="item-step__text spollers__body _content">
+                        <p>Позвоните или напишите нам! Мы «за» комфортное общение и прозрачность, поэтому ответим на Ваши вопросы любым удобным Вам способом, подробно расскажем о принципах работы и сориентируем по дальнейшему процессу.</p>
+                     </div>
+                  </div>
+                  <div class="steps__item item-step spollers__item item-step-md-3">
+                     <button type="button" data-spoller class="item-step__title spollers__title">
+                        <div class="item-step__num">02</div>
+                        <div class="item-step__caption">Встреча, подписание договора и предоплата</div>
+                     </button>
+                     <div class="item-step__text spollers__body _content">
+                        <p>Далее подписываем договор, в котором прописываем все условия, без «подводных камней». Заполняем подробный бриф, чтобы все Ваши пожелания были учтены. Проект оплачивается поэтапно.</p>
+                     </div>
+                  </div>
+                  <div class="steps__item item-step spollers__item item-step-md-4">
+                     <button type="button" data-spoller class="item-step__title spollers__title">
+                        <div class="item-step__num">03</div>
+                        <div class="item-step__caption">Концепция</div>
+                     </button>
+                     <div class="item-step__text spollers__body _content">
+                        <p>Наши специалисты выезжают на объект, делают необходимые замеры. Далее готовят несколько разных вариантов планировки с расстановкой всей мебели и оборудования. После согласования мы разрабатываем концепцию дизайна, которая отражает все цвета, материалы, предметы интерьера и делаем фотореалистичную визуализацию. Прорабатываем каждое помещение и поэтапно высылаем различные ракурсы, вносим все правки по необходимости.</p>
+                        <p>По желанию заказчика, можем показать интерьеры в виде 3D модели или VR-тура. </p>
+                        <p>Параллельно собираем ведомость материалов и просчитываем стоимость реализации без черновых материалов.</p>
+                     </div>
+                  </div>
+                  <div class="steps__item item-step spollers__item item-step-md-2">
+                     <button type="button" data-spoller class="item-step__title spollers__title">
+                        <div class="item-step__num">04</div>
+                        <div class="item-step__caption">Рабочий проект</div>
+                     </button>
+                     <div class="item-step__text spollers__body _content">
+                        <p>На этом этапе мы разрабатываем Рабочую документацию для строителей и подрядчиков, которые будут воплощать проект. Если необходима индивидуальная мебель, перегородки или что-то другое – мы предложим эскизы, сделаем чертежи и укажем поставщика.</p>
+                     </div>
+                  </div>
+                  <div class="steps__item item-step spollers__item item-step-md-3">
+                     <button type="button" data-spoller class="item-step__title spollers__title">
+                        <div class="item-step__num">05</div>
+                        <div class="item-step__caption">Комплектация</div>
+                     </button>
+                     <div class="item-step__text spollers__body _content">
+                        <p>Формируем отдел снабжения под проект.</p>
+                        <p>Мы ищем поставщиков, подбираем и демонстрируем материалы, составляем технические задания, запросы на материалы и управляем их поставками, графиками оплат заказчика. Полностью ведем документооборот и отчетность. На объекте мы принимаем и проверяем качество материалов и оборудования.</p>
+                     </div>
+                  </div>
+                  <div class="steps__item item-step spollers__item item-step-md-3">
+                     <button type="button" data-spoller class="item-step__title spollers__title">
+                        <div class="item-step__num">06</div>
+                        <div class="item-step__caption">Авторский надзор</div>
+                     </button>
+                     <div class="item-step__text spollers__body _content">
+                        <p>Мы одни из не многих, кто предоставляет не просто авторский надзор, а полноценное управление проектом – от контроля строителей до закупки и мониторинга поставок материалов, мебели и оборудования. Со многими из них мы реализовали десятки проектов, знаем подход и способы сократить сроки поставок. Все общение с поставщиками и подрядчиками и ответственность за качество проекта мы берем на себя! </p>
+                     </div>
+                  </div>
+                  <div class="steps__item item-step spollers__item item-step-md-6">
+                     <button type="button" data-spoller class="item-step__title spollers__title">
+                        <div class="item-step__num">07</div>
+                        <div class="item-step__caption">Реализация</div>
+                     </button>
+                     <div class="item-step__text spollers__body _content">
+                        <p>Собственный строительный отдел выполняет все работы самостоятельно или по согласованию с заказчиком привлекает субподрядчиков на специфические работы, например, установку окон. </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+
+         <section class="cta2" style="background-color: #eaeef2">
+            <div class="cta2__container">
+               <div class="cta2__text _content">
+                  <h3>Остались вопросы? <br>
+                     Позвоните нам!</h3>
+               </div>
+               <div class="cta2__button"><button class="btn btn_bg" data-popup="#request">Позвонить</button></div>
+            </div>
+         </section>
+
+         <section class="cost">
+            <div class="cost__container">
+               <div class="cost__heading">
+                  <h2 class="cost__title">Сколько это&nbsp;стоит?</h2>
+                  <div class="cost__text _content">
+                     <p>Вы окупите каждый рубль. Благодаря грамотному проектированию вы сохраните деньги по трем причинам:</p>
+                  </div>
+               </div>
+               <div class="cost__items">
+                  <div class="cost__item item-cost">
+                     <div class="item-cost__icon"><img src="@img/pages/office/item-cost-1-1.svg" alt="" loading="lazy"></div>
+                     <div class="item-cost__text _content">
+                        <p><strong>Наша команда - больше архитекторы, чем дизайнеры.</strong></p>
+                        <p>Мы не просто выбираем цвета и декор, а создаем эргономичные пространства, решаем сложные технические задачи, подбираем материалы, рассчитываем их стоимость и составляем адекватную предварительную смету на все работы и материалы. </p>
+                     </div>
+                  </div>
+                  <div class="cost__item item-cost">
+                     <div class="item-cost__icon"><img src="@img/pages/office/item-cost-1-2.svg" alt="" loading="lazy"></div>
+                     <div class="item-cost__text _content">
+                        <p><strong>Дизайн-проект офисных помещений – это подробная карта работ для строителей.</strong></p>
+                        <p>Вы сделаете ремонт без покупки лишних материалов и спланируете рабочие места для каждого сотрудника, учитывая потенциальный рост компании.</p>
+                     </div>
+                  </div>
+                  <div class="cost__item item-cost">
+                     <div class="item-cost__icon"><img src="@img/pages/office/item-cost-1-3.svg" alt="" loading="lazy"></div>
+                     <div class="item-cost__text _content">
+                        <p><strong>Мы работаем «под ключ» - заказывать ремонт у авторов дизайна всегда быстрее и дешевле, чем нанимать другую компанию.</strong></p>
+                        <p>Собственный строительный отдел подключается к проекту еще на стадии разработки рабочей документации, благодаря чему наши сметы на реализацию максимально точные. Мы выполняем все строительно-монтажные работы самостоятельно или по согласованию привлекаем субподрядчиков на специализированные работы. К тому же, при заказе ремонта офиса у нас предлагаем Авторский надзор в подарок!</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+
+         <section class="image-full" style="background-color: #eaeef2">
+            <div class="image-full__image">
+               <img src="@img/pages/office/secimage-1-1.jpg">
+            </div>
+            <div class="image-full__content">
+               <div class="image-full__container">
+                  <div class="image-full__body _content">
+                     <h2>Дополнительные услуги</h2>
+                     <ul>
+                        <li>Разработка дизайна навигации и инфографики для офиса</li>
+                        <li>Меблировка офиса за 20 дней: подбор, общение, обстановка</li>
+                        <li>Планировка для переезда с мебелью (встраиваем старый офис)</li>
+                        <li>Проект без дизайна и стиля: разработка планировочных решений, монтажный план по стенам и электрике</li>
+                        <li>Подбор и «примерка» помещений под офис (Test Fit) </li>
+                        <li>Строительство "под ключ"</li>
+                        <li>Декорирование</li>
+                        <li>Декорирование готового офиса</li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </section>
+
+         <section class="features2">
+            <div class="features2__container">
+               <div class="features2__heading _content">
+                  <h2>Что бесплатно?</h2>
+               </div>
+
+               <div class="features2__items">
+                  <div class="features2__item features2-item">
+                     <div class="features2-item__icon"><img src="@img/pages/office/features-3-1.svg" alt=""></div>
+                     <div class="features2-item__caption">Предварительная консультация по проекту и подготовка индивидуального предложения</div>
+                     <div class="features2-item__text">Отвечаем на все вопросы заказчика и даём первичную оценку</div>
+                  </div>
+                  <div class="features2__item features2-item">
+                     <div class="features2-item__icon"><img src="@img/pages/office/features-3-2.svg" alt=""></div>
+                     <div class="features2-item__caption">Профессиональная фотосъемка готового объекта</div>
+                     <div class="features2-item__text">для сайта, маркетинговых материалов и PR</div>
+                  </div>
+                  <div class="features2__item features2-item">
+                     <div class="features2-item__icon"><img src="@img/pages/office/features-3-3.svg" alt=""></div>
+                     <div class="features2-item__caption">Авторский надзор</div>
+                     <div class="features2-item__text">При заказе ремонта офиса</div>
+                  </div>
+               </div>
+            </div>
+         </section>
+
+         <section class="cta2 cta2_row" style="background-color: #eaeef2">
+            <div class="cta2__container">
+               <div class="cta2__text _content">
+                  <h4>Рассчитаем смету на Ваш офис <br>
+                     <strong style="color: #2e4798;">за 24 часа!</strong>
+                  </h4>
+               </div>
+               <div class="cta2__button"><button class="btn btn_bg" data-popup="#request">Заказать звонок</button></div>
+            </div>
+         </section>
+
+         <section id="reviews2" class="reviews2">
+            <div class="reviews2__container">
+               <div class="reviews2__slider swiper">
+                  <div class="reviews2__heading">
+                     <h2 class="reviews2__title">Рекомендательные письма</h2>
+
+                     <div class="swiper__arrows">
+                        <button class="swiper__arrow swiper__arrow_left _icon-slider-right"></button>
+                        <button class="swiper__arrow swiper__arrow_right _icon-slider-right"></button>
+                     </div>
+                  </div>
+                  <div class="reviews2__wrapper swiper-wrapper" data-gallery>
+                     <a href="@img/pages/office/letter1.jpg" class="reviews2__slide review2-slide swiper-slide">
+                        <div class="review2-slide__img"><img src="@img/pages/office/letter1.jpg" alt="ООО “СПАРК ЭКВейжен рус”" loading="lazy"></div>
+                        <div class="review2-slide__caption">ООО “СПАРК ЭКВейжен рус”</div>
+                     </a>
+                     <a href="@img/pages/office/letter2.jpg" class="reviews2__slide review2-slide swiper-slide">
+                        <div class="review2-slide__img"><img src="@img/pages/office/letter2.jpg" alt="ООО “ТД“Индустрия-Сервис”" loading="lazy"></div>
+                        <div class="review2-slide__caption">ООО “ТД“Индустрия-Сервис”</div>
+                     </a>
+                     <a href="@img/pages/office/letter3.jpg" class="reviews2__slide review2-slide swiper-slide">
+                        <div class="review2-slide__img"><img src="@img/pages/office/letter3.jpg" alt="ООО “ФЕДЕРАЛЬ”" loading="lazy"></div>
+                        <div class="review2-slide__caption">ООО “ФЕДЕРАЛЬ”</div>
+                     </a>
+                     <a href="@img/pages/office/letter4.jpg" class="reviews2__slide review2-slide swiper-slide">
+                        <div class="review2-slide__img"><img src="@img/pages/office/letter4.jpg" alt="ООО “Тенсар Инновейтив Солюшн”" loading="lazy"></div>
+                        <div class="review2-slide__caption">ООО “Тенсар Инновейтив Солюшн”</div>
+                     </a>
+                  </div>
+                  <div class="swiper-pagination"></div>
+               </div>
             </div>
          </section>
 
          <section id="addresses" class="addresses">
             <div class="addresses__container">
-               <div class="addresses__left">
-                  <div class="addresses__text _content">
-                     <h2>Приглашаем на&nbsp;кофе в&nbsp;наш уютный офис!</h2>
-                  </div>
+               <div class="addresses__row">
+                  <div class="addresses__left">
+                     <div class="addresses__text _content">
+                        <h2>Приглашаем на&nbsp;кофе в&nbsp;наш уютный офис!</h2>
+                     </div>
 
-                  <div class="addresses__contacts contacts">
-                     <a href="tel:+78129402144" class="contacts__item contacts__item_phone _icon-phone"><span>+7 (812) 940 21 44</span></a>
-                     <a href="mailto:info@radicaldesign.ru" class="contacts__item _icon-mail"><span>info@radicaldesign.ru</span></a>
-                     <a href="https://goo.gl/maps/VaSXeobdqCkaNFUE6" class="contacts__item _icon-location" target="blank"><span>Санкт-Петербург, Красногвардейская площадь 3Е, Design District Daа, офис 139</span></a>
+                     <!-- <div class="addresses__contacts contacts">
+								<a href="tel:+78129402144" class="contacts__item contacts__item_phone _icon-phone"><span>+7 (812) 940 21 44</span></a>
+							</div> -->
+                     <div class="addresses__contacts contacts">
+                        <div class="contacts__caption">Для заказа проектов:</div>
+                        <a href="tel:+79219402144" class="contacts__item contacts__item_phone _icon-phone"><span>+7 (921) 940 21 44</span></a>
+                        <a href="mailto:info@radicaldesign.ru" class="contacts__item _icon-mail"><span>info@radicaldesign.ru</span></a>
+                        <a href="https://goo.gl/maps/VaSXeobdqCkaNFUE6" class="contacts__item _icon-location" target="blank"><span>Санкт-Петербург, Красногвардейская площадь 3Е, Design District Daа, офис&nbsp;139</span></a>
+                     </div>
                   </div>
+                  <div class="addresses__map"><img src="@img/pages/home/contacts-1-1.jpg" alt="" loading="lazy"></div>
+
+                  <!-- <div id="map-wrap" class="addresses__map">
+							<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A160a95830178cb11e4929c940f5803b39393305adc1c561ff21bcfda384f4a8a&amp;source=constructor" width="500" height="400" frameborder="0" loading="lazy" style="pointer-events: none;"></iframe>
+						</div> -->
                </div>
-               <a href="https://goo.gl/maps/VaSXeobdqCkaNFUE6" class="addresses__map" target="_blank"><img src="@img/pages/home/contacts-1-1.jpg" alt="" loading="lazy"></a>
+
+               <!-- <div class="addresses__note">
+						<div class="_content">
+							<img src="@img/icons/info.svg" alt="" loading="lazy">
+							<p>Пожалуйста, перед визитом позвоните или напишите нам, чтобы согласовать время встречи!</p>
+						</div>
+					</div> -->
             </div>
          </section>
 
          <section id="banner" class="banner" data-fullscreen>
-            <div class="banner__bg"><img src="@img/pages/home/banner-1-1.jpg" alt="" loading="lazy"></div>
+            <div class="banner__bg"><img src="@img/pages/home/firstscreen-1-1.jpg" alt="" loading="lazy"></div>
 
             <div class="banner__container">
                <div class="banner__text _content">
-                  <h2>А еще мы разрабатываем дизайн жилых помещений</h2>
+                  <h2>А еще мы разрабатываем дизайн интерьеров квартир и других объектов</h2>
                </div>
-               <div class="banner__btn"><a href="office.html" class="btn btn_white">Перейти</a></div>
+               <div class="banner__btn"><a href="interior.html" class="btn btn_white">Перейти</a></div>
                <div class="banner__back"><a href="" class="back-button _icon-arrow-left"><span>Назад</span></a></div>
             </div>
          </section>

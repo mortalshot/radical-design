@@ -25,20 +25,23 @@ export let gotoBlock = (targetBlock, noHeader = false, speed = 500, offsetTop = 
 		// Закрываем меню, если оно открыто
 		document.documentElement.classList.contains("menu-open") ? menuClose() : null;
 
-		if (typeof SmoothScroll !== 'undefined') {
-			// Прокрутка с использованием дополнения
-			new SmoothScroll().animateScroll(targetBlockElement, '', options);
-		} else {
-			// Прокрутка стандартными средствами
-			let targetBlockElementPosition = targetBlockElement.getBoundingClientRect().top + scrollY;
-			targetBlockElementPosition = headerItemHeight ? targetBlockElementPosition - headerItemHeight : targetBlockElementPosition;
-			targetBlockElementPosition = offsetTop ? targetBlockElementPosition - offsetTop : targetBlockElementPosition;
-			window.scrollTo({
-				top: targetBlockElementPosition,
-				behavior: "smooth"
-			});
-		}
-		FLS(`[gotoBlock]: Юхуу...едем к ${targetBlock}`);
+		setTimeout(() => {
+			if (typeof SmoothScroll !== 'undefined') {
+				// Прокрутка с использованием дополнения
+				new SmoothScroll().animateScroll(targetBlockElement, '', options);
+			} else {
+				// Прокрутка стандартными средствами
+				let targetBlockElementPosition = targetBlockElement.getBoundingClientRect().top + scrollY;
+				targetBlockElementPosition = headerItemHeight ? targetBlockElementPosition - headerItemHeight : targetBlockElementPosition;
+				targetBlockElementPosition = offsetTop ? targetBlockElementPosition - offsetTop : targetBlockElementPosition;
+				window.scrollTo({
+					top: targetBlockElementPosition,
+					behavior: "smooth"
+				});
+			}
+
+			FLS(`[gotoBlock]: Юхуу...едем к ${targetBlock}`);
+		}, 150);
 	} else {
 		FLS(`[gotoBlock]: Ой ой..Такого блока нет на странице: ${targetBlock}`);
 	}

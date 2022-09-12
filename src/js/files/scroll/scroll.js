@@ -71,13 +71,11 @@ export function pageNavigation() {
 // Работа с шапкой при скроле
 export function headerScroll() {
 	addWindowScrollEvent = true;
-	const header = document.querySelector('header.header');
+	const header = document.querySelector('header.header_fixed');
 	const headerShow = header.hasAttribute('data-scroll-show');
 	const headerShowTimer = header.dataset.scrollShow ? header.dataset.scrollShow : 500;
 	const startPoint = header.dataset.scroll ? header.dataset.scroll : 1;
 	let headerOffsetHeight = header.offsetHeight;
-	const mainPage = document.querySelector('main.page');
-	const mainPagePadding = getComputedStyle(mainPage).paddingTop;
 	let scrollDirection = 0;
 	let timer;
 
@@ -92,8 +90,6 @@ export function headerScroll() {
 
 		if (scrollTop >= startPoint) {
 			!header.classList.contains('_header-scroll') ? header.classList.add('_header-scroll') : null;
-			header.dataset.lp = "0";
-			mainPage.style.paddingTop = headerOffsetHeight + 'px';
 
 			if (headerShow) {
 				if (scrollTop > scrollDirection) {
@@ -112,8 +108,6 @@ export function headerScroll() {
 			}
 		} else {
 			header.classList.contains('_header-scroll') ? header.classList.remove('_header-scroll') : null;
-			delete header.dataset.lp;
-			mainPage.style.paddingTop = mainPagePadding;
 			if (headerShow) {
 				header.classList.contains('_header-show') ? header.classList.remove('_header-show') : null;
 			}

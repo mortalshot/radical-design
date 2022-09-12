@@ -1,0 +1,840 @@
+// road ====================================================================================================
+.road {
+   padding-top: rem(56);
+   padding-bottom: rem(56);
+
+   // @include adaptiveValue("padding-bottom", 80, 40);
+   // .road__container
+   &__container {
+   }
+
+   // .road__heading
+   &__heading {
+      &:not(:last-child) {
+         @include adaptiveValue("margin-bottom", 32, 24);
+      }
+   }
+
+   // .road__navigation
+   &__navigation {
+   }
+
+   // .road__list
+   &__list {
+      display: flex;
+      // flex-wrap: wrap;
+      @include adaptiveValue("margin", -16, -8);
+      padding-top: rem(6);
+      padding-bottom: rem(6);
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+
+      &::-webkit-scrollbar {
+         width: 0;
+         height: 0;
+      }
+   }
+
+   // .road__item
+   &__item {
+      @include adaptiveValue("padding", 16, 8);
+      scroll-snap-align: start;
+
+      a {
+         font-weight: 600;
+         @include adaptiveValue("font-size", 16, 14);
+         line-height: math.div(21, 16);
+         color: $DGrey;
+         white-space: nowrap;
+         text-transform: uppercase;
+         text-decoration: underline transparent from-font;
+         text-underline-offset: 3px;
+         transition: $transition ease text-decoration 0s;
+
+         @media (any-hover: hover) {
+            &:hover {
+               text-decoration: underline $DGrey from-font;
+            }
+         }
+      }
+
+      .btn {
+         @include adaptiveValue("padding-top", 16, 12);
+         @include adaptiveValue("padding-bottom", 16, 12);
+         @include adaptiveValue("min-height", 53, 48);
+         @include adaptiveValue("font-size", 16, 14);
+         white-space: nowrap;
+
+         @media (any-hover: hover) {
+            &:hover {
+               margin: rem(-4);
+               @include adaptiveValue("padding-top", 20, 16);
+               @include adaptiveValue("padding-bottom", 20, 16);
+               @include adaptiveValue("padding-left", 28, 20);
+               @include adaptiveValue("padding-right", 28, 20);
+            }
+         }
+      }
+   }
+
+   & + .company {
+      padding-top: 0;
+   }
+}
+
+// company ====================================================================================================
+.company {
+   position: relative;
+
+   @media (min-width: $mobile) {
+      &::before,
+      &::after {
+         content: "";
+         display: block;
+         position: absolute;
+         pointer-events: none;
+         opacity: 0;
+         transition: $transition ease opacity 0s;
+      }
+      &::before {
+         top: 0;
+         right: 0;
+         @include adaptiveValue("width", 404, 168, 1440, 744, 1);
+         height: 100%;
+         background: url(../img/pattern-white.svg) no-repeat center/cover;
+      }
+      &::after {
+         width: rem(30);
+         height: rem(50);
+         border-radius: 0 rem(100) rem(100) 0;
+         right: percent(130, 1440);
+         bottom: 33.333%;
+         background: $Gradient;
+      }
+
+      &._show {
+         &::before,
+         &::after {
+            opacity: 1;
+         }
+
+         &::after {
+            animation: company-d 12s ease-in-out infinite;
+         }
+      }
+
+      @keyframes company-d {
+         0% {
+            bottom: 33.333%;
+         }
+         50% {
+            bottom: 20%;
+         }
+         100% {
+            bottom: 33.333%;
+         }
+      }
+   }
+
+   // .company__container
+   &__container {
+   }
+
+   .road {
+      padding-top: 0;
+   }
+
+   // .company__row
+   &__row {
+      display: grid;
+      @include adaptiveValue("column-gap", 100, 20, 1440, 744, 1);
+      @include adaptiveValue("row-gap", 64, 24);
+      position: relative;
+
+      @media (min-width: $mobileM) {
+         grid-template-columns: percent(400, 1180) 1fr;
+      }
+      @media (min-width: $tablet) {
+         grid-template-columns: percent(300, 1180) 1fr;
+      }
+   }
+
+   // .company__image
+   &__image {
+      position: relative;
+      overflow: hidden;
+
+      @media (min-width: $mobileM) {
+         @include adaptiveValue("border-bottom-right-radius", 200, 100);
+         @include adaptiveValue("border-top-right-radius", 200, 100);
+         padding-bottom: percent(395, 300);
+      }
+      @media (max-width: $mobileM) {
+         padding-bottom: rem(300);
+      }
+
+      img {
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+
+         @media (max-width: $mobileM) {
+            object-fit: contain;
+            object-position: left;
+         }
+      }
+   }
+
+   // .company__heading
+   &__heading {
+      @include adaptiveValue("font-size", 28, 14);
+      line-height: math.div(39, 28);
+
+      @media (min-width: $mobile) {
+         max-width: percent(562, 780);
+         @include adaptiveValue("font-size", 28, 20, 1440, 744, 1);
+      }
+
+      h1,
+      h2,
+      h3 {
+         font-weight: 600;
+         background: $Gradient;
+         -webkit-background-clip: text;
+         -webkit-text-fill-color: transparent;
+         background-clip: text;
+         text-fill-color: transparent;
+      }
+   }
+
+   // .company__indicator
+   &__indicator {
+   }
+
+   // .company__text
+   &__text {
+      font-weight: 400;
+
+      @media (min-width: $mobile) {
+         max-width: percent(580, 780);
+      }
+   }
+}
+
+// team ====================================================================================================
+.team {
+   @media (min-width: $mobile) {
+      position: relative;
+
+      &::before,
+      &::after {
+         content: "";
+         display: block;
+         position: absolute;
+         background: $Gradient;
+         pointer-events: none;
+      }
+
+      &::before {
+         top: rem(40);
+         right: percent(322, 1440);
+         width: rem(20);
+         height: rem(107);
+      }
+      &::after {
+         width: rem(10);
+         height: rem(80);
+         top: 0;
+         right: percent(364, 1440);
+      }
+
+      &._active {
+         &::before {
+            animation: before-animation 6s ease-in-out infinite;
+         }
+         &::after {
+            animation: after-animation 6s ease-in-out infinite;
+         }
+      }
+
+      @keyframes before-animation {
+         0% {
+            top: rem(40);
+         }
+         50% {
+            top: 0;
+         }
+         100% {
+            top: rem(40);
+         }
+      }
+      @keyframes after-animation {
+         0% {
+            top: 0%;
+         }
+         50% {
+            top: 7%;
+         }
+         100% {
+            top: 0%;
+         }
+      }
+   }
+
+   // .team__container
+   &__container {
+   }
+
+   // .team__heading
+   &__heading {
+      @media (min-width: $mobile) {
+         max-width: percent(728, 1180);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+         background: $Gradient;
+         -webkit-background-clip: text;
+         -webkit-text-fill-color: transparent;
+         background-clip: text;
+         text-fill-color: transparent;
+      }
+
+      h4 {
+         font-weight: 500;
+         line-height: math.div(39, 30);
+      }
+
+      &:not(:last-child) {
+         @include adaptiveValue("margin-bottom", 64, 32);
+      }
+   }
+
+   // .team__columns
+   &__columns {
+      display: grid;
+      @include adaptiveValue("row-gap", 48, 32);
+      @include adaptiveValue("column-gap", 20, 10);
+
+      @media (min-width: $mobileM) {
+         grid-template-columns: repeat(3, 1fr);
+      }
+
+      &:not(:last-child) {
+         @include adaptiveValue("margin-bottom", 72, 40);
+      }
+   }
+
+   // .team__column
+   &__column {
+      display: grid;
+      align-content: flex-start;
+      row-gap: rem(8);
+   }
+
+   // .team__item
+   &__item {
+      font-weight: 600;
+      color: $DGrey;
+      text-transform: uppercase;
+
+      a {
+         color: $DGrey;
+         text-decoration: underline transparent from-font;
+         text-underline-offset: 3px;
+         transition: $transition ease text-decoration 0s;
+
+         @media (any-hover: hover) {
+            &:hover {
+               text-decoration: underline $DGrey from-font;
+            }
+         }
+      }
+   }
+
+   // .team__main
+   &__main {
+   }
+
+   // .team__caption
+   &__caption {
+      opacity: 0;
+      transform: translateY(15%);
+
+      &:not(:last-child) {
+         @include adaptiveValue("margin-bottom", 24, 16);
+      }
+   }
+
+   // .team__founder
+   &__founder {
+      display: grid;
+      grid-template-areas:
+         "about"
+         "person"
+         "quote";
+      justify-content: space-between;
+      column-gap: rem(20);
+      @include adaptiveValue("row-gap", 32, 24);
+      max-width: rem(1117);
+
+      @media (min-width: $mobile) {
+         grid-template-columns: 1fr rem(317);
+         grid-template-areas:
+            "about person"
+            "quote person";
+      }
+      @media (min-width: $tablet) {
+         grid-template-columns: percent(580, 1180) rem(317);
+      }
+   }
+
+   // .team__founder-about
+   &__founder-about {
+      grid-area: about;
+      font-weight: 400;
+      opacity: 0;
+      transform: translateY(15%);
+   }
+
+   // .team__founder-quote
+   &__founder-quote {
+      grid-area: quote;
+      @include adaptiveValue("font-size", 18, 14);
+      line-height: math.div(27, 18);
+      opacity: 0;
+      transform: translateY(15%);
+   }
+
+   // .team__person
+   &__person {
+      grid-area: person;
+      max-width: rem(317);
+      opacity: 0;
+      transform: translateY(15%);
+   }
+}
+
+.team-person {
+   // .team-person__avatar
+   &__avatar {
+      position: relative;
+      @include adaptiveValue("border-bottom-right-radius", 200, 100);
+      @include adaptiveValue("border-top-right-radius", 200, 100);
+      overflow: hidden;
+
+      @media (min-width: $mobile) {
+         padding-bottom: percent(220, 279);
+      }
+      @media (max-width: $mobile) {
+         @include adaptiveValue("padding-bottom", 220, 180, 744, 320, 1);
+      }
+
+      img {
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+      }
+
+      &:not(:last-child) {
+         @include adaptiveValue("margin-bottom", 24, 16, 1440, 744, 1);
+      }
+   }
+
+   // .team-person__body
+   &__body {
+      display: grid;
+      align-content: flex-start;
+
+      @media (min-width: $mobile) {
+         row-gap: rem(8);
+      }
+   }
+
+   // .team-person__name
+   &__name {
+      @include adaptiveValue("font-size", 16, 14);
+      line-height: math.div(22, 16);
+   }
+
+   // .team-person__position
+   &__position {
+      font-weight: 400;
+      color: $DGrey;
+   }
+}
+
+// awards ====================================================================================================
+.awards {
+   // .awards__container
+   &__container {
+      display: grid;
+      align-content: flex-start;
+      @include adaptiveValue("row-gap", 48, 40);
+   }
+
+   // .awards__heading
+   &__heading {
+      h2,
+      h3 {
+         font-weight: 600;
+      }
+   }
+
+   // .awards__columns
+   &__columns {
+      display: grid;
+      @include adaptiveValue("row-gap", 48, 24);
+      @include adaptiveValue("column-gap", 20, 10);
+
+      @media (min-width: $mobileM) {
+         grid-template-columns: repeat(3, 1fr);
+      }
+   }
+
+   // .awards__column
+   &__column {
+      display: grid;
+      align-content: flex-start;
+      row-gap: rem(16);
+   }
+
+   // .awards__item
+   &__item {
+      font-weight: 600;
+      @include adaptiveValue("font-size", 16, 14);
+      line-height: math.div(21, 16);
+      color: $DGrey;
+      text-transform: uppercase;
+
+      a {
+         color: $DGrey;
+         text-decoration: underline transparent from-font;
+         text-underline-offset: 3px;
+         transition: $transition ease text-decoration 0s;
+
+         @media (any-hover: hover) {
+            &:hover {
+               text-decoration: underline $DGrey from-font;
+            }
+         }
+      }
+   }
+
+   // .awards__button
+   &__button {
+      .btn {
+         @include adaptiveValue("font-size", 16, 14);
+         background-color: $LGBlue;
+         border-color: #2e4798;
+      }
+   }
+}
+
+// steps2 ====================================================================================================
+.steps2 {
+   // .steps2__container
+   &__container {
+   }
+
+   // .steps2__heading
+   &__heading {
+      h2,
+      h3 {
+         font-weight: 600;
+      }
+
+      &:not(:last-child) {
+         @include adaptiveValue("margin-bottom", 48, 32);
+      }
+   }
+
+   // .steps2__items
+   &__items {
+      display: grid;
+      align-content: flex-start;
+      @include adaptiveValue("row-gap", 70, 30);
+      @include adaptiveValue("column-gap", 70, 0, 1440, 992, 1);
+      margin: rem(-10);
+
+      @media (min-width: $mobile) {
+         position: relative;
+         grid-template-columns: repeat(2, 1fr);
+      }
+      @media (min-width: $tablet) {
+         grid-template-columns: repeat(3, 1fr);
+      }
+   }
+
+   // .steps2__item
+   &__item {
+      display: grid;
+      align-content: flex-start;
+      @include adaptiveValue("row-gap", 54, 32);
+      padding: rem(10);
+   }
+
+   // .steps2__img
+   &__img {
+      max-width: rem(120);
+      display: flex;
+      align-items: center;
+
+      @media (max-width: $mobile) {
+         position: relative;
+         padding-bottom: rem(44);
+
+         img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+
+            @media (max-width: $mobile) {
+               object-position: left;
+            }
+         }
+      }
+   }
+
+   // .steps2__body
+   &__body {
+      display: grid;
+      align-content: flex-start;
+      row-gap: rem(8);
+   }
+
+   // .steps2__caption
+   &__caption {
+      font-weight: 700;
+   }
+
+   // .steps2__text
+   &__text {
+      font-weight: 400;
+
+      p {
+         margin: rem(8) 0;
+      }
+   }
+
+   // .steps2__cta
+   &__cta {
+      .cta__text {
+         h2,
+         h3,
+         h4 {
+            font-weight: 600;
+         }
+      }
+   }
+
+   & + .partners {
+      padding-top: 0;
+   }
+
+   &_benefits {
+      &:not(:first-child) {
+         padding-top: 0;
+
+         .steps2__heading {
+            @include adaptiveValue("padding-top", 110, 48);
+            border-top: rem(1) solid $Line;
+         }
+      }
+
+      .steps2__item {
+         row-gap: rem(24);
+      }
+
+      .steps2__heading {
+         &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 72, 40);
+         }
+      }
+
+      .steps2__body {
+         @include adaptiveValue("font-size", 16, 14);
+      }
+   }
+}
+
+// partners ====================================================================================================
+.partners {
+   // .partners__container
+   &__container {
+      display: grid;
+      align-content: flex-start;
+      @include adaptiveValue("row-gap", 40, 24);
+   }
+
+   // .partners__heading
+   &__heading {
+      h2,
+      h3 {
+         font-weight: 600;
+      }
+   }
+
+   // .partners__top
+   &__top {
+      display: grid;
+      align-content: flex-start;
+      row-gap: rem(16);
+      @include adaptiveValue("column-gap", 120, 20, 1440, 992, 1);
+
+      @media (min-width: $mobileM) {
+         grid-template-columns: percent(480, 1180) 1fr;
+      }
+      @media (min-width: $tablet) {
+         grid-template-columns: percent(480, 1180) percent(480, 1180);
+      }
+
+      &:not(:last-child) {
+         @media (min-width: $mobileM) {
+            margin-bottom: rem(16);
+         }
+      }
+
+      .partners__text {
+         @include adaptiveValue("font-size", 16, 14);
+         line-height: math.div(24, 16);
+         opacity: 0;
+         transform: translateX(15%);
+      }
+   }
+
+   // .partners__image
+   &__image {
+      position: relative;
+      padding-bottom: percent(170, 480);
+      opacity: 0;
+      transform: translateX(-15%);
+
+      img {
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+         border-radius: 0 rem(100) rem(100) 0;
+         z-index: 1;
+      }
+
+      @media (min-width: $mobile) {
+         &::before,
+         &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            background: $Gradient;
+            pointer-events: none;
+            transform: translateY(100%);
+         }
+
+         &::before {
+            bottom: rem(40);
+            left: percent(160, 480);
+            width: rem(20);
+            height: rem(107);
+
+            ._active & {
+               animation: partners-before 12s ease-in-out infinite;
+            }
+         }
+         &::after {
+            width: rem(10);
+            height: rem(80);
+            bottom: rem(-58);
+            left: percent(200, 480);
+
+            ._active & {
+               animation: partners-after 10s ease-in-out infinite;
+            }
+         }
+      }
+
+      @keyframes partners-before {
+         0% {
+            bottom: rem(40);
+         }
+         50% {
+            bottom: 0;
+         }
+         100% {
+            bottom: rem(40);
+         }
+      }
+      @keyframes partners-after {
+         0% {
+            bottom: rem(-58);
+         }
+         50% {
+            bottom: rem(58);
+         }
+         100% {
+            bottom: rem(-58);
+         }
+      }
+   }
+
+   // .partners__text
+   &__text {
+      font-weight: 400;
+   }
+
+   // .partners__main
+   &__main {
+      max-width: rem(804);
+      min-height: rem(60);
+
+      @media (min-width: $mobile) {
+         margin-left: percent(300, 1180);
+      }
+
+      .partners__text {
+         max-width: rem(580);
+         opacity: 0;
+         transform: translateY(15%);
+      }
+   }
+
+   // .partners__caption
+   &__caption {
+      font-weight: 400;
+      @include adaptiveValue("font-size", 32, 18);
+      line-height: math.div(42, 32);
+      opacity: 0;
+      transform: translateY(15%);
+
+      &:not(:last-child) {
+         @include adaptiveValue("margin-bottom", 32, 16);
+      }
+   }
+
+   // .partners__button
+   &__button {
+      opacity: 0;
+      transform: translateY(15%);
+
+      @media (max-width: $mobileSmall) {
+         .btn {
+            width: 100%;
+         }
+      }
+   }
+}
+
+// ====================================================================================================

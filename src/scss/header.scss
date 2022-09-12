@@ -1,9 +1,13 @@
 //====================================================================================================
 .header {
-	top: -100%;
 	z-index: 10;
 	@include adaptiveValue("padding-top", 24, 15);
 	@include adaptiveValue("padding-bottom", 24, 15);
+
+	@media (any-hover: none) {
+		@include adaptiveValue("padding-top", 15, 8);
+		@include adaptiveValue("padding-bottom", 15, 8);
+	}
 
 	// .header__container
 	&__container {
@@ -16,11 +20,11 @@
 		position: fixed;
 		z-index: 150;
 		width: 100%;
-		top: -150%;
+		top: -250%;
 		right: 0;
 		background: $White;
-		height: 100%;
-		min-height: 100vh;
+		height: calc(var(--vh, 1vh) * 100);
+		min-height: calc(var(--vh, 1vh) * 100);
 		overflow-y: auto;
 		padding: rem(130) rem(15);
 		@include adaptiveValue("padding-top", 130, 80);
@@ -43,7 +47,7 @@
 		@media (min-width: $pc) {
 			max-width: percent(403, 1440);
 		}
-		@media (max-height: em(650)) {
+		@media (max-height: em(670)) {
 			align-content: flex-start;
 			// justify-items: flex-start;
 		}
@@ -68,7 +72,7 @@
 		}
 
 		.header__burger {
-			position: fixed;
+			position: absolute;
 			top: -300%;
 			border-color: $mainColor;
 			transition: 0.5s ease all 0s;
@@ -128,7 +132,7 @@
 			color: $mainColor;
 
 			a {
-				color: $mainColor;
+				color: $mainColor !important;
 			}
 		}
 
@@ -151,17 +155,40 @@
 
 	// .header__logo
 	&__logo {
-		@include adaptiveValue("max-width", 112, 57);
+		@include adaptiveValue("max-width", 80, 57);
 
 		&:not(:last-child) {
 			@include adaptiveValue("margin-right", 40, 24);
 		}
 
 		.logo__image_black {
-			display: none;
+			display: flex;
 		}
 		.logo__image_white {
-			display: block;
+			display: none;
+		}
+
+		.header_white & {
+			@include adaptiveValue("max-width", 112, 57);
+
+			@media (any-hover: none) {
+				@include adaptiveValue("max-width", 80, 57);
+			}
+
+			.logo__image_black {
+				display: none;
+			}
+			.logo__image_white {
+				display: flex;
+			}
+		}
+
+		.home & {
+			@include adaptiveValue("max-width", 112, 82);
+
+			@media (any-hover: none) {
+				@include adaptiveValue("max-width", 112, 82);
+			}
 		}
 	}
 
@@ -192,21 +219,35 @@
 
 	// .header__contact
 	&__contact {
+		color: $mainColor;
 		padding: rem(10);
 		font-size: rem(16);
 		line-height: math.div(18, 16);
-		color: $White;
 		letter-spacing: rem(0.8);
 
 		a {
-			color: $White;
+			color: $mainColor;
 			text-decoration: underline transparent from-font;
 			text-underline-offset: 3px;
 			transition: $transition ease text-decoration 0s;
 
 			@media (any-hover: hover) {
 				&:hover {
-					text-decoration: underline $White from-font;
+					text-decoration: underline $mainColor from-font;
+				}
+			}
+		}
+
+		.header_white & {
+			color: $White;
+
+			a {
+				color: $White;
+
+				@media (any-hover: hover) {
+					&:hover {
+						text-decoration: underline $White from-font;
+					}
 				}
 			}
 		}
@@ -217,7 +258,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		border: 1px solid $White;
+		border: 1px solid $mainColor;
 		border-radius: 50%;
 		position: relative;
 		z-index: 2;
@@ -242,15 +283,144 @@
 				}
 			}
 		}
+
+		.header_white & {
+			border-color: $White;
+
+			.icon-menu {
+				span,
+				&::before,
+				&::after {
+					background-color: $White;
+				}
+			}
+
+			.menu-open & {
+				border-color: $mainColor;
+
+				.icon-menu {
+					span,
+					&::before,
+					&::after {
+						background-color: $mainColor;
+					}
+				}
+			}
+		}
 	}
 
-	&._header-scroll {
+	// .header__fixed
+	&_fixed {
 		position: fixed;
+		z-index: 149 !important;
 		left: 0;
 		right: 0;
 		background-color: $White;
 		box-shadow: 0px 4px 34px rgba(0, 0, 0, 0.1);
-		transition: 0.5s ease top, $transition opacity 0s;
+		@include adaptiveValue("padding-top", 15, 8);
+		@include adaptiveValue("padding-bottom", 15, 8);
+		opacity: 0;
+		pointer-events: none;
+		top: -30%;
+
+		.header__contact {
+			color: $mainColor;
+
+			a {
+				color: $mainColor;
+
+				@media (any-hover: hover) {
+					&:hover {
+						text-decoration: underline $mainColor from-font;
+					}
+				}
+			}
+		}
+
+		.header__logo {
+			@media (any-hover: hover) {
+				@include adaptiveValue("max-width", 57, 40);
+			}
+
+			.logo__image_black {
+				display: flex;
+			}
+			.logo__image_white {
+				display: none;
+			}
+		}
+
+		.header__burger {
+			border-color: $mainColor;
+
+			@media (any-hover: hover) {
+				@include adaptiveValue("padding-top", 26.5, 13.5);
+				@include adaptiveValue("padding-bottom", 26.5, 13.5);
+				@include adaptiveValue("padding-left", 23, 10);
+				@include adaptiveValue("padding-right", 23, 10);
+
+				&:hover {
+					@include adaptiveValue("padding-top", 32.5, 19.5);
+					@include adaptiveValue("padding-bottom", 32.5, 19.5);
+					@include adaptiveValue("padding-left", 29, 16);
+					@include adaptiveValue("padding-right", 29, 16);
+				}
+			}
+
+			.icon-menu {
+				span,
+				&::before,
+				&::after {
+					background-color: $mainColor;
+				}
+			}
+		}
+
+		&._header-scroll {
+			top: 0;
+			opacity: 0;
+			pointer-events: all;
+
+			@media (any-hover: hover) {
+				top: 0;
+				@include adaptiveValue("padding-top", 15, 8);
+				@include adaptiveValue("padding-bottom", 15, 8);
+			}
+			@media (any-hover: none) {
+				top: -30%;
+				transition: $transition ease opacity, 0.5s top 0s;
+			}
+
+			.header__menu {
+				box-shadow: 0px 4px 34px rgba(0, 0, 0, 0.1);
+			}
+		}
+
+		&._header-show {
+			@media (any-hover: hover) {
+				opacity: 0;
+				transition: $transition ease opacity 0s;
+
+				&:hover {
+					opacity: 1;
+				}
+			}
+			@media (any-hover: none) {
+				opacity: 1;
+				top: 0;
+			}
+		}
+	}
+
+	&._header-black {
+		.header__logo {
+			.logo__image_black {
+				display: flex;
+			}
+			.logo__image_white {
+				display: none;
+			}
+		}
 
 		.header__contact {
 			color: $mainColor;
@@ -283,45 +453,9 @@
 		}
 	}
 
-	&._header-show {
-		top: 0;
-		@include adaptiveValue("padding-top", 15, 8);
-		@include adaptiveValue("padding-bottom", 15, 8);
-
-		@media (any-hover: hover) {
-			opacity: 0;
-
-			&:hover {
-				opacity: 1;
-			}
-		}
-
-		.header__logo {
-			@include adaptiveValue("max-width", 57, 40);
-
-			.logo__image_black {
-				display: block;
-			}
-			.logo__image_white {
-				display: none;
-			}
-		}
-
-		.header__burger {
-			@include adaptiveValue("padding-top", 26.5, 13.5);
-			@include adaptiveValue("padding-bottom", 26.5, 13.5);
-			@include adaptiveValue("padding-left", 23, 10);
-			@include adaptiveValue("padding-right", 23, 10);
-
-			@media (any-hover: hover) {
-				&:hover {
-					@include adaptiveValue("padding-top", 32.5, 19.5);
-					@include adaptiveValue("padding-bottom", 32.5, 19.5);
-					@include adaptiveValue("padding-left", 29, 16);
-					@include adaptiveValue("padding-right", 29, 16);
-				}
-			}
-		}
+	.home & {
+		padding-top: 0;
+		padding-bottom: 0;
 	}
 }
 
@@ -344,10 +478,7 @@
 	}
 }
 
-//====================================================================================================
-
 //Burger
-
 .icon-menu {
 	display: block;
 	position: relative;
@@ -363,7 +494,7 @@
 		position: absolute;
 		width: 100%;
 		height: rem(1);
-		background-color: $White;
+		background-color: $mainColor;
 	}
 
 	&::before {
@@ -382,9 +513,6 @@
 		span {
 			width: 0;
 		}
-		&::before,
-		&::after {
-		}
 		&::before {
 			top: calc(50% - rem(0.5));
 			transform: rotate(-45deg);
@@ -395,3 +523,4 @@
 		}
 	}
 }
+//====================================================================================================

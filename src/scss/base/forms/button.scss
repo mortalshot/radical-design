@@ -38,21 +38,7 @@
 		position: relative;
 		background-color: $White;
 		background-clip: padding-box;
-		border: rem(1) solid transparent;
-
-		&::before {
-			content: "";
-			background: $Gradient;
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			left: 0;
-			right: 0;
-			z-index: -1;
-			pointer-events: none;
-			margin: rem(-1);
-			border-radius: inherit;
-		}
+		border: rem(1) solid #2e4798;
 	}
 }
 

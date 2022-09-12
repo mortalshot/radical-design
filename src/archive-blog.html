@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('html/_head.htm',{
+"title":"Блог"
+})
+
+<body>
+   <div class="wrapper">
+      @@include('html/_header.htm',{})
+      <main id="swup" class="page transition-fade">
+         <section id="case-firstscreen" class="case-firstscreen _firstscreen"> <img src="@img/pages/about/case-firstscreen-1-1.jpg" alt="" class="case-firstscreen__bg" loading="lazy"> </section>
+
+         <section class="blog">
+            <div class="blog__top">
+               <div class="blog__container">
+                  <h1 class="blog__title">Блог</h1>
+
+                  <div class="blog__heading">
+                     <div class="blog__text _content">
+                        <p>Дизайн и архитектура – это наш способ менять пространство вокруг нас и влиять на жизнь компаний и людей. Мы делимся последними трендами дизайна и проектирования, секретами выбора помещений под офис или квартиру, закупки мебели, озеленения, лайфхаками работы с дизайнерами. Каждый материал – это выжимка из практического опыта.</p>
+                     </div>
+                     <form action="" class="blog__mailing mailing form">
+                        <div class="form__row">
+                           <div class="form__item col-12 mailing__item">
+                              <input autocomplete="off" type="email" name="form[]" placeholder="Email" class="mailing__input form__input">
+                              <button type="submit" class="mailing__submit _icon-arrow-left"></button>
+                           </div>
+                           <div class="form__item col-12">
+                              <div class="mailing__row">
+                                 <div class="form__label">Выберите</div>
+                                 <div class="mailing__theme">
+                                    <div class="checkbox">
+                                       <input id="mailing-theme-1" class="checkbox__input" type="checkbox" value="квартиры" name="theme-flat">
+                                       <label for="mailing-theme-1" class="checkbox__label"><span class="checkbox__text">квартиры</span></label>
+                                    </div>
+                                    <div class="checkbox">
+                                       <input id="mailing-theme-2" class="checkbox__input" type="checkbox" value="офисы" name="theme-office">
+                                       <label for="mailing-theme-2" class="checkbox__label"><span class="checkbox__text">офисы</span></label>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="mailing__description">Следить за трендами дизайна. <br> Без спама!</div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+
+            <div class="blog__categories">
+               <div class="blog__container">
+                  <nav class="portfolio-categories">
+                     <ul class="portfolio-categories__list">
+                        <li class="portfolio-categories__item"><a href="" class="_active">Квартиры</a></li>
+                        <li class="portfolio-categories__item"><a href="">Офисы</a></li>
+                     </ul>
+                  </nav>
+               </div>
+            </div>
+
+            <div class="blog__items">
+               <article class="blog__item blog-item">
+                  <img src="@img/pages/case/case-details-1-1.jpg" alt="" loading="lazy">
+
+                  <div class="blog-item__body">
+                     <div class="blog-item__heading">
+                        <div class="blog-item__date">10.08.2022</div>
+                        <a href="single-blog.html" class="blog-item__caption">
+                           <span>Сколько стоит дизайн интерьера на рынке архитектурных студий</span>
+                           <i class="_icon-arrow-left"></i>
+                        </a>
+                     </div>
+                     <div class="blog-item__excerpt _content">
+                        <p>Мы планируем зоны офисов для комфортной работы сотрудников, помогаем использовать пространство более эффективно, отражаем корпоративный стиль и специализацию компании в дизайне интерьера. Нам доверяют как российские, там и иностранные компании. </p>
+                     </div>
+                  </div>
+               </article>
+               <article class="blog__item blog-item">
+                  <img src="@img/pages/case/case-details-2-1.jpg" alt="" loading="lazy">
+
+                  <div class="blog-item__body">
+                     <div class="blog-item__heading">
+                        <div class="blog-item__date">10.08.2022</div>
+                        <a href="single-blog.html" class="blog-item__caption">
+                           <span>Сколько стоит дизайн интерьеров?</span>
+                           <i class="_icon-arrow-left"></i>
+                        </a>
+                     </div>
+                     <div class="blog-item__excerpt _content">
+                        <p>Мы планируем зоны офисов для комфортной работы сотрудников, помогаем использовать пространство более эффективно, отражаем корпоративный стиль и специализацию компании в дизайне интерьера. Нам доверяют как российские, там и иностранные компании. </p>
+                     </div>
+                  </div>
+               </article>
+               <article class="blog__item blog-item">
+                  <img src="@img/pages/case/case-details-3-5.jpg" alt="" loading="lazy">
+
+                  <div class="blog-item__body">
+                     <div class="blog-item__heading">
+                        <div class="blog-item__date">10.08.2022</div>
+                        <a href="single-blog.html" class="blog-item__caption">
+                           <span>Сколько стоит дизайн интерьеров?</span>
+                           <i class="_icon-arrow-left"></i>
+                        </a>
+                     </div>
+                     <div class="blog-item__excerpt _content">
+                        <p>Мы планируем зоны офисов для комфортной работы сотрудников, помогаем использовать пространство более эффективно, отражаем корпоративный стиль и специализацию компании в дизайне интерьера. Нам доверяют как российские, там и иностранные компании. </p>
+                     </div>
+                  </div>
+               </article>
+               <article class="blog__item blog-item">
+                  <img src="@img/pages/case/case-details-4-3.jpg" alt="" loading="lazy">
+
+                  <div class="blog-item__body">
+                     <div class="blog-item__heading">
+                        <div class="blog-item__date">10.08.2022</div>
+                        <a href="single-blog.html" class="blog-item__caption">
+                           <span>Сколько стоит дизайн интерьеров?</span>
+                           <i class="_icon-arrow-left"></i>
+                        </a>
+                     </div>
+                     <div class="blog-item__excerpt _content">
+                        <p>Мы планируем зоны офисов для комфортной работы сотрудников, помогаем использовать пространство более эффективно, отражаем корпоративный стиль и специализацию компании в дизайне интерьера. Нам доверяют как российские, там и иностранные компании. </p>
+                     </div>
+                  </div>
+               </article>
+               <article class="blog__item blog-item">
+                  <img src="@img/pages/case/case-details-5-1.jpg" alt="" loading="lazy">
+
+                  <div class="blog-item__body">
+                     <div class="blog-item__heading">
+                        <div class="blog-item__date">10.08.2022</div>
+                        <a href="single-blog.html" class="blog-item__caption">
+                           <span>Сколько стоит дизайн интерьеров?</span>
+                           <i class="_icon-arrow-left"></i>
+                        </a>
+                     </div>
+                     <div class="blog-item__excerpt _content">
+                        <p>Мы планируем зоны офисов для комфортной работы сотрудников, помогаем использовать пространство более эффективно, отражаем корпоративный стиль и специализацию компании в дизайне интерьера. Нам доверяют как российские, там и иностранные компании. </p>
+                     </div>
+                  </div>
+               </article>
+            </div>
+         </section>
+      </main>
+      @@include('html/_footer.htm',{})
+   </div>
+   @@include('html/_popup.htm',{})
+   @@include('html/_js.htm',{})
+</body>
+
+</html>

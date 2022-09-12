@@ -23,9 +23,6 @@
 		font-size: rem(14);
 		line-height: math.div(15, 14);
 		color: $DGrey;
-		position: absolute;
-		left: rem(30);
-		top: 0;
 	}
 
 	label.form__label {
@@ -334,6 +331,13 @@
 	}
 }
 
+.wpcf7-form-control-wrap {
+	position: initial;
+}
+.wpcf7-response-output {
+	display: none !important;
+}
+
 // <BUTTONS>
 // Снипет (HTML): btn
 @import "button";
@@ -344,7 +348,7 @@
 
 // <CHECK>
 // Снипет (HTML): chk
-// @import "checkbox";
+@import "checkbox";
 
 // <COUNTER>
 // Снипет (HTML):
@@ -369,3 +373,7 @@
 // <RANGE>
 // Снипет (HTML):
 // @import "range";
+
+// <FILE>
+// Снипет (HTML):
+@import "file";

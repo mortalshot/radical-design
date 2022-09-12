@@ -3,8 +3,8 @@ h,
 .title-h {
     &1 {
         font-weight: 500;
-        @include adaptiveValue("font-size", 70, 36);
-        line-height: math.div(77, 70);
+        @include adaptiveValue("font-size", 60, 36);
+        line-height: math.div(66, 60);
     }
     &2 {
         font-weight: 600;
@@ -12,7 +12,7 @@ h,
         line-height: math.div(55, 50);
     }
     &3 {
-        font-weight: 500;
+        font-weight: 600;
         @include adaptiveValue("font-size", 40, 18);
         line-height: math.div(52, 40);
     }
@@ -20,6 +20,11 @@ h,
         font-weight: 600;
         @include adaptiveValue("font-size", 30, 16);
         line-height: math.div(33, 30);
+    }
+    &5 {
+        font-weight: 700;
+        @include adaptiveValue("font-size", 20, 16);
+        line-height: math.div(30, 20);
     }
 }
 
@@ -31,6 +36,11 @@ video {
 }
 
 ._content {
+    & > * {
+        margin-top: rem(16);
+        margin-bottom: rem(16);
+    }
+
     h1,
     h2,
     h3 {
@@ -71,6 +81,43 @@ video {
         }
     }
 
+    ul {
+        padding-left: rem(20);
+        display: grid;
+        align-content: flex-start;
+        row-gap: rem(8);
+        margin: rem(16) 0;
+
+        li {
+            list-style-type: disc;
+        }
+    }
+
+    blockquote {
+        @include adaptiveValue("column-gap", 32, 12);
+        font-weight: 600;
+        font-style: italic;
+        @include adaptiveValue("padding-left", 48, 30);
+        position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: block;
+            flex: 0 0;
+            @include adaptiveValue("flex-basis", 28, 20);
+            @include adaptiveValue("width", 28, 20);
+            height: rem(29);
+            background: url(../img/icons/quote.svg) no-repeat center/contain;
+        }
+
+        cite {
+            color: $DGrey;
+        }
+    }
+
     .table {
         width: 100%;
         overflow-x: auto;
@@ -108,6 +155,13 @@ video {
 section {
     @include adaptiveValue("padding-top", 110, 48);
     @include adaptiveValue("padding-bottom", 110, 48);
+    overflow: hidden;
+
+    &:first-child {
+        &:not(._firstscreen) {
+            @include adaptiveValue("padding-top", 40, 24);
+        }
+    }
 }
 
 ._hidden {
@@ -128,6 +182,17 @@ section {
         display: inline-flex;
     }
 
+    // .logo__image
+    &__image {
+        max-width: 100%;
+        height: auto;
+
+        svg {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+
     a.logo__link {
         display: inline-flex;
 
@@ -138,6 +203,16 @@ section {
                 opacity: 0.6;
             }
         }
+    }
+
+    // .logo__figure
+    &__figure {
+        position: relative;
+        overflow: hidden;
+    }
+
+    // .logo__figure-dummy
+    &__figure-dummy {
     }
 }
 
@@ -229,6 +304,124 @@ section {
             transition: $transition ease color 0s;
             &:hover {
                 color: $White;
+            }
+        }
+    }
+}
+
+.page-pagination {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: rem(-10);
+
+    & > * {
+        padding: rem(10);
+    }
+
+    .page-numbers {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        @include adaptiveValue("width", 48, 32);
+        @include adaptiveValue("height", 48, 32);
+        @include adaptiveValue("flex-basis", 48, 32);
+        border-radius: 50%;
+        background-color: $White;
+        border: 1px solid $Line;
+        @include adaptiveValue("font-size", 16, 14);
+        line-height: math.div(21, 16);
+        color: $DGrey;
+
+        @media (any-hover: hover) {
+            transition: $transition ease border-color 0s;
+
+            &:hover {
+                border-color: #9f31d3;
+            }
+        }
+
+        &.current {
+            border-color: #2e4798;
+            color: $mainColor;
+        }
+
+        &:not(:last-child) {
+            @include adaptiveValue("margin-right", 8, 4);
+        }
+
+        &[disabled] {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        &.dots {
+            border: 0;
+        }
+    }
+    a.page-numbers {
+        @media (any-hover: hover) {
+            transition: $transition ease border-color 0s;
+
+            &:hover {
+                // border-color: $PBlue;
+            }
+        }
+    }
+
+    // .page-pagination__arrows
+    &__arrows {
+        display: flex;
+        align-items: center;
+        color: $DGrey;
+
+        .page-numbers {
+            border: 1px solid #2e4798;
+            @include adaptiveValue("font-size", 20, 16);
+
+            &:not(:last-child) {
+                @include adaptiveValue("margin-right", 16, 8);
+            }
+        }
+    }
+
+    // .page-pagination__prev
+    &__prev {
+        transform: rotate(180deg);
+    }
+
+    // .page-pagination__next
+    &__next {
+    }
+
+    .nav-links {
+    }
+
+    .screen-reader-text {
+        display: none !important;
+    }
+}
+
+.back {
+    // .back__link
+    &__link {
+        display: flex;
+        align-items: center;
+        @include adaptiveValue("font-size", 16, 14);
+        line-height: math.div(18, 16);
+        text-transform: uppercase;
+
+        &::before {
+            @include adaptiveValue("font-size", 24, 18);
+            margin-right: rem(10);
+        }
+
+        @media (any-hover: hover) {
+            transition: $transition ease color 0s;
+
+            &:hover {
+                color: #2e4798;
             }
         }
     }

@@ -5,13 +5,9 @@
 })
 
 <body>
-	<!-- Google Tag Manager (noscript) -->
-	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M7FTNWK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-	<!-- End Google Tag Manager (noscript) -->
-
 	<div class="wrapper">
 		@@include('html/_header.htm',{})
-		<main class="page">
+		<main id="swup" class="page transition-fade">
 			@@include('html/firstscreen.htm',{
 			"image":"img/pages/home/firstscreen-1-1.jpg",
 			"title":"Создаём и воплощаем живые интерьеры",
@@ -126,13 +122,6 @@
 										<div class="item-portfolio__caption">Интерьер для пары с ребенком</div>
 									</div>
 								</a>
-								<!-- <a href="single-portfolio8.html" class="portfolio__item item-portfolio">
-									<div class="item-portfolio__img"><img src="@img/pages/case/case-details-8-1.jpg" alt="" loading="lazy"></div>
-									<div class="item-portfolio__body">
-										<div class="item-portfolio__descr">Апартаменты в ЖК «Гранд Фамилия» 90 м2</div>
-										<div class="item-portfolio__caption">Бруталистские апартаменты</div>
-									</div>
-								</a> -->
 								<a href="single-portfolio9.html" class="portfolio__item item-portfolio">
 									<div class="item-portfolio__img"><img src="@img/pages/case/case-details-9-1.jpg" alt="" loading="lazy"></div>
 									<div class="item-portfolio__body">
@@ -140,8 +129,6 @@
 										<div class="item-portfolio__caption">Панорамные интерьеры для взрослой пары</div>
 									</div>
 								</a>
-							</div>
-							<div class="portfolio__items">
 								<a href="single-portfolio10.html" class="portfolio__item item-portfolio">
 									<div class="item-portfolio__img"><img src="@img/pages/case/case-details-10-1.jpg" alt="" loading="lazy"></div>
 									<div class="item-portfolio__body">
@@ -230,9 +217,11 @@
 			<section id="steps" class="steps">
 				<div class="steps__bg"><img src="@img/pages/home/steps-1-1.jpg" alt="" loading="lazy"></div>
 				<div class="steps__container">
-					<h2 class="steps__title">Этапы работы</h2>
+					<div class="steps__title _content">
+						<h2>Этапы работы</h2>
+					</div>
 					<div data-spollers="575, max" class="steps__spollers spollers">
-						<div class="steps__item item-step spollers__item">
+						<div class="steps__item item-step spollers__item item-step-md-3">
 							<button type="button" data-spoller class="item-step__title spollers__title">
 								<div class="item-step__num">01</div>
 								<div class="item-step__caption">Бесплатная консультация</div>
@@ -241,7 +230,7 @@
 								<p>Позвоните или напишите нам! Мы «за» комфортное общение и прозрачность, поэтому ответим на Ваши вопросы любым удобным Вам способом, подробно расскажем о принципах работы и сориентируем по дальнейшему процессу. </p>
 							</div>
 						</div>
-						<div class="steps__item item-step spollers__item">
+						<div class="steps__item item-step spollers__item item-step-md-3">
 							<button type="button" data-spoller class="item-step__title spollers__title">
 								<div class="item-step__num">02</div>
 								<div class="item-step__caption">Встреча, подписание договора и предоплата</div>
@@ -250,7 +239,7 @@
 								<p>Далее подписываем договор, в котором прописываем все условия, без «подводных камней». Заполняем подробный бриф, чтобы все Ваши пожелания были учтены. Проект оплачивается поэтапно.</p>
 							</div>
 						</div>
-						<div class="steps__item item-step spollers__item">
+						<div class="steps__item item-step spollers__item item-step-md-4">
 							<button type="button" data-spoller class="item-step__title spollers__title">
 								<div class="item-step__num">03</div>
 								<div class="item-step__caption">Концепция</div>
@@ -261,7 +250,7 @@
 								<p>Одновременно мы подбираем материалы, мебель, текстиль, осветительные приборы и предметы интерьера и выдаем предварительную смету по комплектации и ремонту. </p>
 							</div>
 						</div>
-						<div class="steps__item item-step spollers__item">
+						<div class="steps__item item-step spollers__item item-step-md-2">
 							<button type="button" data-spoller class="item-step__title spollers__title">
 								<div class="item-step__num">04</div>
 								<div class="item-step__caption">Рабочий проект</div>
@@ -270,7 +259,7 @@
 								<p>На этом этапе мы разрабатываем Рабочую документацию для строителей и подрядчиков, которые будут воплощать проект. Если необходима индивидуальная мебель, перегородки или что-то другое – мы предложим эскизы, сделаем чертежи и укажем поставщика.</p>
 							</div>
 						</div>
-						<div class="steps__item item-step spollers__item">
+						<div class="steps__item item-step spollers__item item-step-md-3">
 							<button type="button" data-spoller class="item-step__title spollers__title">
 								<div class="item-step__num">05</div>
 								<div class="item-step__caption">Авторский надзор</div>
@@ -279,7 +268,7 @@
 								<p>Мы одни из не многих, кто предоставляет не просто авторский надзор, а полноценное управление проектом – от контроля строителей до закупки и мониторинга поставок материалов, мебели и оборудования. Со многими из них мы реализовали десятки проектов, знаем подход и способы сократить сроки поставок. Все общение с поставщиками и подрядчиками и ответственность за качество проекта мы берем на себя!</p>
 							</div>
 						</div>
-						<div class="steps__item item-step spollers__item ">
+						<div class="steps__item item-step spollers__item item-step-md-3">
 							<button type="button" data-spoller class="item-step__title spollers__title">
 								<div class="item-step__num">06</div>
 								<div class="item-step__caption">Реализация</div>
@@ -673,7 +662,7 @@
 				</div>
 			</section>
 
-			<section id="reviews" class="reviews">
+			<section id="reviews" class="reviews" style="background-color: #eaeef2">
 				<div class="reviews__slider swiper">
 					<div class="reviews__heading">
 						<h2 class="reviews__title">Рекомендации</h2>

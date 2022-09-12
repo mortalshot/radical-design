@@ -1,0 +1,106 @@
+// error ====================================================================================================
+.error404 {
+   .header_white {
+      .header__logo {
+         @include adaptiveValue("max-width", 80, 57);
+
+         .logo__image_black {
+            display: flex;
+         }
+         .logo__image_white {
+            display: none;
+         }
+      }
+
+      .header__contact {
+         color: $mainColor;
+
+         a {
+            color: $mainColor;
+
+            @media (any-hover: hover) {
+               &:hover {
+                  text-decoration: underline $mainColor from-font;
+               }
+            }
+         }
+      }
+
+      .header__burger {
+         border-color: $mainColor;
+
+         .icon-menu {
+            span,
+            &::before,
+            &::after {
+               background-color: $mainColor;
+            }
+         }
+      }
+   }
+}
+
+.error {
+   @include adaptiveValue("padding-bottom", 200, 50);
+   position: relative;
+   max-width: rem(1440);
+   margin-left: auto;
+   margin-right: auto;
+
+   @media (min-width: $mobile) {
+      &::before {
+         content: "";
+         display: block;
+         position: absolute;
+         // left: 0;
+         top: 0;
+         @include adaptiveValue("width", 416, 266, 1440, 744, 1);
+         height: 100%;
+         background: url(../img/pattern-bg.svg) no-repeat right center/cover;
+         pointer-events: none;
+      }
+   }
+
+   // .error__container
+   &__container {
+   }
+
+   // .error__wrapper
+   &__wrapper {
+      display: grid;
+      @include adaptiveValue("row-gap", 32, 24);
+      max-width: rem(450);
+
+      @media (min-width: $mobile) {
+         margin-left: percent(501, 1180);
+      }
+      @media (max-width: $mobile) {
+         margin-left: auto;
+         margin-right: auto;
+         text-align: center;
+      }
+   }
+
+   // .error__image
+   &__image {
+   }
+
+   // .error__title
+   &__title {
+      font-weight: 500;
+      @include adaptiveValue("font-size", 26, 20);
+      line-height: 130%;
+   }
+
+   // .error__text
+   &__text {
+      font-weight: 400;
+      color: $DGrey;
+   }
+
+   // .error__button
+   &__button {
+   }
+}
+
+// ====================================================================================================

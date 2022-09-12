@@ -1,0 +1,21 @@
+<svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_1488_1206)">
+<rect width="44" height="44" fill="white"/>
+<path d="M0.351562 0.345215V44" stroke="#004C9C" stroke-width="0.7"/>
+<path d="M43.3516 0.633789V44" stroke="#004C9C" stroke-width="0.7"/>
+<path d="M43.5 21.8828L43.5 43.8828" stroke="#E6007E" stroke-width="0.7"/>
+<path d="M0 0.649902L43.6992 0.649902" stroke="#004C9C" stroke-width="0.7"/>
+<line y1="43.65" x2="44" y2="43.65" stroke="#004C9C" stroke-width="0.7"/>
+<line x1="22" y1="43.5328" x2="44" y2="43.5328" stroke="#E6007E" stroke-width="0.7"/>
+<line x1="0.247487" y1="0.752513" x2="44.2475" y2="44.7525" stroke="#004C9C" stroke-width="0.7"/>
+<circle cx="22" cy="22" r="3.65" fill="white" stroke="#E6007E" stroke-width="0.7"/>
+<circle cx="34" cy="22" r="3.65" fill="white" stroke="#E6007E" stroke-width="0.7"/>
+<circle cx="10" cy="22" r="3.65" fill="white" stroke="#E6007E" stroke-width="0.7"/>
+<path d="M43.5 21.8828C43.5 10.2848 33.598 0.5 22 0.5C10.402 0.5 0.5 10.402 0.5 22C0.5 33.598 10.402 43.5 22 43.5" stroke="#E6007E" stroke-width="0.7"/>
+</g>
+<defs>
+<clipPath id="clip0_1488_1206">
+<rect width="44" height="44" fill="white"/>
+</clipPath>
+</defs>
+</svg>
